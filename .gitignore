@@ -68,4 +68,7 @@ experiments/*/logs/
 
 # Exclude Hugging Face upload repositories
 DeepYoke/
-clean_repo/ 
+clean_repo/
+
+# Exclude experimental dataset (too large for GitHub)
+Experimental_dataset/ 
