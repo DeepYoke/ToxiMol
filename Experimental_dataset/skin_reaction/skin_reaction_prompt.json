@@ -1,0 +1,13 @@
+{
+  "task_name": "skin_reaction",
+  "task_description": "Compound associated with adverse skin reactions such as irritation, sensitization, or allergic contact dermatitis",
+  "instruction": "Given molecule with the provided SMILES and molecular structure image, this compound is associated with adverse skin reactions. Please modify its structure to minimize its risk of covalent skin protein binding or immune activation, while maintaining its therapeutic activity.",
+  "focus_points": [
+    "Remove or replace electrophilic moieties (e.g., α,β-unsaturated carbonyls, isocyanates, aldehydes)",
+    "Avoid pro-electrophilic groups that may generate reactive species through metabolism or photoreaction",
+    "Reduce strong irritant groups (e.g., alkyl halides, acid chlorides)",
+    "Lower skin permeability by reducing LogP or adding polar groups",
+    "Avoid motifs associated with skin sensitization in known toxicophores"
+  ],
+  "output_format": "Please suggest modifications that would reduce the compound's potential to cause skin reactions while preserving its core pharmacological action."
+}

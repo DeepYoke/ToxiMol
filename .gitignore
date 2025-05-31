@@ -64,4 +64,8 @@ experiments/*/logs/
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Exclude Hugging Face upload repositories
+DeepYoke/
+clean_repo/ 

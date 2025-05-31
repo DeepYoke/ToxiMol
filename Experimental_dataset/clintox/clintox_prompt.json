@@ -1,0 +1,13 @@
+{
+  "task_name": "clintox",
+  "task_description": "Compound with clinical toxicity concerns",
+  "instruction": "Given molecule with the provided SMILES and molecular structure image, this compound has shown clinical toxicity concerns. Please modify its structure to reduce its toxicity profile while maintaining its potential therapeutic efficacy.",
+  "focus_points": [
+    "Functional groups known to form reactive metabolites (e.g., epoxides, quinones)",
+    "Structural motifs associated with idiosyncratic drug reactions",
+    "Groups that may cause drug-drug interactions through CYP450 inhibition or induction",
+    "Structural features with high plasma protein binding leading to displacement interactions",
+    "Moieties that potentially form covalent adducts with biological macromolecules"
+  ],
+  "output_format": "Please propose modifications that reduce these toxicity concerns while preserving the core pharmacophore and likely therapeutic action."
+} 

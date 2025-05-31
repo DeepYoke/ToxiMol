@@ -1,0 +1,13 @@
+{
+  "task_name": "dili",
+  "task_description": "Compound associated with drug-induced liver injury (DILI)",
+  "instruction": "Given molecule with the provided SMILES and molecular structure image, this compound is associated with drug-induced liver injury (DILI). Please modify its structure to reduce hepatotoxicity while maintaining its primary therapeutic function.",
+  "focus_points": [
+    "Functional groups that can be bioactivated to reactive metabolites by hepatic enzymes (especially CYP450)",
+    "Structural elements that may disrupt mitochondrial function in hepatocytes",
+    "Features that may inhibit bile acid transport proteins leading to cholestasis",
+    "Moieties that could trigger immune-mediated hepatotoxicity",
+    "Structural elements with high lipophilicity that may accumulate in liver tissue"
+  ],
+  "output_format": "Please suggest modifications that would likely reduce the compound's potential for causing liver injury while preserving its intended pharmacological activity."
+} 

@@ -1,0 +1,13 @@
+{
+  "task_name": "ld50_zhu",
+  "task_description": "Compound with acute toxicity concerns with a relatively low LD50 value in the Zhu dataset",
+  "instruction": "Given molecule with the provided SMILES and molecular structure image, this compound has demonstrated acute toxicity concerns with a relatively low LD50 value in the Zhu dataset. Please modify its structure to increase its LD50 value (reduce acute toxicity) while maintaining its primary therapeutic properties.",
+  "focus_points": [
+    "Highly reactive functional groups that can form adducts with essential biomolecules",
+    "Structural elements with known acute toxicity mechanisms (e.g., acetylcholinesterase inhibition, sodium channel modulation)",
+    "Moieties that could cause mitochondrial dysfunction or rapid cellular energy depletion",
+    "Features that may disrupt critical physiological functions or important cellular processes",
+    "Structural components associated with enhanced distribution to vital organs or poor elimination"
+  ],
+  "output_format": "Please propose modifications that would likely increase the compound's LD50 value (reduce acute toxicity) while preserving its intended pharmacological activity. Consider whether changes in lipophilicity, ionization state, or distribution might reduce systemic exposure or toxic effects."
+} 

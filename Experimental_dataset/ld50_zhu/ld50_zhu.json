@@ -1,0 +1,252 @@
+[
+  {
+    "task": "ld50_zhu",
+    "id": 1,
+    "smiles": "CCN(CCC#N)c1cccc(C)c1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 2,
+    "smiles": "CCN(CC)c1ccc2c(C)cc(=O)oc2c1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 3,
+    "smiles": "COC(=O)c1ccccc1OC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 4,
+    "smiles": "ClCBr"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 5,
+    "smiles": "CC1(C)CC(NCC(=O)NC2CC(C)(C)NC(C)(C)C2)CC(C)(C)N1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 6,
+    "smiles": "Cc1nc(C)c(C)nc1C"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 7,
+    "smiles": "COC(=O)CCC(Cl)C(C)=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 8,
+    "smiles": "CC(=O)OCCSCCOC(C)=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 9,
+    "smiles": "NCCNCCN"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 10,
+    "smiles": "c1ccc2sc(SNC3CCCCC3)nc2c1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 11,
+    "smiles": "Cc1ccn(C(=O)NCCCCCCCl)n1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 12,
+    "smiles": "NCCCOCCOCCO"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 13,
+    "smiles": "CS(=O)CC(=NO)C(C)(C)C"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 14,
+    "smiles": "O=C(NCCO)OCCO"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 15,
+    "smiles": "O=C1CCCCC(=O)N1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 16,
+    "smiles": "CC(C)=CC(=O)O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 17,
+    "smiles": "C=CC=CC=CCCCCC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 18,
+    "smiles": "C=C(C)C1CC=C(CO)CC1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 19,
+    "smiles": "C=CC(C)=CCCC(C)(C)O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 20,
+    "smiles": "CCCCOCCOCCCC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 21,
+    "smiles": "COCCNC(=O)c1nc2c(N)nc(-c3ccccc3)nc2nc1NCCOC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 22,
+    "smiles": "O=C(CCCCC(=O)OC1CCCCC1)OC1CCCCC1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 23,
+    "smiles": "Cc1ccc(Cl)cc1Cl"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 24,
+    "smiles": "CC(C)=CCCC1=CCC(C=O)CC1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 25,
+    "smiles": "COC(C)OC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 26,
+    "smiles": "O=C(OCc1ccccc1)c1sc(Cl)nc1C(F)(F)F"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 27,
+    "smiles": "Cc1ccncc1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 28,
+    "smiles": "CCCCCCOCCOCCOCC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 29,
+    "smiles": "CCOCCOCCCO"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 30,
+    "smiles": "CCCCC(C=O)CC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 31,
+    "smiles": "CC(Cl)CCl"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 32,
+    "smiles": "O=C(OOC(=O)c1ccccc1)c1ccccc1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 33,
+    "smiles": "CCCCOC(C)=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 34,
+    "smiles": "Cc1ccc(N)c(S(=O)(=O)O)c1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 35,
+    "smiles": "Clc1ccc(C(Cl)(Cl)Cl)c(Cl)c1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 36,
+    "smiles": "COCc1ccc(COC(=O)C2C(C=C(C)C)C2(C)C)cc1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 37,
+    "smiles": "Cc1ncc(CO)c(CO)c1O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 38,
+    "smiles": "CCCC(=O)O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 39,
+    "smiles": "O=C(CCc1ccccc1)OC1=C(OC(=O)CCc2ccccc2)C(=O)OC1=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 40,
+    "smiles": "CCC(COc1ccc(C(C)(C)C)cc1)OS(=O)Oc1ccccc1C"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 41,
+    "smiles": "CCCCCCOCCOC(=O)CCCCC(=O)OCCOCCCCCC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 42,
+    "smiles": "CC(CCC(=O)O)C1CCC2C3C(O)CC4CC(O)CCC4(C)C3CCC12C"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 43,
+    "smiles": "CCCCCCC(=O)OCCOCCOCCOCCOC(=O)CCCCCC"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 44,
+    "smiles": "NC(CS)C(=O)O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 45,
+    "smiles": "CC(C)=CCCC(C)CC=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 46,
+    "smiles": "NS(=O)(=O)c1cc2c(cc1Cl)NC(C(Cl)Cl)NS2(=O)=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 47,
+    "smiles": "CCOC(=O)C(C)(CC)Oc1ccc(Cc2ccc(Cl)cc2)cc1"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 48,
+    "smiles": "CCCCCC1=C(C)CCC1=O"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 49,
+    "smiles": "C=C(C)C(=O)OCCO"
+  },
+  {
+    "task": "ld50_zhu",
+    "id": 50,
+    "smiles": "O=C(O)CCCN1C(=O)c2cccc3cccc(c23)C1=O"
+  }
+]
