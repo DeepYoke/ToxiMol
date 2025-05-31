@@ -6,7 +6,7 @@
 并按照任务分类保存到CSV文件中。
 
 用法:
-    python -m experiments.txgemma_evaluation.extract_repair_results \
+    python -m experiments.ablation.extract_repair_results \
         --results-dir experiments/gpt/results \
         --model claude-3-7-sonnet-20250219 \
         --output-dir experiments/gpt/repair_analysis
@@ -24,12 +24,12 @@ import argparse
 from pathlib import Path
 from typing import Dict, List, Any, Tuple, Optional
 
-from experiments.evaluation.result_evaluator import (
+from evaluation.result_evaluator import (
     ResultEvaluator,
     analyze_experiment_results
 )
-from experiments.evaluation.molecule_utils import load_txgemma_model
-from experiments.evaluation.evaluation_models import EvaluationResult
+from evaluation.molecule_utils import load_txgemma_model
+from evaluation.evaluation_models import EvaluationResult
 
 
 def extract_repair_results(
