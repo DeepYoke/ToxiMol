@@ -22,8 +22,6 @@ from threading import Thread
 from typing import List, Dict, Any, Optional, Tuple, Union
 from pathlib import Path
 import logging
-from experiments.opensource.internvl3 import InternVL3Agent
-from experiments.opensource.deepseekvl2 import DeepseekVLV2Agent
 
 # Configure logging
 logging.basicConfig(
@@ -38,7 +36,8 @@ DATA_DIR = BASE_DIR / "data" / "Experimental_dataset"
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
 # InternVL3 model constants
-DEFAULT_MODEL_PATH = "OpenGVLab/InternVL3-38B"
+DEFAULT_MODEL_PATH = "OpenGVLab/InternVL3-8B"
+# DEFAULT_MODEL_PATH = "deepseek-ai/deepseek-vl2"
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
@@ -221,7 +220,7 @@ def extract_results(response_text: str) -> Dict:
     return results
 
 def process_molecule(
-    agent: InternVL3Agent,
+    agent,
     molecule: Dict,
     task_name: str,
     task_prompt: Dict,
@@ -340,8 +339,10 @@ def run_task(
     """
     # Create model agent
     if model == "internvl3":
+        from internvl3 import InternVL3Agent
         agent = InternVL3Agent(model_path)
     elif model == "deepseekvl2":
+        from deepseekvl2 import DeepseekVLV2Agent
         agent = DeepseekVLV2Agent(model_path)
     
     # Extract model name from path
@@ -428,7 +429,7 @@ def run_all_tasks(
     
     for task_name in AVAILABLE_TASKS:
         logger.info(f"Starting task: {task_name}")
-        task_results = run_task(task_name, model_path, molecule_limit, None, generation_config)
+        task_results = run_task(task_name, model, model_path, molecule_limit, None, generation_config)
         all_results[task_name] = task_results
         # 清理GPU显存
         if torch.cuda.is_available():
@@ -468,7 +469,7 @@ def main():
     parser.add_argument(
         "--model", 
         choices=["internvl3", "deepseekvl2"], 
-        default="internvl3,
+        default="deepseekvl2",
         help="Model to run (default: internvl3)"
     )
     
