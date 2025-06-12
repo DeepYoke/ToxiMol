@@ -121,4 +121,4 @@ If you use this benchmark, please cite:
 
 ## 📬 Contact
 
-For questions or collaborations, feel free to open an issue or contact [@TengchaoZhang](mailto:zhangtengchao@ieee.org).
+For questions or collaborations, feel free to [open an issue](https://github.com/your-org/ToxiMol/issues) or contact via email at [zhangtengchao@ieee.org](mailto:zhangtengchao@ieee.org).
