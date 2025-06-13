@@ -1,0 +1,13 @@
+{
+  "task_name": "herg_central",
+  "task_description": "Compound with hERG channel inhibition activity with potential cardiotoxicity risks",
+  "instruction": "Given molecule with the provided SMILES and molecular structure image, this compound has hERG channel inhibition activity that may lead to cardiotoxicity. Please modify its structure to reduce hERG channel interaction while preserving the core pharmacophore needed for its therapeutic effect. Pay attention to molecular features associated with hERG binding including basic centers, hydrophobic regions, and aromatic moieties that might interact with the channel.",
+  "focus_points": [
+    "Reduce basicity of nitrogen atoms (consider N→O bioisosteric replacements or pKa lowering)",
+    "Decrease overall lipophilicity (introduce polar groups or remove lipophilic moieties)",
+    "Disrupt π-π interactions (reduce aromaticity or alter geometric arrangement)",
+    "Add steric bulk to prevent channel binding (while maintaining target binding)",
+    "Consider the impact of metabolism on potential channel interaction"
+  ],
+  "output_format": "Please propose structural modifications that would likely reduce hERG channel affinity while preserving the compound's intended therapeutic function."
+} 

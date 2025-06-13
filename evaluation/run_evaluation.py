@@ -12,11 +12,11 @@ import argparse
 from pathlib import Path
 from typing import Dict, List, Any
 
-from experiments.evaluation.result_evaluator import (
+from result_evaluator import (
     ResultEvaluator,
     analyze_experiment_results
 )
-from experiments.evaluation.molecule_utils import load_txgemma_model
+from molecule_utils import load_txgemma_model
 
 def main():
     """Main entry point for the script."""

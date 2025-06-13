@@ -1,0 +1,252 @@
+[
+  {
+    "task": "skin_reaction",
+    "id": 1,
+    "smiles": "O=C(Oc1ccccc1)c1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 2,
+    "smiles": "CC(CC(=O)Oc1ccc(S(=O)(=O)O)cc1)CC(C)(C)C"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 3,
+    "smiles": "Nc1cccc(O)c1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 4,
+    "smiles": "CCCCCCCC(Br)CCCCCC"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 5,
+    "smiles": "Cc1cccc(O)c1O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 6,
+    "smiles": "CCCCCCCCCCCCCCC=CS(=O)(=O)OC"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 7,
+    "smiles": "O=C1C=CC2(O)C3Cc4ccc(O)c5c4C2(CCN3)C1O5"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 8,
+    "smiles": "CCCCCCCCCCCCC(Br)C(=O)O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 9,
+    "smiles": "O=[N+]([O-])c1ccc(CBr)cc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 10,
+    "smiles": "CC=Cc1ccc(OC(C)C)c(OC)c1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 11,
+    "smiles": "Cc1ccc(NCCO)cc1O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 12,
+    "smiles": "C=CCc1ccc(O)c(OC)c1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 13,
+    "smiles": "CC=Cc1cc(C)c(O)c(OC)c1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 14,
+    "smiles": "O=C(O)C(=O)O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 15,
+    "smiles": "CCCCCCCCCCCCCCCBr"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 16,
+    "smiles": "CCCCCC(=O)CC(=O)c1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 17,
+    "smiles": "C=C1CC(C)(C)OC1=O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 18,
+    "smiles": "Cc1ccc(N)cc1O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 19,
+    "smiles": "O=C1C=CC(=O)C=C1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 20,
+    "smiles": "CC(CCCCN)C(C)(C)N"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 21,
+    "smiles": "CCCCCC=CCC=CCCCCCCCC(=O)O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 22,
+    "smiles": "CCCCCCCCCCCCI"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 23,
+    "smiles": "CN(C)c1ccc(N=O)cc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 24,
+    "smiles": "CC(C)N(C(=O)CN1C(=O)C(NC(=O)Nc2cccc(C(=O)OC(C)(C)C)c2)C(=O)N(c2ccccc2)c2ccccc21)c1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 25,
+    "smiles": "CCN(CCNS(C)(=O)=O)c1ccc(N)c(C)c1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 26,
+    "smiles": "CN(C)C(=S)SSC(=S)N(C)C"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 27,
+    "smiles": "O=C(OOC(=O)c1ccccc1)c1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 28,
+    "smiles": "COc1cc(C)ccc1O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 29,
+    "smiles": "O=C(OCc1ccccc1)c1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 30,
+    "smiles": "CC1(C)CC(N)CC(C)(CN)C1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 31,
+    "smiles": "N#CCCC(Br)(C#N)CBr"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 32,
+    "smiles": "CC(=O)CC(=O)c1cc(C)c(C)c(C)c1C"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 33,
+    "smiles": "CCCCCCBr"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 34,
+    "smiles": "O=C(O)c1ccc2c(c1)C(=O)OC2=O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 35,
+    "smiles": "ClCc1ccc2ccc3cccc4ccc1c2c34"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 36,
+    "smiles": "C=CCC1(C)C=C(OC)C(=O)CC1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 37,
+    "smiles": "C=CC(=O)OCC(CC)CCCC"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 38,
+    "smiles": "O=CC=C(c1ccccc1)c1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 39,
+    "smiles": "CC1(C)SC2C(NC(=O)Cc3ccccc3)C(=O)N2C1C(=O)O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 40,
+    "smiles": "CCC(C=O)CC"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 41,
+    "smiles": "O=CC=Cc1ccccc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 42,
+    "smiles": "CCCCCCCCCCCCCCCCCCCCBr"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 43,
+    "smiles": "CCCc1ccc(OC)c(O)c1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 44,
+    "smiles": "CCCC=CC=O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 45,
+    "smiles": "O=C(Oc1ccc([N+](=O)[O-])cc1)OC1COC2OCCC12"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 46,
+    "smiles": "O=C(Nc1ccc(Cl)c(Cl)c1)c1cc(Cl)cc(Cl)c1O"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 47,
+    "smiles": "Cc1cc(=O)n(-c2ccc(C)c(C)c2)[nH]1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 48,
+    "smiles": "Nc1ccc(N(CO)CCO)cc1[N+](=O)[O-]"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 49,
+    "smiles": "C=CCc1ccc(OC)cc1"
+  },
+  {
+    "task": "skin_reaction",
+    "id": 50,
+    "smiles": "O=C(C(=O)c1ccccc1)C1=CCC(Br)(Br)C=C1"
+  }
+]

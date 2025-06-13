@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Toxicity Repair Experiment Runner using OpenAI Reasoning models via 智增增 API.
+Toxicity Repair Experiment Runner using InternVL3-8B model.
 
-This script runs toxicity repair experiments on molecules using OpenAI's reasoning models (o1, o3, o4-mini)
-through 智增增 API service. It can process single tasks or run batch experiments across multiple toxicity datasets.
+This script runs toxicity repair experiments on molecules using InternVL3-8B model.
+It can process single tasks or run batch experiments across multiple toxicity datasets.
 """
 
 import os
@@ -11,10 +11,17 @@ import json
 import base64
 import argparse
 import time
-import requests
-from typing import List, Dict, Any, Optional, Tuple
+import math
+import numpy as np
+import torch
+from PIL import Image
+import torchvision.transforms as T
+from threading import Thread
+from typing import List, Dict, Any, Optional, Tuple, Union
 from pathlib import Path
 import logging
+from datasets import load_dataset
+import base64
 
 # Configure logging
 logging.basicConfig(
@@ -28,32 +35,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "data" / "Experimental_dataset"
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
-# 智增增 API settings
-ZZZ_API_KEY = "sk-zk2bf6cbabe8c8f27ccbb928b5e3bde3cb767cab83731789"
-ZZZ_BASE_URL = "https://api.zhizengzeng.com/v1"
-
-# All available models
-AVAILABLE_MODELS = ["o1", "o3", "o4-mini"]
+# InternVL3 model constants
+DEFAULT_MODEL_PATH = "OpenGVLab/InternVL3-8B"
 
 # All available tasks
 AVAILABLE_TASKS = [
-    "ames", "carcinogens_lagunin", "clintox", "dili", "herg", 
+    "ames", "clintox", "carcinogens_lagunin", "dili", "herg", 
     "herg_central", "herg_karim", "ld50_zhu", "skin_reaction", 
     "tox21", "toxcast"
 ]
+def save_base64_image(base64_str, output_path):
+    img_data = base64.b64decode(base64_str)
 
-def encode_image(image_path: str) -> str:
-    """
-    Encode an image file to base64 string for API submission.
-    
-    Args:
-        image_path: Path to the image file
-        
-    Returns:
-        Base64 encoded string of the image
-    """
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
+    with open(output_path, 'wb') as f:
+        f.write(img_data)
+    print(f"Img is saved to tmp dir: {output_path}")
 
 def load_json_file(file_path: str) -> Dict:
     """
@@ -84,9 +80,9 @@ def load_task_data(task_name: str) -> Tuple[List[Dict], Dict]:
     """
     try:
         # Load molecules data
-        molecules_path = DATA_DIR / task_name / f"{task_name}.json"
-        molecules = load_json_file(molecules_path)
-        
+        molecules_hf = load_dataset("Cusyoung/toy", data_dir=task_name, split="train", trust_remote_code=True)
+        molecules = molecules_hf.to_pandas().to_dict(orient='records')  
+
         # Load task prompt
         prompt_path = DATA_DIR / task_name / f"{task_name}_prompt.json"
         task_prompt = load_json_file(prompt_path)
@@ -140,36 +136,50 @@ def get_specific_prompt(task_name: str, molecule: Dict, task_prompt: Dict) -> st
     # Return the instruction, replacing any {{ smiles }} placeholders with the actual SMILES
     return instruction.replace("{{ smiles }}", molecule["smiles"])
 
-def create_repair_request(
+def create_user_prompt(
     molecule: Dict, 
     task_name: str,
-    task_prompt: Dict,
-    repair_prompt: Dict,
-    image_path: str,
-    model: str
-) -> List[Dict]:
+    task_prompt: Dict
+) -> str:
     """
-    Create the messages for the API request.
+    Create the user prompt for the model.
     
     Args:
         molecule: Molecule data dictionary
         task_name: Name of the task
         task_prompt: Task prompt dictionary
-        repair_prompt: Main repair prompt dictionary
-        image_path: Path to the molecule image
-        model: Model name to use
         
     Returns:
-        List of message dictionaries for the API request
+        Formatted user prompt string
     """
     # Generate specific instruction for the molecule
     specific_instruction = get_specific_prompt(task_name, molecule, task_prompt)
     
-    # Encode the molecule image
-    encoded_image = encode_image(image_path)
+    # Create the user prompt
+    user_prompt = (
+        f"Task: Modify the following molecule to reduce its {task_prompt['task_description']} while "
+        f"maintaining its therapeutic properties.\n\n"
+        f"SMILES: {molecule['smiles']}\n\n"
+        f"{specific_instruction}\n\n"
+        f"IMPORTANT: Provide 1-3 modified versions of this molecule following EXACTLY the format: "
+        f"'MODIFIED_SMILES: smiles1;smiles2;smiles3'. Use semicolons to separate multiple SMILES. "
+        f"No explanations or other text should be included."
+    )
     
+    return user_prompt
+
+def create_system_prompt(repair_prompt: Dict) -> str:
+    """
+    Create the system prompt for the model.
+    
+    Args:
+        repair_prompt: Main repair prompt dictionary
+        
+    Returns:
+        Formatted system prompt string
+    """
     # Create the system message from the repair prompt
-    system_content = (
+    system_prompt = (
         f"You are a {repair_prompt['agent_role']}. "
         f"{repair_prompt['task_overview']} "
         f"Follow these guidelines for working with the molecular structure image: "
@@ -177,148 +187,14 @@ def create_repair_request(
         f"Your output must strictly follow this format: {repair_prompt['output_format']['structure']}"
     )
     
-    # Enhanced prompt to get better responses
-    user_content = (
-        f"IMPORTANT TASK: Modify the following molecule to reduce its {task_prompt['task_description']} while "
-        f"maintaining its therapeutic properties.\n\n"
-        f"SMILES: {molecule['smiles']}\n\n"
-        f"{specific_instruction}\n\n"
-        f"YOU MUST PROVIDE AT LEAST ONE MODIFIED VERSION. DO NOT RETURN EMPTY RESPONSES.\n\n"
-        f"RESPOND EXACTLY IN THIS FORMAT AND NOTHING ELSE:\n"
-        f"MODIFIED_SMILES: [modified_smiles_1];[modified_smiles_2];[modified_smiles_3]\n\n"
-        f"Use semicolons to separate multiple SMILES. Provide 1-3 modifications."
-    )
-    
-    # Construct the messages for different models
-    messages = [
-        {"role": "system", "content": system_content},
-        {"role": "user", "content": user_content}
-    ]
-    
-    # For vision models (o4-mini), modify the user message to include image
-    if model == "o4-mini":
-        messages[1]["content"] = [
-            {"type": "text", "text": user_content},
-            {
-                "type": "image_url",
-                "image_url": {
-                    "url": f"data:image/png;base64,{encoded_image}"
-                }
-            }
-        ]
-    
-    return messages
-
-def call_zhizengzeng_api(
-    messages: List[Dict], 
-    model: str, 
-    api_key: str = ZZZ_API_KEY,
-    reasoning_effort: str = "medium",
-    max_retries: int = 3, 
-    retry_delay: int = 5
-) -> str:
-    """
-    Call the 智增增 API.
-    
-    Args:
-        messages: List of message dictionaries
-        model: Model name to use
-        api_key: 智增增 API key
-        reasoning_effort: Reasoning effort level (low, medium, high) for o3 model
-        max_retries: Maximum number of retries on error
-        retry_delay: Delay between retries in seconds
-        
-    Returns:
-        API response content
-    """
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {api_key}"
-    }
-    
-    # 最简单的参数集，不设置任何限制
-    params = {
-        "model": model,
-        "messages": messages
-    }
-    
-    # 只有o1模型支持temperature参数，o3和o4-mini都不支持
-    if model == "o1":
-        params["temperature"] = 0.7
-    
-    # Add reasoning_effort parameter only for o3 model (if supported)
-    if model == "o3" and reasoning_effort:
-        params["reasoning_effort"] = reasoning_effort
-    
-    # Debug log
-    logger.info(f"Calling API with model: {model}")
-    logger.info(f"API parameters: {json.dumps({k: v for k, v in params.items() if k != 'messages'})}")
-    
-    # API URL
-    url = f"{ZZZ_BASE_URL}/chat/completions"
-    
-    for attempt in range(max_retries):
-        try:
-            # Make the API call
-            response = requests.post(url, json=params, headers=headers)
-            
-            # Debug the raw response - 显示完整响应，不截断
-            logger.info(f"API raw response: {response.text}")
-            
-            # Check for HTTP errors
-            response.raise_for_status()
-            
-            # Parse JSON response
-            response_data = response.json()
-            
-            # Check if the API call was successful
-            if response_data.get("code") != 0:
-                error_msg = response_data.get("msg", "Unknown error")
-                raise Exception(f"API error: {error_msg}")
-            
-            # Check for refusal or empty content
-            if "choices" in response_data and len(response_data["choices"]) > 0:
-                if "message" in response_data["choices"][0]:
-                    message = response_data["choices"][0]["message"]
-                    
-                    # Check for refusal
-                    if "refusal" in message and message["refusal"]:
-                        logger.warning(f"Model refused to respond: {message.get('refusal')}")
-                    
-                    # Check for empty content
-                    if "content" in message:
-                        content = message["content"]
-                        if not content or content.strip() == "":
-                            logger.warning("Model returned empty content")
-                        return content
-                    else:
-                        logger.error("Response message missing content field")
-                else:
-                    logger.error("Response choice missing message field")
-            else:
-                logger.error("Response missing choices or empty choices array")
-            
-            # If we reached here without returning, something unusual happened
-            logger.error(f"Unexpected response structure: {response_data}")
-            return "MODIFIED_SMILES: N/A"  # 提供默认响应以避免空结果
-            
-        except Exception as e:
-            logger.warning(f"API call failed (attempt {attempt+1}/{max_retries}): {e}")
-            if attempt < max_retries - 1:
-                logger.info(f"Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-                # Increase delay for next retry (exponential backoff)
-                retry_delay *= 2
-            else:
-                logger.error(f"Failed after {max_retries} attempts")
-                raise
+    return system_prompt
 
 def extract_results(response_text: str) -> Dict:
     """
-    Parse the API response to extract the modified SMILES.
+    Parse the model response to extract the modified SMILES.
     
     Args:
-        response_text: Raw text response from the API
+        response_text: Raw text response from the model
         
     Returns:
         Dictionary containing the parsed results
@@ -328,11 +204,6 @@ def extract_results(response_text: str) -> Dict:
         "modified_smiles": [],
         "raw_response": response_text
     }
-    
-    # Handle empty responses
-    if not response_text or response_text.strip() == "":
-        logger.warning("Empty response received, no SMILES to extract")
-        return results
     
     # Extract modified SMILES using the strict format
     if "MODIFIED_SMILES:" in response_text:
@@ -344,62 +215,63 @@ def extract_results(response_text: str) -> Dict:
             results["modified_smiles"] = smiles_candidates
         else:
             # Handle case with only one SMILES or 'none'
-            if smiles_part.lower().strip() == "none" or smiles_part.lower().strip() == "n/a":
+            if smiles_part.lower().strip() == "none":
                 results["modified_smiles"] = []
             else:
                 results["modified_smiles"] = [smiles_part.strip()]
-    else:
-        logger.warning(f"Response does not contain expected 'MODIFIED_SMILES:' format: {response_text[:100]}...")
     
     return results
 
 def process_molecule(
+    agent,
     molecule: Dict,
     task_name: str,
     task_prompt: Dict,
     repair_prompt: Dict,
     model: str,
-    api_key: str = ZZZ_API_KEY,
-    reasoning_effort: str = "medium"
+    generation_config: Dict = None
 ) -> Dict:
     """
     Process a single molecule and return the results.
     
     Args:
+        agent: InternVL3Agent instance
         molecule: Molecule data dictionary
         task_name: Name of the task
         task_prompt: Task prompt dictionary
         repair_prompt: Main repair prompt dictionary
         model: Model name to use
-        api_key: 智增增 API key
-        reasoning_effort: Reasoning effort level for o3 model
+        generation_config: Generation configuration
         
     Returns:
         Dictionary with the results and metadata
     """
     molecule_id = molecule["id"]
     logger.info(f"Processing {task_name} molecule ID: {molecule_id}")
-    
-    # Get the image path
-    image_path = DATA_DIR / task_name / "image" / f"{molecule_id}.png"
+    task = molecule['task']
+    # Get the image binary and save it to tmp dir
+    image_binary = molecule["image"]
+    tmp_dir = f'/mnt/petrelfs/gongziyang/toximo_repo/{task}'
+    if not os.path.exists(tmp_dir):
+        os.makedirs(tmp_dir)
+    image_path = os.path.join(tmp_dir, f'{molecule_id}.png')
+    save_base64_image(image_binary, image_path)
     
     if not os.path.exists(image_path):
         logger.error(f"Image not found: {image_path}")
         raise FileNotFoundError(f"Image not found: {image_path}")
     
-    # Create the API request
-    messages = create_repair_request(
-        molecule, 
-        task_name, 
-        task_prompt, 
-        repair_prompt, 
-        str(image_path),
-        model
-    )
+    # Create the system and user prompts
+    system_prompt = create_system_prompt(repair_prompt)
+    user_prompt = create_user_prompt(molecule, task_name, task_prompt)
     
-    # Call the API
+    # Set default generation config if not provided
+    if generation_config is None:
+        generation_config = dict(max_new_tokens=1024, do_sample=True, temperature=0.5)
+    
+    # Call the model
     try:
-        response = call_zhizengzeng_api(messages, model, api_key, reasoning_effort)
+        response = agent.generate_completion(system_prompt, user_prompt, str(image_path), generation_config)
         
         # Parse the results
         results = extract_results(response)
@@ -409,8 +281,6 @@ def process_molecule(
         results["molecule_id"] = molecule_id
         results["original_smiles"] = molecule["smiles"]
         results["model"] = model
-        if model == "o3":
-            results["reasoning_effort"] = reasoning_effort
         
         logger.info(f"Successfully processed molecule {molecule_id}")
         return results
@@ -427,8 +297,6 @@ def process_molecule(
             "modified_smiles": [],
             "raw_response": ""
         }
-        if model == "o3":
-            error_result["reasoning_effort"] = reasoning_effort
         
         return error_result
 
@@ -459,37 +327,49 @@ def cleanup_old_results(output_dir: Path, task_name: str):
 def run_task(
     task_name: str,
     model: str,
-    api_key: str = ZZZ_API_KEY,
-    reasoning_effort: str = "medium",
+    model_path: str,
     molecule_limit: Optional[int] = None,
-    molecules_ids: Optional[List[int]] = None
+    molecules_ids: Optional[List[int]] = None,
+    generation_config: Dict = None
 ) -> List[Dict]:
     """
     Run the experiment for a specific task.
     
     Args:
         task_name: Name of the task to run
-        model: Model name to use
-        api_key: 智增增 API key
-        reasoning_effort: Reasoning effort level for o3 model
+        model_path: Path to the model
         molecule_limit: Maximum number of molecules to process (optional)
         molecules_ids: Specific molecule IDs to process (optional)
+        generation_config: Generation configuration
         
     Returns:
         List of result dictionaries
     """
+    # Create model agent
+    if model == "internvl3":
+        from internvl3 import InternVL3Agent
+        agent = InternVL3Agent(model_path)
+    elif model == "deepseekvl2":
+        from deepseekvl2 import DeepseekVLV2Agent
+        agent = DeepseekVLV2Agent(model_path)
+    
+    # Extract model name from path
+    model_name = model_path.split('/')[-1]
+    
     # Create output directory
-    output_dir = RESULTS_DIR / model / task_name
+    output_dir = RESULTS_DIR / model_name / task_name
     os.makedirs(output_dir, exist_ok=True)
     
     # Clean up old individual result files if they exist
     cleanup_old_results(output_dir, task_name)
     
-    # Load task data
+    # Load task data  (two dicts, molecules contain id and smiles, and task prompt contains diverse prompts)
+
     molecules, task_prompt = load_task_data(task_name)
+
     repair_prompt = load_repair_prompt()
     
-    # Filter molecules if needed
+    # Filter molecules if needed (not be activated)
     if molecules_ids:
         molecules = [m for m in molecules if m["id"] in molecules_ids]
     
@@ -502,33 +382,29 @@ def run_task(
     all_results = []
     for molecule in molecules:
         result = process_molecule(
+            agent,
             molecule,
             task_name,
             task_prompt,
             repair_prompt,
-            model,
-            api_key,
-            reasoning_effort
+            model_name,
+            generation_config
         )
         all_results.append(result)
         
-        # Add a short delay to avoid rate limits
+        # Add a short delay to avoid potential issues
         time.sleep(1)
     
     # Create combined results
     combined_results = {
         "task_name": task_name,
-        "model": model,
+        "model": model_name,
         "total_molecules": len(molecules),
         "success_count": sum(1 for r in all_results if "error" not in r),
         "error_count": sum(1 for r in all_results if "error" in r),
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "results": all_results
     }
-    
-    # Add reasoning_effort information for o3 model
-    if model == "o3":
-        combined_results["reasoning_effort"] = reasoning_effort
     
     # Save combined results to a single file
     output_file = output_dir / f"{task_name}_results.json"
@@ -541,52 +417,57 @@ def run_task(
 
 def run_all_tasks(
     model: str,
-    api_key: str = ZZZ_API_KEY,
-    reasoning_effort: str = "medium",
-    molecule_limit: Optional[int] = None
+    model_path: str,
+    molecule_limit: Optional[int] = None,
+    generation_config: Dict = None
 ) -> Dict[str, List[Dict]]:
     """
     Run the experiment for all available tasks.
     
     Args:
-        model: Model name to use
-        api_key: 智增增 API key
-        reasoning_effort: Reasoning effort level for o3 model
+        model_path: Path to the model
         molecule_limit: Maximum number of molecules to process per task (optional)
+        generation_config: Generation configuration
         
     Returns:
         Dictionary mapping task names to lists of result dictionaries
     """
     all_results = {}
     
+    # Extract model name from path
+    model_name = model_path.split('/')[-1]
+    
     for task_name in AVAILABLE_TASKS:
         logger.info(f"Starting task: {task_name}")
-        task_results = run_task(task_name, model, api_key, reasoning_effort, molecule_limit)
+        task_results = run_task(task_name, model, model_path, molecule_limit, None, generation_config)
         all_results[task_name] = task_results
+
+        if torch.cuda.is_available():
+            logger.info("Clearing GPU memory after task completion")
+            torch.cuda.empty_cache()
+            import gc
+            gc.collect()
+            logger.info(f"GPU memory cleared. Current memory allocated: {torch.cuda.memory_allocated() / (1024**3):.2f} GB")
     
     # Save overall summary
     overall_summary = {
-        "model": model,
+        "model": model_name,
         "tasks_completed": len(AVAILABLE_TASKS),
         "total_molecules": sum(len(results) for results in all_results.values()),
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
     }
     
-    # Add reasoning_effort information for o3 model
-    if model == "o3":
-        overall_summary["reasoning_effort"] = reasoning_effort
-    
-    summary_dir = RESULTS_DIR / model
+    summary_dir = RESULTS_DIR / model_name
     os.makedirs(summary_dir, exist_ok=True)
     
     with open(summary_dir / "overall_summary.json", 'w') as f:
         json.dump(overall_summary, f, indent=2)
     
-    return all_results
+    # return all_results
 
 def main():
     """Main entry point for the script."""
-    parser = argparse.ArgumentParser(description="Run toxicity repair experiments using OpenAI reasoning models via 智增增 API")
+    parser = argparse.ArgumentParser(description="Run toxicity repair experiments using InternVL3 model")
     
     parser.add_argument(
         "--task", 
@@ -594,25 +475,18 @@ def main():
         default="all",
         help="Task to run (default: all)"
     )
-    
+
     parser.add_argument(
         "--model", 
-        choices=AVAILABLE_MODELS,
-        default="o1",
-        help="OpenAI reasoning model to use (default: o1)"
+        choices=["internvl3", "deepseekvl2"], 
+        default="deepseekvl2",
+        help="Model to run (default: internvl3)"
     )
     
     parser.add_argument(
-        "--reasoning-effort", 
-        choices=["low", "medium", "high"],
-        default="medium",
-        help="Reasoning effort level for o3 model (default: medium)"
-    )
-    
-    parser.add_argument(
-        "--api-key", 
-        default=ZZZ_API_KEY,
-        help="智增增 API key (default: use predefined key)"
+        "--model_path", 
+        default=DEFAULT_MODEL_PATH,
+        help=f"Path to InternVL3 model (default: {DEFAULT_MODEL_PATH})"
     )
     
     parser.add_argument(
@@ -629,21 +503,40 @@ def main():
         help="Specific molecule IDs to process (default: all molecules)"
     )
     
+    parser.add_argument(
+        "--temperature", 
+        type=float, 
+        default=0.5,
+        help="Temperature for text generation (default: 0.5)"
+    )
+    
+    parser.add_argument(
+        "--max-tokens", 
+        type=int, 
+        default=1024,
+        help="Maximum number of tokens to generate (default: 1024)"
+    )
+    
     args = parser.parse_args()
     
     # Ensure results directory exists
     os.makedirs(RESULTS_DIR, exist_ok=True)
     
-    logger.info(f"Starting experiment with model: {args.model} via 智增增 API")
-    if args.model == "o3":
-        logger.info(f"Using reasoning effort level: {args.reasoning_effort}")
+    # Set generation config
+    generation_config = {
+        "max_new_tokens": args.max_tokens,
+        "do_sample": True,
+        "temperature": args.temperature
+    }
+    
+    logger.info(f"Starting experiment with model: {args.model_path}")
     
     if args.task == "all":
-        run_all_tasks(args.model, args.api_key, args.reasoning_effort, args.limit)
+        run_all_tasks(args.model, args.model_path, args.limit, generation_config)
     else:
-        run_task(args.task, args.model, args.api_key, args.reasoning_effort, args.limit, args.molecule_ids)
+        run_task(args.task, args.model, args.model_path, args.limit, args.molecule_ids, generation_config)
     
     logger.info("Experiment completed")
 
 if __name__ == "__main__":
-    main() 
+    main()

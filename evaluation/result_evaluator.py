@@ -11,14 +11,14 @@ from typing import Dict, List, Optional, Any, Tuple, Union
 import pandas as pd
 import re
 
-from experiments.evaluation.evaluation_models import (
+from evaluation_models import (
     EvaluationResult,
     RepairResults,
     ToxicityEndpointResult,
     ToxicityDelta
 )
-from experiments.evaluation.task_mappings import get_task_mapping
-from experiments.evaluation.molecule_utils import (
+from task_mappings import get_task_mapping
+from molecule_utils import (
     validate_smiles,
     calculate_properties,
     calculate_similarity,

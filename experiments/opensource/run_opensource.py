@@ -16,8 +16,6 @@ import numpy as np
 import torch
 from PIL import Image
 import torchvision.transforms as T
-from torchvision.transforms.functional import InterpolationMode
-from transformers import AutoTokenizer, AutoModel, AutoConfig, TextIteratorStreamer
 from threading import Thread
 from typing import List, Dict, Any, Optional, Tuple, Union
 from pathlib import Path
@@ -37,9 +35,6 @@ RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
 # InternVL3 model constants
 DEFAULT_MODEL_PATH = "OpenGVLab/InternVL3-8B"
-# DEFAULT_MODEL_PATH = "deepseek-ai/deepseek-vl2"
-IMAGENET_MEAN = (0.485, 0.456, 0.406)
-IMAGENET_STD = (0.229, 0.224, 0.225)
 
 # All available tasks
 AVAILABLE_TASKS = [
@@ -355,11 +350,14 @@ def run_task(
     # Clean up old individual result files if they exist
     cleanup_old_results(output_dir, task_name)
     
-    # Load task data
+    # Load task data  (two dicts, molecules contain id and smiles, and task prompt contains diverse prompts)
+
     molecules, task_prompt = load_task_data(task_name)
+    # print(molecules)
+    # exit()
     repair_prompt = load_repair_prompt()
     
-    # Filter molecules if needed
+    # Filter molecules if needed (not be activated)
     if molecules_ids:
         molecules = [m for m in molecules if m["id"] in molecules_ids]
     
@@ -431,7 +429,7 @@ def run_all_tasks(
         logger.info(f"Starting task: {task_name}")
         task_results = run_task(task_name, model, model_path, molecule_limit, None, generation_config)
         all_results[task_name] = task_results
-        # 清理GPU显存
+
         if torch.cuda.is_available():
             logger.info("Clearing GPU memory after task completion")
             torch.cuda.empty_cache()
@@ -453,7 +451,7 @@ def run_all_tasks(
     with open(summary_dir / "overall_summary.json", 'w') as f:
         json.dump(overall_summary, f, indent=2)
     
-    return all_results
+    # return all_results
 
 def main():
     """Main entry point for the script."""
@@ -474,7 +472,7 @@ def main():
     )
     
     parser.add_argument(
-        "--model-path", 
+        "--model_path", 
         default=DEFAULT_MODEL_PATH,
         help=f"Path to InternVL3 model (default: {DEFAULT_MODEL_PATH})"
     )

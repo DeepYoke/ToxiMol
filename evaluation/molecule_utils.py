@@ -12,7 +12,7 @@ import os
 from pathlib import Path
 
 # Import the original SA scorer
-from experiments.evaluation.sascorer import calculateScore as calculate_sa_score_original
+from sascorer import calculateScore as calculate_sa_score_original
 
 # TxGemma imports
 import torch

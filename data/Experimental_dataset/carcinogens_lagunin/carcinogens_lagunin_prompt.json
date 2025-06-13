@@ -1,0 +1,13 @@
+{
+  "task_name": "carcinogens_lagunin",
+  "task_description": "This compound is predicted to be potentially carcinogenic based on the Lagunin dataset. Please propose modifications to reduce its carcinogenic potential while preserving its therapeutic function.",
+  "instruction": "Given molecule with the provided SMILES and molecular structure image, this compound has been identified as potentially carcinogenic according to the Lagunin dataset. Please modify its structure to reduce its carcinogenic potential while maintaining its primary therapeutic activity.",
+  "focus_points": [
+    "DNA-reactive groups that may form covalent adducts with nucleic acids (e.g., epoxides, alkylating agents)",
+    "Structural motifs that can be metabolically activated to genotoxic species (e.g., nitroaromatics, aromatic amines)",
+    "Elements that may promote cellular proliferation through receptor-mediated mechanisms",
+    "Features that could disrupt cellular differentiation or apoptotic pathways",
+    "Structural components associated with oxidative stress generation or DNA repair inhibition"
+  ],
+  "output_format": "Please propose modifications that would reduce the compound's carcinogenic potential while preserving the pharmacophore necessary for its intended therapeutic effect. Consider bioisosteric replacements or structural modifications that maintain physical properties but reduce toxicological concerns."
+} 
