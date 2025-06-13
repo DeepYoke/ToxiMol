@@ -5,23 +5,23 @@ This package provides tools for evaluating the results of toxicity repair experi
 using TxGemma for toxicity prediction.
 """
 
-from experiments.evaluation.evaluation_models import (
+from .evaluation_models import (
     EvaluationResult,
     PropertyResult,
     RepairResults
 )
 
-from experiments.evaluation.task_mappings import (
+from .task_mappings import (
     get_task_mapping
 )
 
-from experiments.evaluation.molecule_utils import (
+from .molecule_utils import (
     validate_smiles,
     calculate_properties,
     calculate_similarity
 )
 
-from experiments.evaluation.result_evaluator import (
+from .result_evaluator import (
     ResultEvaluator,
     analyze_experiment_results
 )
