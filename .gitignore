@@ -54,7 +54,7 @@ ehthumbs.db
 Thumbs.db
 
 # Experiments and Results
-experiments/*/results/
+# experiments/*/results/
 experiments/*/logs/
 *.log
 
