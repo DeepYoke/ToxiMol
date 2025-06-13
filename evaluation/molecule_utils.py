@@ -42,7 +42,7 @@ def load_txgemma_model():
         )
         
         # Load TDC prompts
-        prompts_file = "experiments/txgemma_evaluation/tdc_prompts.json"
+        prompts_file = "evaluation/tdc_prompts.json"
         if os.path.exists(prompts_file):
             with open(prompts_file, "r") as f:
                 _tdc_prompts = json.load(f)
@@ -98,8 +98,7 @@ def predict_toxicity(smiles: str, endpoint: str) -> Tuple[str, float]:
     gen_out = _txgemma_model.generate(
         **inputs, 
         max_new_tokens=max_new_tokens, 
-        do_sample=False,
-        temperature=0.0
+        do_sample=False
     )
     new_tokens = gen_out[0][inputs["input_ids"].shape[-1]:]
     response = _txgemma_tokenizer.decode(new_tokens, skip_special_tokens=True)

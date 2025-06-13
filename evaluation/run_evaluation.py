@@ -46,6 +46,12 @@ def main():
         help="Evaluate a specific task (default: evaluate all tasks)"
     )
     
+    parser.add_argument(
+        "--output-dir", 
+        default="experiments/eval_results",
+        help="Directory to save evaluation results (default: experiments/eval_results)"
+    )
+    
     args = parser.parse_args()
     
     # Check if results directory exists
@@ -61,7 +67,7 @@ def main():
     # If a specific task is provided, only evaluate that task
     if args.task and args.model:
         print(f"Evaluating task '{args.task}' for model '{args.model}'...")
-        evaluator = ResultEvaluator(args.results_dir)
+        evaluator = ResultEvaluator(args.results_dir, args.output_dir)
         results, summary = evaluator.evaluate_task_results(args.model, args.task, args.full)
         
         # Print summary
@@ -76,9 +82,7 @@ def main():
         if 'toxicity_improved_count' in summary:
             print(f"Toxicity improved: {summary['toxicity_improved_count']} ({summary['toxicity_improved_percentage']:.2f}%)")
         
-        # Save detailed results
-        output_dir = Path(args.results_dir) / args.model / "evaluation"
-        output_dir.mkdir(exist_ok=True, parents=True)
+        # Save detailed results will be handled by evaluator
         
         # Create a dictionary with task summary
         task_summary = {args.task: summary}
@@ -95,7 +99,8 @@ def main():
         all_model_summaries = analyze_experiment_results(
             args.results_dir,
             args.model,
-            args.full
+            args.full,
+            args.output_dir
         )
         
         # Print overall summary

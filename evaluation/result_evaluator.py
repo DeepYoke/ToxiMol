@@ -30,14 +30,16 @@ class ResultEvaluator:
     Evaluator for toxicity repair experiments.
     """
     
-    def __init__(self, results_dir: str = "results/gpt"):
+    def __init__(self, results_dir: str = "results/gpt", output_dir: str = "experiments/eval_results"):
         """
         Initialize the evaluator.
         
         Args:
             results_dir: Directory containing experiment results
+            output_dir: Directory to save evaluation results
         """
         self.results_dir = Path(results_dir)
+        self.output_dir = Path(output_dir)
         
     def evaluate_single_result(
         self, 
@@ -67,6 +69,9 @@ class ResultEvaluator:
         
         # Get all modified SMILES
         modified_smiles_list = data.get('modified_smiles', [])
+        
+        # Limit to maximum 3 SMILES for evaluation
+        modified_smiles_list = modified_smiles_list[:3]
         
         # If no modified SMILES, return a failed result
         if not modified_smiles_list:
@@ -352,6 +357,9 @@ class ResultEvaluator:
             # Get all modified SMILES (usually 3)
             modified_smiles_list = result.get('modified_smiles', [])
             
+            # Limit to maximum 3 SMILES for evaluation
+            modified_smiles_list = modified_smiles_list[:3]
+            
             # If no modified SMILES at all, create one failed result
             if not modified_smiles_list:
                 details = {
@@ -614,7 +622,7 @@ class ResultEvaluator:
             str: Path to the summary file
         """
         # Create base output directory with new path
-        base_output_dir = Path("experiments/gpt/eval_results") / model
+        base_output_dir = self.output_dir / model
         base_output_dir.mkdir(exist_ok=True, parents=True)
         
         # Determine if this is a single task or all tasks evaluation
@@ -1141,7 +1149,8 @@ class ResultEvaluator:
 def analyze_experiment_results(
     results_dir: str = "results/gpt",
     model: str = None,
-    full_evaluation: bool = True
+    full_evaluation: bool = True,
+    output_dir: str = "experiments/eval_results"
 ) -> Dict[str, Dict[str, Any]]:
     """
     Analyze experiment results for all models or a specific model.
@@ -1150,11 +1159,12 @@ def analyze_experiment_results(
         results_dir: Directory containing results
         model: Specific model to analyze (if None, analyze all models)
         full_evaluation: Whether to perform full property evaluation
+        output_dir: Directory to save evaluation results
         
     Returns:
         Dict[str, Dict[str, Any]]: Dictionary mapping models to their summaries
     """
-    evaluator = ResultEvaluator(results_dir)
+    evaluator = ResultEvaluator(results_dir, output_dir)
     
     # Get available models
     results_path = Path(results_dir)
