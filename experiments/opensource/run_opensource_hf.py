@@ -80,7 +80,7 @@ def load_task_data(task_name: str) -> Tuple[List[Dict], Dict]:
     """
     try:
         # Load molecules data
-        molecules_hf = load_dataset("Cusyoung/toy", data_dir=task_name, split="train", trust_remote_code=True)
+        molecules_hf = load_dataset("DeepYoke/ToxiMol-benchmark", data_dir=task_name, split="train", trust_remote_code=True)
         molecules = molecules_hf.to_pandas().to_dict(orient='records')  
 
         # Load task prompt
@@ -251,7 +251,7 @@ def process_molecule(
     task = molecule['task']
     # Get the image binary and save it to tmp dir
     image_binary = molecule["image"]
-    tmp_dir = f'/mnt/petrelfs/gongziyang/toximo_repo/{task}'
+    tmp_dir = f'~/toximol_tmp_images/{task}'
     if not os.path.exists(tmp_dir):
         os.makedirs(tmp_dir)
     image_path = os.path.join(tmp_dir, f'{molecule_id}.png')
@@ -352,7 +352,12 @@ def run_task(
     elif model == "deepseekvl2":
         from deepseekvl2 import DeepseekVLV2Agent
         agent = DeepseekVLV2Agent(model_path)
-    
+    elif model == "llava-onevision":
+        from llavaonevision import LlavaOneVisionAgent
+        agent = LlavaOneVisionAgent(model_path)
+    elif model == "qwen2.5vl":
+        from qwen2_5vl import QwenVLAgent
+        agent = QwenVLAgent(model_path)
     # Extract model name from path
     model_name = model_path.split('/')[-1]
     
@@ -478,7 +483,7 @@ def main():
 
     parser.add_argument(
         "--model", 
-        choices=["internvl3", "deepseekvl2"], 
+        choices=["internvl3", "deepseekvl2","llava-onevision","qwen2.5vl"], 
         default="deepseekvl2",
         help="Model to run (default: internvl3)"
     )

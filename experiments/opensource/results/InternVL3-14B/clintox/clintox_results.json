@@ -1,0 +1,610 @@
+{
+  "task_name": "clintox",
+  "model": "InternVL3-14B",
+  "total_molecules": 50,
+  "success_count": 50,
+  "error_count": 0,
+  "timestamp": "2025-06-13 18:07:22",
+  "results": [
+    {
+      "modified_smiles": [
+        "CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cncnc1)O",
+        "CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cncnc1)N",
+        "CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cncnc1)F"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cncnc1)O;CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cncnc1)N;CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cncnc1)F",
+      "task": "clintox",
+      "molecule_id": 1,
+      "original_smiles": "CC(C)C[C@H](NC(=O)[C@H](Cc1ccccc1)NC(=O)c1cnccn1)B(O)O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CCN(CC)CCNC(=O)c1c(C)[nH]c(c2ccccc2)c1C",
+        "CCN(CC)CCNC(=O)c1c(C)[nH]c(c2cccnc2)c1C",
+        "CCN(CC)CCNC(=O)c1c(C)[nH]c(c2cccsc2)c1C"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(CC)CCNC(=O)c1c(C)[nH]c(c2ccccc2)c1C;CCN(CC)CCNC(=O)c1c(C)[nH]c(c2cccnc2)c1C;CCN(CC)CCNC(=O)c1c(C)[nH]c(c2cccsc2)c1C",
+      "task": "clintox",
+      "molecule_id": 2,
+      "original_smiles": "CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Br)c3)cc2)ccn1",
+        "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(I)c3)cc2)ccn1",
+        "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(OCO)cc3)cc2)ccn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Br)c3)cc2)ccn1;CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(I)c3)cc2)ccn1;CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(OCO)cc3)cc2)ccn1",
+      "task": "clintox",
+      "molecule_id": 3,
+      "original_smiles": "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Cl)c(C(F)(F)F)c3)cc2)ccn1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1Cl",
+        "Nc1nc(CN)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1Br",
+        "Nc1nc(Br)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1I"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1Cl;Nc1nc(CN)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1Br;Nc1nc(Br)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1I",
+      "task": "clintox",
+      "molecule_id": 4,
+      "original_smiles": "Nc1nc(Cl)nc2c1ncn2[C@@H]1O[C@H](CO)[C@@H](O)[C@@H]1F",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)O)C(=O)O)cc1)N2C=O.[Ca+2]",
+        "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1)N2C=O.[Ca+2]",
+        "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)N)C(=O)O)cc1)N2C=O.[Ca+2]"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)O)C(=O)O)cc1)N2C=O.[Ca+2];Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1)N2C=O.[Ca+2];Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)N)C(=O)O)cc1)N2C=O.[Ca+2]",
+      "task": "clintox",
+      "molecule_id": 5,
+      "original_smiles": "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CCC(=O)[O-])C(=O)[O-])cc1)N2C=O.[Ca+2]",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CN(CCOc1ccc(CC2SC(=O)N(CCCl)C2=O)cc1)c1ccccn1.O=C(O)/C=C/C(=O)O",
+        "CN(CCOc1ccc(CC2SC(=O)N(CCCO)C2=O)cc1)c1ccccn1.O=C(O)/C=C/C(=O)O",
+        "CN(CCOc1ccc(CC2SC(=O)N(CCCN)C2=O)cc1)c1ccccn1.O=C(O)/C=C/C(=O)O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN(CCOc1ccc(CC2SC(=O)N(CCCl)C2=O)cc1)c1ccccn1.O=C(O)/C=C/C(=O)O;CN(CCOc1ccc(CC2SC(=O)N(CCCO)C2=O)cc1)c1ccccn1.O=C(O)/C=C/C(=O)O;CN(CCOc1ccc(CC2SC(=O)N(CCCN)C2=O)cc1)c1ccccn1.O=C(O)/C=C/C(=O)O",
+      "task": "clintox",
+      "molecule_id": 6,
+      "original_smiles": "CN(CCOc1ccc(CC2SC(=O)NC2=O)cc1)c1ccccn1.O=C(O)/C=C\\C(=O)O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(=O)Oc1ccc(O)cc1C(=O)O",
+        "CC(=O)Oc1ccccc1C(=O)N",
+        "CC(=O)Oc1cccnc1C(=O)O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(=O)Oc1ccc(O)cc1C(=O)O;CC(=O)Oc1ccccc1C(=O)N;CC(=O)Oc1cccnc1C(=O)O",
+      "task": "clintox",
+      "molecule_id": 7,
+      "original_smiles": "CC(=O)Oc1ccccc1C(=O)O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](N)O[C@@H]1O",
+        "Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](O)CO[C@@H]1O",
+        "Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](O)[C@@H]1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](N)O[C@@H]1O;Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](O)CO[C@@H]1O;Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](O)[C@@H]1N",
+      "task": "clintox",
+      "molecule_id": 8,
+      "original_smiles": "Nc1nc(F)nc2c1ncn2[C@@H]1O[C@H](COP(=O)(O)O)[C@@H](O)[C@@H]1O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "O=C1CCc2ccc(OCCCCN3CCN(c4ccc(F)cc4)CC3)cc2N1",
+        "O=C1CCc2ccc(OCCCCN3CCN(c4ccc(Br)cc4)CC3)cc2N1",
+        "O=C1CCc2ccc(OCCCCN3CCN(c4ccc(I)cc4)CC3)cc2N1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1CCc2ccc(OCCCCN3CCN(c4ccc(F)cc4)CC3)cc2N1;O=C1CCc2ccc(OCCCCN3CCN(c4ccc(Br)cc4)CC3)cc2N1;O=C1CCc2ccc(OCCCCN3CCN(c4ccc(I)cc4)CC3)cc2N1",
+      "task": "clintox",
+      "molecule_id": 9,
+      "original_smiles": "O=C1CCc2ccc(OCCCCN3CCN(c4cccc(Cl)c4Cl)CC3)cc2N1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "COc1c(C)c2c(c(O)c1C/C=C(\\C)CCC(=O)OCCN1CCOCC1)",
+        "COc1c(C)c2c(c(O)c1C/C=C(\\C)CC(=O)OCCN1CCOCC1)",
+        "COc1c(C)c2c(c(O)c1C/C=C(\\C)CCC(=O)NC1CCOCC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1c(C)c2c(c(O)c1C/C=C(\\C)CCC(=O)OCCN1CCOCC1);COc1c(C)c2c(c(O)c1C/C=C(\\C)CC(=O)OCCN1CCOCC1);COc1c(C)c2c(c(O)c1C/C=C(\\C)CCC(=O)NC1CCOCC1",
+      "task": "clintox",
+      "molecule_id": 10,
+      "original_smiles": "COc1c(C)c2c(c(O)c1C/C=C(\\C)CCC(=O)OCCN1CCOCC1)C(=O)OC2",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CCOc1ccc(-c2cc(C)cn2-c2ccc(S(=O)(=O)N)cc2)cc1",
+        "CCOc1ccc(-c2cc(C)cn2-c2ccc(S(=O)(=O)N)cc2)cc1",
+        "CCOc1ccc(-c2cc(C)cn2-c2ccc(S(=O)(N=O)N)cc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCOc1ccc(-c2cc(C)cn2-c2ccc(S(=O)(=O)N)cc2)cc1;CCOc1ccc(-c2cc(C)cn2-c2ccc(S(=O)(=O)N)cc2)cc1;CCOc1ccc(-c2cc(C)cn2-c2ccc(S(=O)(N=O)N)cc2)cc1",
+      "task": "clintox",
+      "molecule_id": 11,
+      "original_smiles": "CCOc1ccc(-c2cc(C)cn2-c2ccc(S(N)(=O)=O)cc2)cc1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](N3CCN3)C2(F)F)c(=O)n1",
+        "Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2(Cl)F)c(=O)n1",
+        "Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2BrF)c(=O)n1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](N3CCN3)C2(F)F)c(=O)n1;Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2(Cl)F)c(=O)n1;Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2BrF)c(=O)n1",
+      "task": "clintox",
+      "molecule_id": 12,
+      "original_smiles": "Cl.Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2(F)F)c(=O)n1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)C[C@H](NC(=O)CNC(=O)c1cc(F)ccc1F)B(O)O",
+        "CC(C)C[C@H](NC(=O)CNC(=O)c1cc(Br)ccc1Br)B(O)O",
+        "CC(C)C[C@H](NC(=O)CNC(=O)c1cc(OCO)ccc1OCO)B(O)O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)C[C@H](NC(=O)CNC(=O)c1cc(F)ccc1F)B(O)O;CC(C)C[C@H](NC(=O)CNC(=O)c1cc(Br)ccc1Br)B(O)O;CC(C)C[C@H](NC(=O)CNC(=O)c1cc(OCO)ccc1OCO)B(O)O",
+      "task": "clintox",
+      "molecule_id": 13,
+      "original_smiles": "CC(C)C[C@H](NC(=O)CNC(=O)c1cc(Cl)ccc1Cl)B(O)O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Br)c3)cc2)ccn1",
+        "Cc1ccc(S(=O)(=O)N)cc1",
+        "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(I)c3)cc2)ccn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Br)c3)cc2)ccn1;Cc1ccc(S(=O)(=O)N)cc1;CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(I)c3)cc2)ccn1",
+      "task": "clintox",
+      "molecule_id": 14,
+      "original_smiles": "CNC(=O)c1cc(Oc2ccc(NC(=O)Nc3ccc(Cl)c(C(F)(F)F)c3)cc2)ccn1.Cc1ccc(S(=O)(=O)O)cc1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1ccn([C@@H]2O[C@H](C)O2)nc1",
+        "Nc1ccn([C@@H]2O[C@H](C)O2)c(=O)n1",
+        "Nc1ccn([C@@H]2O[C@H](C)C2)c(=O)n1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1ccn([C@@H]2O[C@H](C)O2)nc1;Nc1ccn([C@@H]2O[C@H](C)O2)c(=O)n1;Nc1ccn([C@@H]2O[C@H](C)C2)c(=O)n1",
+      "task": "clintox",
+      "molecule_id": 15,
+      "original_smiles": "Nc1ccn([C@@H]2O[C@H](CO)[C@@H](O)C2(F)F)c(=O)n1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCO)CCO)ccc12",
+        "Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCN)CCN)ccc12",
+        "Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCF)CCF)ccc12"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCO)CCO)ccc12;Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCN)CCN)ccc12;Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCF)CCF)ccc12",
+      "task": "clintox",
+      "molecule_id": 16,
+      "original_smiles": "Cl.Cn1c(CCCC(=O)O)nc2cc(N(CCCl)CCCl)ccc21",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "S=c1nc[nH]c2ccnc12",
+        "S=c1nc[nH]c2cccnc12",
+        "S=c1nc[nH]c2cncnc12"
+      ],
+      "raw_response": "MODIFIED_SMILES: S=c1nc[nH]c2ccnc12;S=c1nc[nH]c2cccnc12;S=c1nc[nH]c2cncnc12",
+      "task": "clintox",
+      "molecule_id": 17,
+      "original_smiles": "S=c1nc[nH]c2nc[nH]c12",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3[C@@H]4CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1",
+        "CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3C[C@@]4(C)CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1",
+        "CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3C[C@@]4(C)CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3[C@@H]4CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1;CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3C[C@@]4(C)CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1;CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3C[C@@]4(C)CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1",
+      "task": "clintox",
+      "molecule_id": 18,
+      "original_smiles": "CC(=O)O[C@H]1CC[C@@]2(C)C(=CC[C@H]3[C@@H]4CC=C(c5cccnc5)[C@@]4(C)CC[C@@H]32)C1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)CNCc1ccc(-c2ccncc2S(=O)(=O)N2CCCC2)cc1",
+        "CC(C)CNCc1ccc(-c2ccsc2S(=O)(=O)N2CCCC2)cc1",
+        "CC(C)CNCc1ccc(-c2cccnc2S(=O)(=O)N2CCCC2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)CNCc1ccc(-c2ccncc2S(=O)(=O)N2CCCC2)cc1;CC(C)CNCc1ccc(-c2ccsc2S(=O)(=O)N2CCCC2)cc1;CC(C)CNCc1ccc(-c2cccnc2S(=O)(=O)N2CCCC2)cc1",
+      "task": "clintox",
+      "molecule_id": 19,
+      "original_smiles": "CC(C)CNCc1ccc(-c2ccccc2S(=O)(=O)N2CCCC2)cc1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc2ncnc(Nc3ccc(F)cc3)c2cc1OCCCN1CCOCC1",
+        "COc1cc2ncnc(Nc3ccc(F)c(Br)c3)c2cc1OCCCN1CCOCC1",
+        "COc1cc2ncnc(Nc3ccc(F)cc3)-c2cc1OCCCN1CCOCC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc2ncnc(Nc3ccc(F)cc3)c2cc1OCCCN1CCOCC1;COc1cc2ncnc(Nc3ccc(F)c(Br)c3)c2cc1OCCCN1CCOCC1;COc1cc2ncnc(Nc3ccc(F)cc3)-c2cc1OCCCN1CCOCC1",
+      "task": "clintox",
+      "molecule_id": 20,
+      "original_smiles": "COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1OCCCN1CCOCC1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "O=C1CC(CN2C(=O)c3ccccc3C2=O)C(=O)N1",
+        "O=C1CC(CN2C(=O)c3ccc(F)cc3C2=O)C(=O)N1",
+        "O=C1CC(CN2C(=O)c3ccncc3C2=O)C(=O)N1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1CC(CN2C(=O)c3ccccc3C2=O)C(=O)N1;O=C1CC(CN2C(=O)c3ccc(F)cc3C2=O)C(=O)N1;O=C1CC(CN2C(=O)c3ccncc3C2=O)C(=O)N1",
+      "task": "clintox",
+      "molecule_id": 21,
+      "original_smiles": "O=C1CCC(N2C(=O)c3ccccc3C2=O)C(=O)N1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CCC(=O)N)C(=O)O)cc1",
+        "CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CC(=O)O)C(=O)O)cc1",
+        "CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CC(=O)N)C(=O)N)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CCC(=O)N)C(=O)O)cc1;CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CC(=O)O)C(=O)O)cc1;CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CC(=O)N)C(=O)N)cc1",
+      "task": "clintox",
+      "molecule_id": 22,
+      "original_smiles": "CN(Cc1cnc2nc(N)nc(N)c2n1)c1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5CO[C@@H](N)O[C@H]5[C@H](O)[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O",
+        "COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5CO[C@@H](C)O[C@H]5N[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O",
+        "COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5C=O[C@@H](C)O[C@H]5[C@H](O)[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5CO[C@@H](N)O[C@H]5[C@H](O)[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O;COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5CO[C@@H](C)O[C@H]5N[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O;COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5C=O[C@@H](C)O[C@H]5[C@H](O)[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O",
+      "task": "clintox",
+      "molecule_id": 23,
+      "original_smiles": "COc1cc([C@@H]2c3cc4c(cc3[C@@H](O[C@@H]3O[C@@H]5CO[C@@H](C)O[C@H]5[C@H](O)[C@H]3O)[C@H]3COC(=O)[C@H]23)OCO4)cc(OC)c1O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(NS(=O)(=O)c1ccc(F)s1)c1ccc(Br)cc1Br",
+        "O=C(NS(=O)(=O)c1ccc(Cl)s1)c1ccc(CN2CCNCC2)cc1Cl",
+        "O=C(NS(=O)(=O)c1ccc(CN2CCNCC2)s1)c1ccc(Br)cc1Br"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(NS(=O)(=O)c1ccc(F)s1)c1ccc(Br)cc1Br;O=C(NS(=O)(=O)c1ccc(Cl)s1)c1ccc(CN2CCNCC2)cc1Cl;O=C(NS(=O)(=O)c1ccc(CN2CCNCC2)s1)c1ccc(Br)cc1Br",
+      "task": "clintox",
+      "molecule_id": 24,
+      "original_smiles": "O=C(NS(=O)(=O)c1ccc(Br)s1)c1ccc(Cl)cc1Cl",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)CO",
+        "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)N",
+        "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)CN(C)C"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)CO;C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)N;C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)CN(C)C",
+      "task": "clintox",
+      "molecule_id": 25,
+      "original_smiles": "C[C@]12CC(=O)[C@H]3[C@@H](CCC4=CC(=O)C=C[C@@]43C)[C@@H]1CC[C@]2(O)C(=O)CO",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)(C)C(=O)OCOP(=O)([O-])OCOC(=O)C(C)(C)C",
+        "CC(C)(C)C(=O)O[C@](COP(=O)([O-])OCOC(=O)C(C)(C)C)(C)C",
+        "CC(C)(C)C(=O)OCOP(=O)([O-])OCCNC1=NC=CC2=C1C=CC=C2"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)(C)C(=O)OCOP(=O)([O-])OCOC(=O)C(C)(C)C;CC(C)(C)C(=O)O[C@](COP(=O)([O-])OCOC(=O)C(C)(C)C)(C)C;CC(C)(C)C(=O)OCOP(=O)([O-])OCCNC1=NC=CC2=C1C=CC=C2",
+      "task": "clintox",
+      "molecule_id": 26,
+      "original_smiles": "CC(C)(C)C(=O)OCOP(=O)(COCCn1cnc2c(N)ncnc21)OCOC(=O)C(C)(C)C",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1cccc2c1CN(C1CCC(=O)N1)C2=O",
+        "Nc1cccc2c1CN(C1CC(=O)NC1=O)C2=O",
+        "Nc1cccc2c1CN(C1CC(=O)N1)C2=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1cccc2c1CN(C1CCC(=O)N1)C2=O;Nc1cccc2c1CN(C1CC(=O)NC1=O)C2=O;Nc1cccc2c1CN(C1CC(=O)N1)C2=O",
+      "task": "clintox",
+      "molecule_id": 27,
+      "original_smiles": "Nc1cccc2c1CN(C1CCC(=O)NC1=O)C2=O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1)N2C=O",
+        "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)O)O)cc1)N2C=O",
+        "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)O)C(=O)O)cc1)N2C=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1)N2C=O;Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)O)O)cc1)N2C=O;Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CC(=O)O)C(=O)O)cc1)N2C=O",
+      "task": "clintox",
+      "molecule_id": 28,
+      "original_smiles": "Nc1nc(=O)c2c([nH]1)NCC(CNc1ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc1)N2C=O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)F)c4)n3n2)CC1",
+        "CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)(F)Cl)c4)n3n2)CC1",
+        "CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)(F)O)c4)n3n2)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)F)c4)n3n2)CC1;CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)(F)Cl)c4)n3n2)CC1;CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)(F)O)c4)n3n2)CC1",
+      "task": "clintox",
+      "molecule_id": 29,
+      "original_smiles": "CN1CCC(CNc2ccc3ncc(-c4cccc(OC(F)(F)F)c4)n3n2)CC1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](O)[C@H](CC[C@@H]3C[C@@H](O)CC(=O)O3)[C@H]21",
+        "CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](C)[C@H](CC[C@@H]3C[C@@H](N)CC(=O)O3)[C@H]21",
+        "CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](C)[C@H](CC[C@@H]3C[C@@H](O)CC(=O)N3)[C@H]21"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](O)[C@H](CC[C@@H]3C[C@@H](O)CC(=O)O3)[C@H]21;CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](C)[C@H](CC[C@@H]3C[C@@H](N)CC(=O)O3)[C@H]21;CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](C)[C@H](CC[C@@H]3C[C@@H](O)CC(=O)N3)[C@H]21",
+      "task": "clintox",
+      "molecule_id": 30,
+      "original_smiles": "CC[C@H](C)C(=O)O[C@H]1C[C@@H](C)C=C2C=C[C@H](C)[C@H](CC[C@@H]3C[C@@H](O)CC(=O)O3)[C@H]21",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)N",
+        "CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)OCCl",
+        "CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)ON"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)N;CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)OCCl;CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)ON",
+      "task": "clintox",
+      "molecule_id": 31,
+      "original_smiles": "CCN(CC)CCNC(=O)c1c(C)[nH]c(/C=C2\\C(=O)Nc3ccc(F)cc32)c1C.O=C(O)C[C@H](O)C(=O)O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(/C=C/c1cccc(Nc2ccccc2)c1)NO",
+        "O=C(/C=C/c1cccnc1)NO",
+        "O=C(/C=C/c1cccnc(c1)C)NO"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(/C=C/c1cccc(Nc2ccccc2)c1)NO;O=C(/C=C/c1cccnc1)NO;O=C(/C=C/c1cccnc(c1)C)NO",
+      "task": "clintox",
+      "molecule_id": 32,
+      "original_smiles": "O=C(/C=C/c1cccc(S(=O)(=O)Nc2ccccc2)c1)NO",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc(-c2cc(C)nn2-c2ccc(S(N)(=O)=O)cc2)cc1",
+        "Cc1ccc(-c2cc(C)nc2-c2ccc(S(N)(=O)=O)cc2)cc1",
+        "Cc1ccc(-c2cc(CN)nc2-c2ccc(S(N)(=O)=O)cc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc(-c2cc(C)nn2-c2ccc(S(N)(=O)=O)cc2)cc1;Cc1ccc(-c2cc(C)nc2-c2ccc(S(N)(=O)=O)cc2)cc1;Cc1ccc(-c2cc(CN)nc2-c2ccc(S(N)(=O)=O)cc2)cc1",
+      "task": "clintox",
+      "molecule_id": 33,
+      "original_smiles": "Cc1ccc(-c2cc(C(F)(F)F)nn2-c2ccc(S(N)(=O)=O)cc2)cc1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CC(=O)O)O)cc3)c[nH]c2[nH]1",
+        "Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CCC(=O)N)C(=O)O)cc3)c[nH]c2[nH]1",
+        "Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CCC(=O)O)S)cc3)c[nH]c2[nH]1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CC(=O)O)O)cc3)c[nH]c2[nH]1;Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CCC(=O)N)C(=O)O)cc3)c[nH]c2[nH]1;Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CCC(=O)O)S)cc3)c[nH]c2[nH]1",
+      "task": "clintox",
+      "molecule_id": 34,
+      "original_smiles": "Nc1nc(=O)c2c(CCc3ccc(C(=O)N[C@@H](CCC(=O)O)C(=O)O)cc3)c[nH]c2[nH]1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(c)cc34)CC1)CCCC2",
+        "Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(cc)cc34)CC1)CCCC2",
+        "Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(c)ccc34)CC1)CCCC2"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(c)cc34)CC1)CCCC2;Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(cc)cc34)CC1)CCCC2;Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(c)ccc34)CC1)CCCC2",
+      "task": "clintox",
+      "molecule_id": 35,
+      "original_smiles": "Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(F)ccc34)CC1)CCCC2",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(c1ccc2n-cnc2c1)N1CCCCC1",
+        "O=C(c1ccc2n-c2-c1)N1CCCCC1",
+        "O=C(c1ccc2n-cnc2c1)N1CCOCC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(c1ccc2n-cnc2c1)N1CCCCC1;O=C(c1ccc2n-c2-c1)N1CCCCC1;O=C(c1ccc2n-cnc2c1)N1CCOCC1",
+      "task": "clintox",
+      "molecule_id": 36,
+      "original_smiles": "O=C(c1ccc2nonc2c1)N1CCCCC1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cn1c(=O)n(-c2ccc(C(C)(C)C)cc2)c2c3cc(-c4cnc5ccccc5c4)ccc3ncc21",
+        "Cn1c(=O)n(-c2ccc(C(C)(C)C=O)cc2)c2c3cc(-c4cnc5ccccc5c4)ccc3ncc21",
+        "Cn1c(=O)n(-c2ccc(C(C)(C)C)cc2)c2c3cc(-c4cnc5ccncc5c4)ccc3ncc21"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cn1c(=O)n(-c2ccc(C(C)(C)C)cc2)c2c3cc(-c4cnc5ccccc5c4)ccc3ncc21;Cn1c(=O)n(-c2ccc(C(C)(C)C=O)cc2)c2c3cc(-c4cnc5ccccc5c4)ccc3ncc21;Cn1c(=O)n(-c2ccc(C(C)(C)C)cc2)c2c3cc(-c4cnc5ccncc5c4)ccc3ncc21",
+      "task": "clintox",
+      "molecule_id": 37,
+      "original_smiles": "Cn1c(=O)n(-c2ccc(C(C)(C)C#N)cc2)c2c3cc(-c4cnc5ccccc5c4)ccc3ncc21",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)[C@@H](CN1CC[C@@](C)(c2ccccc2)C1=O)NC(=O)[C@H]1Cc2ccc(O)cc2CN1",
+        "CC(C)[C@@H](CN1CC[C@@](C)(c2ccccc2)C1)NC(=O)[C@H]1Cc2ccc(O)cc2C1=O",
+        "CC(C)[C@@H](CN1CC[C@@](C)(c2ccccc2)C1=O)NC(=O)[C@H]1Cc2ccc(O)cc2CN(C1=O)=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)[C@@H](CN1CC[C@@](C)(c2ccccc2)C1=O)NC(=O)[C@H]1Cc2ccc(O)cc2CN1;CC(C)[C@@H](CN1CC[C@@](C)(c2ccccc2)C1)NC(=O)[C@H]1Cc2ccc(O)cc2C1=O;CC(C)[C@@H](CN1CC[C@@](C)(c2ccccc2)C1=O)NC(=O)[C@H]1Cc2ccc(O)cc2CN(C1=O)=O",
+      "task": "clintox",
+      "molecule_id": 38,
+      "original_smiles": "CC(C)[C@@H](CN1CC[C@@](C)(c2cccc(O)c2)[C@@H](C)C1)NC(=O)[C@H]1Cc2ccc(O)cc2CN1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)O3)cc2)CC1",
+        "CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)(c4ccc(F)cc4Cl)O3)cc2)CC1",
+        "CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)(c4ccc(CN)cc4)O3)cc2)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)O3)cc2)CC1;CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)(c4ccc(F)cc4Cl)O3)cc2)CC1;CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)(c4ccc(CN)cc4)O3)cc2)CC1",
+      "task": "clintox",
+      "molecule_id": 39,
+      "original_smiles": "CC(=O)N1CCN(c2ccc(OC[C@H]3CO[C@](Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(N)nccn23)C1",
+        "CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccncc5)nc4c3)c3c(N)nccn23)C1",
+        "CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(NH)ncn23)C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(N)nccn23)C1;CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccncc5)nc4c3)c3c(N)nccn23)C1;CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(NH)ncn23)C1",
+      "task": "clintox",
+      "molecule_id": 40,
+      "original_smiles": "CC1(O)CC(c2nc(-c3ccc4ccc(-c5ccccc5)nc4c3)c3c(N)nccn23)C1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(cc4)N)N3)CC1",
+        "CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(CN5CCN5)c4)N)N3CC1",
+        "CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(N)nc4)N)N3CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(cc4)N)N3)CC1;CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(CN5CCN5)c4)N)N3CC1;CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(N)nc4)N)N3CC1",
+      "task": "clintox",
+      "molecule_id": 41,
+      "original_smiles": "CC(O)C(=O)O.CN1CCN(c2ccc3c(c2)N/C(=C2/C(=O)N=c4cccc(F)c4=C2N)N3)CC1.O",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CN(CCOc1ccc(CC2SC(=O)NC2=O)cc1)c1cccnc1",
+        "CN(CCOc1ccc(CC2SC(=O)Nc2ccccc2)cc1)c1ccccn1",
+        "CN(CCOc1ccc(CC2SC(=O)Nc2cccnc2)cc1)c1ccccn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN(CCOc1ccc(CC2SC(=O)NC2=O)cc1)c1cccnc1;CN(CCOc1ccc(CC2SC(=O)Nc2ccccc2)cc1)c1ccccn1;CN(CCOc1ccc(CC2SC(=O)Nc2cccnc2)cc1)c1ccccn1",
+      "task": "clintox",
+      "molecule_id": 42,
+      "original_smiles": "CN(CCOc1ccc(CC2SC(=O)NC2=O)cc1)c1ccccn1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)N(C)C)1c(nc4ccccc41)N(C)[C@H]1[C@@](O)(C(=O)OC)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54",
+        "CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)OC)(c1cc3c(cc1O)N(C)[C@H]1[C@@](O)(C(=O)OC)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54)C2",
+        "CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)OC)(c1cc3c(cc1OC)N(C)[C@H]1[C@@](O)(C(=O)N(C)C)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54)C2"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)N(C)C)1c(nc4ccccc41)N(C)[C@H]1[C@@](O)(C(=O)OC)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54;CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)OC)(c1cc3c(cc1O)N(C)[C@H]1[C@@](O)(C(=O)OC)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54)C2;CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)OC)(c1cc3c(cc1OC)N(C)[C@H]1[C@@](O)(C(=O)N(C)C)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54)C2",
+      "task": "clintox",
+      "molecule_id": 43,
+      "original_smiles": "CCC1=C[C@@H]2CN(C1)Cc1c([nH]c3ccccc13)[C@@](C(=O)OC)(c1cc3c(cc1OC)N(C)[C@H]1[C@@](O)(C(=O)OC)[C@H](OC(C)=O)[C@]4(CC)C=CCN5CC[C@]31[C@@H]54)C2",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C)cc2)c1C#Cc1cnc2cccnn12",
+        "Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C(Cl)(Cl)Cl)c2)c1C#Cc1cnc2cccnn12",
+        "Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C(C)(C)C)c2)c1C#Cc1cnc2cccnn12"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C)cc2)c1C#Cc1cnc2cccnn12;Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C(Cl)(Cl)Cl)c2)c1C#Cc1cnc2cccnn12;Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C(C)(C)C)c2)c1C#Cc1cnc2cccnn12",
+      "task": "clintox",
+      "molecule_id": 44,
+      "original_smiles": "Cc1ccc(C(=O)Nc2ccc(CN3CCN(C)CC3)c(C(F)(F)F)c2)cc1C#Cc1cnc2cccnn12",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2ccc(F)cc2)O1",
+        "CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2ccc(Br)cc2)O1",
+        "CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2ccc(I)cc2)O1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2ccc(F)cc2)O1;CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2ccc(Br)cc2)O1;CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2ccc(I)cc2)O1",
+      "task": "clintox",
+      "molecule_id": 45,
+      "original_smiles": "CS(=O)(=O)O.Nc1ncnc2c1ncn2CCOC[P@@]1(=O)OCC[C@@H](c2cccc(Cl)c2)O1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "O=c1[nH]cc(Cl)c(=O)[nH]1",
+        "O=c1[nH]cc(OC)c(=O)[nH]1",
+        "O=c1[nH]cc(CN)c(=O)[nH]1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=c1[nH]cc(Cl)c(=O)[nH]1;O=c1[nH]cc(OC)c(=O)[nH]1;O=c1[nH]cc(CN)c(=O)[nH]1",
+      "task": "clintox",
+      "molecule_id": 46,
+      "original_smiles": "O=c1[nH]cc(F)c(=O)[nH]1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "Cn1cncc1[C@@](N)(c1ccc(F)cc1)c1ccc2c(c1)c(-c1cccc(F)c1)cc(=O)n2C",
+        "Cn1cncc1[C@@](N)(c1ccc(Br)cc1)c1ccc2c(c1)c(-c1cccc(Br)c1)cc(=O)n2C",
+        "Cn1cncc1[C@@](N)(c1ccc(I)cc1)c1ccc2c(c1)c(-c1cccc(I)c1)cc(=O)n2C"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cn1cncc1[C@@](N)(c1ccc(F)cc1)c1ccc2c(c1)c(-c1cccc(F)c1)cc(=O)n2C;Cn1cncc1[C@@](N)(c1ccc(Br)cc1)c1ccc2c(c1)c(-c1cccc(Br)c1)cc(=O)n2C;Cn1cncc1[C@@](N)(c1ccc(I)cc1)c1ccc2c(c1)c(-c1cccc(I)c1)cc(=O)n2C",
+      "task": "clintox",
+      "molecule_id": 47,
+      "original_smiles": "Cn1cncc1[C@@](N)(c1ccc(Cl)cc1)c1ccc2c(c1)c(-c1cccc(Cl)c1)cc(=O)n2C",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C(F)F)ccc1C(F)F",
+        "C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C)ccc1C",
+        "C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C(C)F)ccc1C(C)F"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C(F)F)ccc1C(F)F;C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C)ccc1C;C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C(C)F)ccc1C(C)F",
+      "task": "clintox",
+      "molecule_id": 48,
+      "original_smiles": "C[C@]12CC[C@H]3[C@@H](CC[C@H]4NC(=O)C=C[C@]34C)[C@@H]1CC[C@@H]2C(=O)Nc1cc(C(F)(F)F)ccc1C(F)(F)F",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "N#Cc1ccc(C(c2ccc(C=O)cc2)n2cncn2)cc1",
+        "N#Cc1ccc(C(c2ccc(CN)cc2)n2cncn2)cc1",
+        "N#Cc1ccc(C(c2ccc(CF3)cc2)n2cncn2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: N#Cc1ccc(C(c2ccc(C=O)cc2)n2cncn2)cc1;N#Cc1ccc(C(c2ccc(CN)cc2)n2cncn2)cc1;N#Cc1ccc(C(c2ccc(CF3)cc2)n2cncn2)cc1",
+      "task": "clintox",
+      "molecule_id": 49,
+      "original_smiles": "N#Cc1ccc(C(c2ccc(C#N)cc2)n2cncn2)cc1",
+      "model": "InternVL3-14B"
+    },
+    {
+      "modified_smiles": [
+        "CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)N)4c3cc4c(cc3OC)N(C=O)[C@H]3[C@@](O)(C(=O)N)[C@H](NC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65)",
+        "CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)OC)(c3cc4c(cc3OC)N(C=O)C(=O)O)[C@H]3[C@@](O)(C(=O)OC)[C@H](OC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65)",
+        "CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)NC(=O)O)4c3cc4c(cc3OC)N(C=O)C(=O)O)[C@H]3[C@@](O)(C(=O)NC(=O)O)[C@H](OC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)N)4c3cc4c(cc3OC)N(C=O)[C@H]3[C@@](O)(C(=O)N)[C@H](NC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65);CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)OC)(c3cc4c(cc3OC)N(C=O)C(=O)O)[C@H]3[C@@](O)(C(=O)OC)[C@H](OC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65);CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)NC(=O)O)4c3cc4c(cc3OC)N(C=O)C(=O)O)[C@H]3[C@@](O)(C(=O)NC(=O)O)[C@H](OC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65",
+      "task": "clintox",
+      "molecule_id": 50,
+      "original_smiles": "CC[C@]1(O)C[C@H]2CN(CCc3c([nH]c4ccccc34)[C@@](C(=O)OC)(c3cc4c(cc3OC)N(C=O)[C@H]3[C@@](O)(C(=O)OC)[C@H](OC(C)=O)[C@]5(CC)C=CCN6CC[C@]43[C@@H]65)C2)C1",
+      "model": "InternVL3-14B"
+    }
+  ]
+}

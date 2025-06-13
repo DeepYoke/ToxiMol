@@ -1,0 +1,606 @@
+{
+  "task_name": "herg_karim",
+  "model": "InternVL3-8B",
+  "total_molecules": 50,
+  "success_count": 50,
+  "error_count": 0,
+  "timestamp": "2025-06-13 16:29:05",
+  "results": [
+    {
+      "modified_smiles": [
+        "COc1cnc(C(=O)Nc2cc(F)c(F)c([C@]3(C)C[C@@H](c4c(C)noc4C)SC(N)NC3)=N2)cn1",
+        "COc1cnc(C(=O)NC2cc(F)c(F)c([C@]3(C)C[C@@H](c4c(C)noc4C)SC3)=N2)cn1",
+        "COc1cnc(C(=O)Nc2cc(F)c(F)c([C@]3(C)CC[C@@H](c4c(C)noc4C)SC(N)=N3)cn2)cn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cnc(C(=O)Nc2cc(F)c(F)c([C@]3(C)C[C@@H](c4c(C)noc4C)SC(N)NC3)=N2)cn1;COc1cnc(C(=O)NC2cc(F)c(F)c([C@]3(C)C[C@@H](c4c(C)noc4C)SC3)=N2)cn1;COc1cnc(C(=O)Nc2cc(F)c(F)c([C@]3(C)CC[C@@H](c4c(C)noc4C)SC(N)=N3)cn2)cn1",
+      "task": "herg_karim",
+      "molecule_id": 1,
+      "original_smiles": "COc1cnc(C(=O)Nc2cc(F)c(F)c([C@]3(C)C[C@@H](c4c(C)noc4C)SC(N)=N3)c2)cn1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-c1ccc(nc1)cc1",
+        "COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-c1ccc(nc1)cc1N",
+        "COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-c1ccc(nc1)cc1NMe"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-c1ccc(nc1)cc1;COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-c1ccc(nc1)cc1N;COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-c1ccc(nc1)cc1NMe",
+      "task": "herg_karim",
+      "molecule_id": 2,
+      "original_smiles": "COc1cc(C=Cc2nc(N)c3ccccc3n2)ccc1-n1cnc(C)c1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CN1Cc2ccccc2[C@@H](c2ccccc2)NC1CCc1ccccc1",
+        "CN1Cc2ccccc2[C@@H](c2ccccc2)N(CCCN)C1",
+        "CN1Cc2ccccc2[C@@H](c2ccccc2)N(CCCO)C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN1Cc2ccccc2[C@@H](c2ccccc2)NC1CCc1ccccc1;CN1Cc2ccccc2[C@@H](c2ccccc2)N(CCCN)C1;CN1Cc2ccccc2[C@@H](c2ccccc2)N(CCCO)C1",
+      "task": "herg_karim",
+      "molecule_id": 3,
+      "original_smiles": "CN1Cc2ccccc2[C@@H](c2ccccc2)N=C1CCc1ccccc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#N",
+        "COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#CC2",
+        "COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#C2"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#N;COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#CC2;COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#C2",
+      "task": "herg_karim",
+      "molecule_id": 4,
+      "original_smiles": "COc1cc2nccc(CCC34CCC(NCc5ccc6c(n5)NC(=O)CO6)(CC3)CO4)c2nc1C#N",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1ccc(Oc2ccnc3cc(-c4cnc4)ccc23)cc1",
+        "COc1ccc(Oc2ccnnc3cc(-c4cnc4)ccc23)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1ccc(Oc2ccnc3cc(-c4cnc4)ccc23)cc1;COc1ccc(Oc2ccnnc3cc(-c4cnc4)ccc23)cc1",
+      "task": "herg_karim",
+      "molecule_id": 5,
+      "original_smiles": "COc1ccc(Oc2ccnc3cc(-c4cnn(C5CCNCC5)c4)ccc23)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CC1CCCC(c2nc3ccccc3n2COc2ccccc2)C1N",
+        "CC1CCCC(c2nc3ccccc3n2COc2cccnc2)C1N",
+        "CC1CCCC(c2nc3ccccc3n2CCNc2cccnc2)C1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC1CCCC(c2nc3ccccc3n2COc2ccccc2)C1N;CC1CCCC(c2nc3ccccc3n2COc2cccnc2)C1N;CC1CCCC(c2nc3ccccc3n2CCNc2cccnc2)C1N",
+      "task": "herg_karim",
+      "molecule_id": 6,
+      "original_smiles": "CN1CCCC(c2nc3ccccc3n2COc2ccccc2)C1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1cc(-n2cnnn2)ccc1CC(=O)N1CCN(CCc2ccc3c(c2)CO)CC1",
+        "Cc1cc(-n2cnnn2)ccc1CC(=O)N1CCN(CCc2ccc3c(c2)CCO)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1cc(-n2cnnn2)ccc1CC(=O)N1CCN(CCc2ccc3c(c2)CO)CC1;Cc1cc(-n2cnnn2)ccc1CC(=O)N1CCN(CCc2ccc3c(c2)CCO)CC1",
+      "task": "herg_karim",
+      "molecule_id": 7,
+      "original_smiles": "Cc1cc(-n2cnnn2)ccc1CC(=O)N1CCN(CCc2ccc3c(c2)COC3=O)CC1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2cccnc2)C3)n1C",
+        "Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2ccccc2)C3)n1C",
+        "Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2cccc(CF)C2)C3)n1C"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2cccnc2)C3)n1C;Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2ccccc2)C3)n1C;Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2cccc(CF)C2)C3)n1C",
+      "task": "herg_karim",
+      "molecule_id": 8,
+      "original_smiles": "Cc1ncoc1-c1nnc(SCCCN2C3CCC2CC(c2cccc(C(F)(F)F)c2)C3)n1C",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc1C(F)=O",
+        "O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc1CC(F)=O",
+        "O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc1CC(C(F)(F)F)=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc1C(F)=O;O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc1CC(F)=O;O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc1CC(C(F)(F)F)=O",
+      "task": "herg_karim",
+      "molecule_id": 9,
+      "original_smiles": "O=C1N([C@]2(c3ccccc3)CC[C@@H](N3CCC4(CCOC4)CC3)CC2)CCC1(O)c1cc(C(F)(F)F)cc(C(F)(F)F)c1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(C1CNCCC1(O)c1ccc(F)c(F)c1)N(Cc1ccccc1)C1CC1",
+        "O=C(C1CNCCC1(O)c1ccc(F)c(F)c1)N(Cc1cccnc1)C1CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(C1CNCCC1(O)c1ccc(F)c(F)c1)N(Cc1ccccc1)C1CC1;O=C(C1CNCCC1(O)c1ccc(F)c(F)c1)N(Cc1cccnc1)C1CC1",
+      "task": "herg_karim",
+      "molecule_id": 10,
+      "original_smiles": "O=C(C1CNCCC1(O)c1ccc(F)c(F)c1)N(Cc1cn(Cc2ncco2)c2cccc(F)c12)C1CC1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1c(C(C)=O)c(O)c(OCc2ccc(Br)cc2)c2occc12",
+        "COc1c(C(C)=O)c(O)c(OCc2ccc(S)cc2)c2occc12",
+        "COc1c(C(C)=O)c(O)c(OCc2ccc(NHc3cccnc3)cc2)c2occc12"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1c(C(C)=O)c(O)c(OCc2ccc(Br)cc2)c2occc12;COc1c(C(C)=O)c(O)c(OCc2ccc(S)cc2)c2occc12;COc1c(C(C)=O)c(O)c(OCc2ccc(NHc3cccnc3)cc2)c2occc12",
+      "task": "herg_karim",
+      "molecule_id": 11,
+      "original_smiles": "COc1c(C(C)=O)c(O)c(OCc2ccc(Br)cc2)c2occc12",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3c(c2)OCO2)c2cc(Cl)ccc2n1CC(F)(F)F",
+        "O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3cc2OCO3)c2cc(Cl)ccc2n1CC(F)(F)F",
+        "O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3cc2OCCO3)c2cc(Cl)ccc2n1CC(F)(F)F"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3c(c2)OCO2)c2cc(Cl)ccc2n1CC(F)(F)F;O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3cc2OCO3)c2cc(Cl)ccc2n1CC(F)(F)F;O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3cc2OCCO3)c2cc(Cl)ccc2n1CC(F)(F)F",
+      "task": "herg_karim",
+      "molecule_id": 12,
+      "original_smiles": "O=c1nc(N[C@@H]2C[C@@H]3CC[C@H](C2)N3c2ccc3c(c2)OCO3)c2cc(Cl)ccc2n1CC(F)(F)F",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(CCc1ccccc1)N[C@@H]1CCc2ccc(CCCN3CCN(c4nsc5ccccc45)CC3)cc21",
+        "O=C(CCc1ccccc1)N[C@H]1CCc2ccc(CCCN3CCN(c4nsc5ccccc44)CC3)cc21",
+        "O=C(CCc1ccccc1)N[C@@H]1CCc2ccc(CCCN3CCN(c4nsc5ccccc4)CC3)cc21"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(CCc1ccccc1)N[C@@H]1CCc2ccc(CCCN3CCN(c4nsc5ccccc45)CC3)cc21;O=C(CCc1ccccc1)N[C@H]1CCc2ccc(CCCN3CCN(c4nsc5ccccc44)CC3)cc21;O=C(CCc1ccccc1)N[C@@H]1CCc2ccc(CCCN3CCN(c4nsc5ccccc4)CC3)cc21",
+      "task": "herg_karim",
+      "molecule_id": 13,
+      "original_smiles": "O=C(CCc1ccccc1)N[C@H]1CCc2ccc(CCN3CCN(c4nsc5ccccc45)CC3)cc21",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "N#Cc1ccc(Cn2cnc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3ccc(Cl)c3)C2=O)cc1",
+        "N#Cc1ccc(Cn2cnc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3ccc(nc3)N)C2=O)cc1",
+        "N#Cc1ccc(Cn2cnc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3ccc(nc3)F)C2=O)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: N#Cc1ccc(Cn2cnc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3ccc(Cl)c3)C2=O)cc1;N#Cc1ccc(Cn2cnc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3ccc(nc3)N)C2=O)cc1;N#Cc1ccc(Cn2cnc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3ccc(nc3)F)C2=O)cc1",
+      "task": "herg_karim",
+      "molecule_id": 14,
+      "original_smiles": "N#Cc1ccc(Cn2cncc2C[N+](CC[N+]2CCOCC2)C2CCN(Cc3cccc(Cl)c3)C2=O)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1",
+        "CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1",
+        "CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1;CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1;CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1",
+      "task": "herg_karim",
+      "molecule_id": 15,
+      "original_smiles": "CN(C)c1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCNCC2)n1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CCN(C2CCC(O)(c3ccc(F)cc3)CC2)C1",
+        "O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CCN(C2CCC(O)(c3ccc(F)cc3)CC2)CC1",
+        "O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CCN(C2CCC(O)(c3ccc(F)cc3)CC2)C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CCN(C2CCC(O)(c3ccc(F)cc3)CC2)C1;O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CCN(C2CCC(O)(c3ccc(F)cc3)CC2)CC1;O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CCN(C2CCC(O)(c3ccc(F)cc3)CC2)C1",
+      "task": "herg_karim",
+      "molecule_id": 16,
+      "original_smiles": "O=C(CNC(=O)c1cccc(C(F)(F)F)c1)NC1CN(C2CCC(O)(c3ccc(F)cc3)CC2)C1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(NCc1cc(C(F)(F)F)cc1)C1(c2ccccc2)CCC(N2CCC(c3ccc(F)cc3)CC2)CC1",
+        "O=C(NCc1cc(C(F)(F)F)cc1)C1(c2ccccc2)CCC(N2CCC(c3cccBr)cc3)CC2",
+        "O=C(NCc1cc(C(F)(F)F)cc1)C1(c2ccccc2)CCC(N2CCC(c3ccc(O)cc3)CC2)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(NCc1cc(C(F)(F)F)cc1)C1(c2ccccc2)CCC(N2CCC(c3ccc(F)cc3)CC2)CC1;O=C(NCc1cc(C(F)(F)F)cc1)C1(c2ccccc2)CCC(N2CCC(c3cccBr)cc3)CC2;O=C(NCc1cc(C(F)(F)F)cc1)C1(c2ccccc2)CCC(N2CCC(c3ccc(O)cc3)CC2)CC1",
+      "task": "herg_karim",
+      "molecule_id": 17,
+      "original_smiles": "O=C(NCc1cc(C(F)(F)F)cc(C(F)(F)F)c1)C1(c2ccccc2)CCC(N2CCC(c3ccc(F)cc3)CC2)CC1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1cnc2ccc(=O)n(CCN3CCC(c4cc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1",
+        "COc1cnc2ccc(=O)n(CCN3CC(c4cc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1",
+        "COc1cnc2ccc(=O)n(CCN3CC(c4cc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cnc2ccc(=O)n(CCN3CCC(c4cc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1;COc1cnc2ccc(=O)n(CCN3CC(c4cc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1;COc1cnc2ccc(=O)n(CCN3CC(c4cc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1",
+      "task": "herg_karim",
+      "molecule_id": 18,
+      "original_smiles": "COc1cnc2ccc(=O)n(CCN3CCC(c4nc5cc(Cl)c(C)cc5[nH]4)CC3)c2c1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CC(CN)CC#CCc1ccccc1",
+        "CC(CN)CCC#CCc1ccccc1",
+        "CC(CN)CC#CCc1ccccc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(CN)CC#CCc1ccccc1;CC(CN)CCC#CCc1ccccc1;CC(CN)CC#CCc1ccccc1",
+      "task": "herg_karim",
+      "molecule_id": 19,
+      "original_smiles": "CCCCN(CC)CC#CCc1ccccc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Oc1ccc(CCN2CCC(Nc3nc4ccccc4n3Cc3)CC2)cc1",
+        "Oc1ccc(CCN2CCC(Nc3nc4ccccc4n3Cc3)CC2)cc1",
+        "Oc1ccc(CCCN2CCC(Nc3nc4ccccc4n3Cc3)CC2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Oc1ccc(CCN2CCC(Nc3nc4ccccc4n3Cc3)CC2)cc1;Oc1ccc(CCN2CCC(Nc3nc4ccccc4n3Cc3)CC2)cc1;Oc1ccc(CCCN2CCC(Nc3nc4ccccc4n3Cc3)CC2)cc1",
+      "task": "herg_karim",
+      "molecule_id": 20,
+      "original_smiles": "Oc1ccc(CCN2CCC(Nc3nc4ccccc4n3Cc3ccc(F)cc3)CC2)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COC(=O)Cc1ccc(CNCC(=O)C[C@H](N)Cc2ccccc2F)cc1",
+        "COC(=O)Cc1ccc(CNCC(=O)C[C@@H]2CCN2C)cc1",
+        "COC(=O)Cc1ccc(CNCC(=O)C[C@@H]2CCN2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COC(=O)Cc1ccc(CNCC(=O)C[C@H](N)Cc2ccccc2F)cc1;COC(=O)Cc1ccc(CNCC(=O)C[C@@H]2CCN2C)cc1;COC(=O)Cc1ccc(CNCC(=O)C[C@@H]2CCN2)cc1",
+      "task": "herg_karim",
+      "molecule_id": 21,
+      "original_smiles": "COC(=O)Cc1ccc(CNC(=O)[C@@H]2CSCN2C(=O)C[C@H](N)Cc2ccccc2F)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1cccc(-c2cc3c(N[C@@H]4CC[C@@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1",
+        "Cc1cccc(-c2cc3c(N[C@@H]4CC[C@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1",
+        "Cc1cccc(-c2cc3c(N[C@@H]4CC[C@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1cccc(-c2cc3c(N[C@@H]4CC[C@@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1;Cc1cccc(-c2cc3c(N[C@@H]4CC[C@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1;Cc1cccc(-c2cc3c(N[C@@H]4CC[C@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1",
+      "task": "herg_karim",
+      "molecule_id": 22,
+      "original_smiles": "Cc1cccc(-c2cc3c(N[C@@H]4CC[C@](C)(N)C4(C)C)c(C(N)=O)cnn3c2)c1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CC1CCN(Cc2ccc3c(c2)Cc2c-3n[nH]c2-c2csc(C#CCCc3ccccc3)c2)CC1",
+        "CC1CCN(Cc2ccc3c(c2)CCCCn3ccncc3)c2ccc(nc2)O",
+        "CC1CCN(Cc2ccc3c(c2)CCCCn3ccccn3)c2ccc(nc2)O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC1CCN(Cc2ccc3c(c2)Cc2c-3n[nH]c2-c2csc(C#CCCc3ccccc3)c2)CC1;CC1CCN(Cc2ccc3c(c2)CCCCn3ccncc3)c2ccc(nc2)O;CC1CCN(Cc2ccc3c(c2)CCCCn3ccccn3)c2ccc(nc2)O",
+      "task": "herg_karim",
+      "molecule_id": 23,
+      "original_smiles": "CN1CCN(Cc2ccc3c(c2)Cc2c-3n[nH]c2-c2csc(C#CCCc3ccccc3)c2)CC1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(NC1CCCCC1)[C@@H](C1CCCCC1)n1c(-c2ccc(Cl)cc2)nc2cc(F)c(Cl)cc21",
+        "O=C(NC1CCCCC1)[C@@H](C1CCCCC1)n1c(-c2ccc(Br)cc2)nc2cc(F)c(Cl)cc21",
+        "O=C(NC1CCCCC1)[C@@H](C1CCCCC1)n1c(-c2ccc(NH2)cc2)nc2cc(F)c(Cl)cc21"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(NC1CCCCC1)[C@@H](C1CCCCC1)n1c(-c2ccc(Cl)cc2)nc2cc(F)c(Cl)cc21;O=C(NC1CCCCC1)[C@@H](C1CCCCC1)n1c(-c2ccc(Br)cc2)nc2cc(F)c(Cl)cc21;O=C(NC1CCCCC1)[C@@H](C1CCCCC1)n1c(-c2ccc(NH2)cc2)nc2cc(F)c(Cl)cc21",
+      "task": "herg_karim",
+      "molecule_id": 24,
+      "original_smiles": "O=C(NC1CCCCC1)[C@H](C1CCCCC1)n1c(-c2ccc(Cl)cc2)nc2cc(F)c(Cl)cc21",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(NC1CCN(Cc2ccn(-c3ccccc3)c2)CC1)N1CC(N2CCC(C(F)(F)F)CC2)C1",
+        "O=C(NC1CCN(Cc2ccn(-c3ccccc3)c2)CC1)N1CC(N2CC(C(F)(F)F)CC2)C1",
+        "O=C(NC1CCN(Cc2ccn(-c3ccc(SC4CC4)cc3)c2)CC1)N1CC(N2CCC(C(F)(F)F)CC2)C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(NC1CCN(Cc2ccn(-c3ccccc3)c2)CC1)N1CC(N2CCC(C(F)(F)F)CC2)C1;O=C(NC1CCN(Cc2ccn(-c3ccccc3)c2)CC1)N1CC(N2CC(C(F)(F)F)CC2)C1;O=C(NC1CCN(Cc2ccn(-c3ccc(SC4CC4)cc3)c2)CC1)N1CC(N2CCC(C(F)(F)F)CC2)C1",
+      "task": "herg_karim",
+      "molecule_id": 25,
+      "original_smiles": "O=C(NC1CCN(Cc2ccn(-c3ccc(C(F)(F)F)cc3)c2)CC1)N1CC(N2CCC(C(F)(F)F)CC2)C1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1",
+        "COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1NCCN",
+        "COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1CCN"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1;COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1NCCN;COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1CCN",
+      "task": "herg_karim",
+      "molecule_id": 26,
+      "original_smiles": "COc1ccc2ncc(F)c(CCC34CCC(NCc5ccc6c(n5)NC(=O)C(C)O6)(CC3)CO4)c2n1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3)CC2)n1",
+        "Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3)CC2)N1",
+        "Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3)CC2)N1F"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3)CC2)n1;Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3)CC2)N1;Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3)CC2)N1F",
+      "task": "herg_karim",
+      "molecule_id": 27,
+      "original_smiles": "Cc1ccn(C2CCN(c3nc4ccccc4n3Cc3ccc(F)cc3)CC2)n1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=c1cc(OCc2cccc(F)c2)ccn1-c1ccc(OCCN2CCCCC2)cc1",
+        "O=c1cc(OCc2cccc(F)c2)ccn1-c1ccc(OCCN2CCCCC2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=c1cc(OCc2cccc(F)c2)ccn1-c1ccc(OCCN2CCCCC2)cc1;O=c1cc(OCc2cccc(F)c2)ccn1-c1ccc(OCCN2CCCCC2)cc1",
+      "task": "herg_karim",
+      "molecule_id": 28,
+      "original_smiles": "O=c1cc(OCc2cccc(F)c2)ccn1-c1ccc(OCCN2CCCC2)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "C[nH]1c(C#Cc2ccc(Cl)cc2)cccc1C#Cc1ccc(Cl)cc1",
+        "C[nH]1c(C#Cc2ccc(Br)cc2)cccc1C#Cc1ccc(Cl)cc1",
+        "C[nH]1c(C#Cc2ccc(F)cc2)cccc1C#Cc1ccc(Cl)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[nH]1c(C#Cc2ccc(Cl)cc2)cccc1C#Cc1ccc(Cl)cc1;C[nH]1c(C#Cc2ccc(Br)cc2)cccc1C#Cc1ccc(Cl)cc1;C[nH]1c(C#Cc2ccc(F)cc2)cccc1C#Cc1ccc(Cl)cc1",
+      "task": "herg_karim",
+      "molecule_id": 29,
+      "original_smiles": "C[n+]1c(C#Cc2ccc(Cl)cc2)cccc1C#Cc1ccc(Cl)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "NC1(C(=O)NCc2ccc(Cl)cc2)CCN(c2ncnc3c1cccc23)CC1",
+        "NC1(C(=O)NCc2ccc(S)cc2)CCN(c2ncnc3c1cccc23)CC1",
+        "NC1(C(=O)NCc2ccc(O)cc2)CCN(c2ncnc3c1cccc23)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: NC1(C(=O)NCc2ccc(Cl)cc2)CCN(c2ncnc3c1cccc23)CC1;NC1(C(=O)NCc2ccc(S)cc2)CCN(c2ncnc3c1cccc23)CC1;NC1(C(=O)NCc2ccc(O)cc2)CCN(c2ncnc3c1cccc23)CC1",
+      "task": "herg_karim",
+      "molecule_id": 30,
+      "original_smiles": "NC1(C(=O)NCc2ccc(Cl)cc2)CCN(c2ncnc3[nH]ccc23)CC1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@@H](F)C1",
+        "CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@@H](Br)C1",
+        "CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@@H](Cl)C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@@H](F)C1;CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@@H](Br)C1;CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@@H](Cl)C1",
+      "task": "herg_karim",
+      "molecule_id": 31,
+      "original_smiles": "CC(C)(C)CCN1CC[C@H](CNC(=O)c2cc(Cl)cc(Cl)c2)[C@H](F)C1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CC(NC1CC1)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1",
+        "CC(NC1CC1)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1",
+        "CC(NC1CC1)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(NC1CC1)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1;CC(NC1CC1)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1;CC(NC1CC1)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1",
+      "task": "herg_karim",
+      "molecule_id": 32,
+      "original_smiles": "CNC(C)c1cc(C)ccc1Oc1ccc(Cl)c(Cl)c1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3CC2cncnc2F)c2cccc1",
+        "NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3CC2cncn2F)c2cccc1",
+        "NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3CC2cncn2F)c2ccc(F)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3CC2cncnc2F)c2cccc1;NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3CC2cncn2F)c2cccc1;NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3CC2cncn2F)c2ccc(F)cc1",
+      "task": "herg_karim",
+      "molecule_id": 33,
+      "original_smiles": "NC1=NC2(c3cc(-c4cncnc4)ccc3OCC23CC3)c2cccc(F)c21",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4CCS)CC3)c3cc(Cl)ccc32)cc1",
+        "Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4CCS)CC3)c3cc(F)ccc32)cc1",
+        "Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4CCN=S)CC3)c3cc(Cl)ccc32)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4CCS)CC3)c3cc(Cl)ccc32)cc1;Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4CCS)CC3)c3cc(F)ccc32)cc1;Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4CCN=S)CC3)c3cc(Cl)ccc32)cc1",
+      "task": "herg_karim",
+      "molecule_id": 34,
+      "original_smiles": "Fc1ccc(-n2cc(C3CC[NH+](CCN4CCNC4=S)CC3)c3cc(Cl)ccc32)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(Br)c(Cl)c2)CC1",
+        "O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(SBr)c(Cl)c2)CC1",
+        "O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(O)c(Cl)c2)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(Br)c(Cl)c2)CC1;O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(SBr)c(Cl)c2)CC1;O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(O)c(Cl)c2)CC1",
+      "task": "herg_karim",
+      "molecule_id": 35,
+      "original_smiles": "O[C@@H](COc1ccc(F)cc1)CN1CCN(Cc2ccc(Cl)c(Cl)c2)CC1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "C[N+]CCC(Oc1ccccc1)CCl",
+        "C[N+]CCC(Oc1ccccc1)CO",
+        "C[N+]CCC(Oc1ccccc1)C(O)F"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[N+]CCC(Oc1ccccc1)CCl;C[N+]CCC(Oc1ccccc1)CO;C[N+]CCC(Oc1ccccc1)C(O)F",
+      "task": "herg_karim",
+      "molecule_id": 36,
+      "original_smiles": "C[N+]CCC(Oc1ccc(C(F)(F)F)cc1)c1ccccc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)[S+]([O-])CC[N+](CC)CC(O)COc1ccc(C#N)cc1",
+        "CC(C)[S+]([O-])CC[N+](CC)CC(O)COc1ccc(CNCCN)cc1",
+        "CC(C)[S+]([O-])CC[N+](CC)CC(O)COc1ccc(C[C@@H](CNC(=O)CN)C)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)[S+]([O-])CC[N+](CC)CC(O)COc1ccc(C#N)cc1;CC(C)[S+]([O-])CC[N+](CC)CC(O)COc1ccc(CNCCN)cc1;CC(C)[S+]([O-])CC[N+](CC)CC(O)COc1ccc(C[C@@H](CNC(=O)CN)C)cc1",
+      "task": "herg_karim",
+      "molecule_id": 37,
+      "original_smiles": "CCC[S+]([O-])CCC[N+](CC)CC(O)COc1ccc(C#N)cc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C1COc2ccc(CNCC3CCN(CCN4C(=O)COc5ccc(-c6ccco6)cc54)CC3)nc2N1",
+        "O=C1COc2ccc(CNCC3CCN(CCN4C(=O)Nc5ccc(-c6ccco6)cc5)CC3)nc2N1",
+        "O=C1COc2ccc(CNCC3CCN(CCN4C(=O)Nc5ccc(-c6ccc(-c7ccc(-c8ccc(Cl)cc8)cc7)cc5)CC3)nc2N1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1COc2ccc(CNCC3CCN(CCN4C(=O)COc5ccc(-c6ccco6)cc54)CC3)nc2N1;O=C1COc2ccc(CNCC3CCN(CCN4C(=O)Nc5ccc(-c6ccco6)cc5)CC3)nc2N1;O=C1COc2ccc(CNCC3CCN(CCN4C(=O)Nc5ccc(-c6ccc(-c7ccc(-c8ccc(Cl)cc8)cc7)cc5)CC3)nc2N1",
+      "task": "herg_karim",
+      "molecule_id": 38,
+      "original_smiles": "O=C1COc2ccc(CNC3CCN(CCN4C(=O)COc5ccc(-c6ccco6)cc54)CC3)nc2N1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc(C(F)(F)Br)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1",
+        "COc1cc(C(F)(F)Cl)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1",
+        "COc1cc(C(F)(F)I)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc(C(F)(F)Br)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1;COc1cc(C(F)(F)Cl)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1;COc1cc(C(F)(F)I)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1",
+      "task": "herg_karim",
+      "molecule_id": 39,
+      "original_smiles": "COc1cc(C(F)(F)F)cc(COCC2(c3ccc(F)cc3)CCN(C)CC2)n1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CCN(CC)CCSc1nc(-c2cc(O)c(Cl)cc2Cl)c2c(C#N)cc2n1",
+        "CCN(CC)CCSc1nc(-c2cc(O)c(Cl)cc2Cl)c2c(C#N)cc2n1N",
+        "CCN(CC)CCSc1nc(-c2cc(O)c(Cl)cc2Cl)c2c(C#N)cc2n1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(CC)CCSc1nc(-c2cc(O)c(Cl)cc2Cl)c2c(C#N)cc2n1;CCN(CC)CCSc1nc(-c2cc(O)c(Cl)cc2Cl)c2c(C#N)cc2n1N;CCN(CC)CCSc1nc(-c2cc(O)c(Cl)cc2Cl)c2c(C#N)cc2n1N",
+      "task": "herg_karim",
+      "molecule_id": 40,
+      "original_smiles": "CCN(CC)CCSc1nc(-c2cc(OC)c(Cl)cc2Cl)c2c(C#N)c[nH]c2n1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "C(Cc1cc(-c2nc3c2Cc2cc(Cn4ccnc4)ccc2-3)cs1)COc1ccccc1",
+        "C(Cc1cc(-c2nc3c2CCn4ccnc4)cs1)COc1ccccc1",
+        "C(Cc1cc(-c2nc3c2CCn4ccnc4)ccs1)COc1ccccc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: C(Cc1cc(-c2nc3c2Cc2cc(Cn4ccnc4)ccc2-3)cs1)COc1ccccc1;C(Cc1cc(-c2nc3c2CCn4ccnc4)cs1)COc1ccccc1;C(Cc1cc(-c2nc3c2CCn4ccnc4)ccs1)COc1ccccc1",
+      "task": "herg_karim",
+      "molecule_id": 41,
+      "original_smiles": "C(#Cc1cc(-c2[nH]nc3c2Cc2cc(Cn4ccnc4)ccc2-3)cs1)COc1ccccc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1ccccc1)C2",
+        "C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1ccccc1)C2N",
+        "C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1ccccc1)C2CC"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1ccccc1)C2;C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1ccccc1)C2N;C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1ccccc1)C2CC",
+      "task": "herg_karim",
+      "molecule_id": 42,
+      "original_smiles": "C[C@H](c1ccnc(Cl)c1)N1[C@H]2CC[C@@H]1C[C@@H](Oc1cccc(C(N)=O)c1)C2",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1",
+        "Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1N",
+        "Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1;Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1N;Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1N",
+      "task": "herg_karim",
+      "molecule_id": 43,
+      "original_smiles": "Cc1nc(Nc2ccc(C(F)(F)F)cc2)c2ccc(-c3ncccc3C(F)(F)F)cc2n1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\N/C(=C2\\NC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1",
+        "N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\N/C(=C2\\CC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1",
+        "N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\N/C(=C2\\CC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\N/C(=C2\\NC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1;N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\N/C(=C2\\CC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1;N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\N/C(=C2\\CC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1",
+      "task": "herg_karim",
+      "molecule_id": 44,
+      "original_smiles": "N#Cc1c(-c2ccccc2)cc(-c2ccccc2)nc1/N=C1\\S/C(=C2\\SC(c3ccccc3)=NN2c2ccccc2)C(=O)N1c1ccccc1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)CC1)CC1cc(=O)c2ccc(F)cc2o1)NCCO",
+        "O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)CC1)CC1cc(=O)nc2ccc(F)cc2N)",
+        "O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)CC1)CC1cc(=O)nc2ccc(O)cc2)S(=O)(=O)NCCO"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)CC1)CC1cc(=O)c2ccc(F)cc2o1)NCCO;O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)CC1)CC1cc(=O)nc2ccc(F)cc2N);O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)CC1)CC1cc(=O)nc2ccc(O)cc2)S(=O)(=O)NCCO",
+      "task": "herg_karim",
+      "molecule_id": 45,
+      "original_smiles": "O=C(NC1CCN(Cc2ccc(OCCCn3c(O)csc3=O)c(F)c2)CC1)c1cc(=O)c2ccc(F)cc2o1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=C1NCN(c2ccccc2)C1CC[N+](CCCC(c1ccc(F)cc1)C2=CC=CC2)CC2",
+        "O=C1NCN(c2ccccc2)C1CC[N+](CCCC(c1ccc(F)cc1)C2=CC=CC3=O)CC3",
+        "O=C1NCN(c2ccccc2)C1CC[N+](CCCC(c1ccc(F)cc1)C2=CC=CC3=O)CC3"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1NCN(c2ccccc2)C1CC[N+](CCCC(c1ccc(F)cc1)C2=CC=CC2)CC2;O=C1NCN(c2ccccc2)C1CC[N+](CCCC(c1ccc(F)cc1)C2=CC=CC3=O)CC3;O=C1NCN(c2ccccc2)C1CC[N+](CCCC(c1ccc(F)cc1)C2=CC=CC3=O)CC3",
+      "task": "herg_karim",
+      "molecule_id": 46,
+      "original_smiles": "O=C1NCN(c2ccccc2)C12CC[N+](CCCC(c1ccc(F)cc1)c1ccc(F)cc1)CC2",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "Clc1ccc(C2CCCCNCC2)cc1Cl",
+        "Clc1ccc(C2CCCCNC1CC2)cc1Cl",
+        "Clc1ccc(C2CCCCNC(=O)NC2)cc1Cl"
+      ],
+      "raw_response": "MODIFIED_SMILES: Clc1ccc(C2CCCCNCC2)cc1Cl;Clc1ccc(C2CCCCNC1CC2)cc1Cl;Clc1ccc(C2CCCCNC(=O)NC2)cc1Cl",
+      "task": "herg_karim",
+      "molecule_id": 47,
+      "original_smiles": "Clc1ccc(C2CCCCNC2)cc1Cl",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "O=c1[nH]ccccc1C(=O)NC2=CC=CC=S(=O)(=O)NCCNCC2",
+        "O=c1[nH]ccc2c(S(=O)(=O)NCCNCCN)cccc12",
+        "O=c1[nH]ccc2c(S(=O)(=O)NCCN(C)CC)cccc12"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=c1[nH]ccccc1C(=O)NC2=CC=CC=S(=O)(=O)NCCNCC2;O=c1[nH]ccc2c(S(=O)(=O)NCCNCCN)cccc12;O=c1[nH]ccc2c(S(=O)(=O)NCCN(C)CC)cccc12",
+      "task": "herg_karim",
+      "molecule_id": 48,
+      "original_smiles": "O=c1[nH]ccc2c(S(=O)(=O)N3CCCNCC3)cccc12",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "CN1C[C@@H]2C[C@H]1CC2c1ncc(-c3ccc4[nH]ccc4c3)cn1",
+        "CN1C[C@@H]2C[C@H]1CC2c1ncc(-c3ccc4[nH]ccc4c3)nc1",
+        "CN1C[C@@H]2C[C@H]1CC2c1ncc(-c3ccc4[nH]ccc4c3)nc1C"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN1C[C@@H]2C[C@H]1CC2c1ncc(-c3ccc4[nH]ccc4c3)cn1;CN1C[C@@H]2C[C@H]1CC2c1ncc(-c3ccc4[nH]ccc4c3)nc1;CN1C[C@@H]2C[C@H]1CC2c1ncc(-c3ccc4[nH]ccc4c3)nc1C",
+      "task": "herg_karim",
+      "molecule_id": 49,
+      "original_smiles": "CN1C[C@@H]2C[C@H]1CN2c1ncc(-c2ccc3[nH]ccc3c2)cn1",
+      "model": "InternVL3-8B"
+    },
+    {
+      "modified_smiles": [
+        "c1ncc(-c2cc3sc(N4CCC(N5CCCCC5)CC4)nc3ncn2)cn1",
+        "c1ncc(-c2cc3sc(N4CCC(N5CCCCC5)CC4)nc3ncn2)cn1",
+        "c1ncc(-c2cc3sc(N4CCC(N5CCCCCC5)CC4)nc3ncn2)cn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: c1ncc(-c2cc3sc(N4CCC(N5CCCCC5)CC4)nc3ncn2)cn1;c1ncc(-c2cc3sc(N4CCC(N5CCCCC5)CC4)nc3ncn2)cn1;c1ncc(-c2cc3sc(N4CCC(N5CCCCCC5)CC4)nc3ncn2)cn1",
+      "task": "herg_karim",
+      "molecule_id": 50,
+      "original_smiles": "c1ncc(-c2cc3sc(N4CCC(N5CCCCC5)CC4)nc3cn2)cn1",
+      "model": "InternVL3-8B"
+    }
+  ]
+}

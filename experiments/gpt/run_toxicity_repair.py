@@ -17,6 +17,8 @@ from pathlib import Path
 import openai
 from openai import OpenAI
 import logging
+import base64
+from datasets import load_dataset
 
 # Configure logging
 logging.basicConfig(
@@ -39,6 +41,12 @@ AVAILABLE_TASKS = [
     "herg_central", "herg_karim", "ld50_zhu", "skin_reaction", 
     "tox21", "toxcast"
 ]
+def save_base64_image(base64_str, output_path):
+    img_data = base64.b64decode(base64_str)
+
+    with open(output_path, 'wb') as f:
+        f.write(img_data)
+    print(f"Img is saved to tmp dir: {output_path}")
 
 def encode_image(image_path: str) -> str:
     """
@@ -82,8 +90,8 @@ def load_task_data(task_name: str) -> Tuple[List[Dict], Dict]:
     """
     try:
         # Load molecules data
-        molecules_path = DATA_DIR / task_name / f"{task_name}.json"
-        molecules = load_json_file(molecules_path)
+        molecules_hf = load_dataset("DeepYoke/ToxiMol-benchmark", data_dir=task_name, split="train", trust_remote_code=True)
+        molecules = molecules_hf.to_pandas().to_dict(orient='records')  
         
         # Load task prompt
         prompt_path = DATA_DIR / task_name / f"{task_name}_prompt.json"
@@ -300,14 +308,19 @@ def process_molecule(
     """
     molecule_id = molecule["id"]
     logger.info(f"Processing {task_name} molecule ID: {molecule_id}")
-    
-    # Get the image path
-    image_path = DATA_DIR / task_name / "image" / f"{molecule_id}.png"
+    task = molecule['task']
+    # Get the image binary and save it to tmp dir
+    image_binary = molecule["image"]
+    tmp_dir = f'~/toximol_tmp_images/{task}'
+    if not os.path.exists(tmp_dir):
+        os.makedirs(tmp_dir)
+    image_path = os.path.join(tmp_dir, f'{molecule_id}.png')
+    save_base64_image(image_binary, image_path)
     
     if not os.path.exists(image_path):
         logger.error(f"Image not found: {image_path}")
         raise FileNotFoundError(f"Image not found: {image_path}")
-    
+
     # Create the API request
     messages = create_repair_request(
         molecule, 

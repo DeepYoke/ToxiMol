@@ -39,10 +39,10 @@ logging.basicConfig(
 logger = logging.getLogger("llava_one_vision")
 
 # Constants
-DEFAULT_MODEL_PATH = "llava-hf/llava-1.5-7b-hf"  # 替换为你使用的实际模型路径
+DEFAULT_MODEL_PATH = ""  # 替换为你使用的实际模型路径
 
 class LlavaOneVisionAgent:
-    def __init__(self, model_path=DEFAULT_MODEL_PATH):
+    def __init__(self, model_path):
         self.model_path = model_path
         self.model_name = "llava_qwen"
         self.devide = "cuda"
@@ -53,7 +53,7 @@ class LlavaOneVisionAgent:
         }
         logger.info(f"Loading Llava-One-Vision model from {model_path}")
 
-        self.tokenizer, self.model, self.image_processor, max_length = load_pretrained_model(self.pretrained, None, self.model_name, device_map=self.device_map,  **llava_model_args)
+        self.tokenizer, self.model, self.image_processor, max_length = load_pretrained_model(self.model_path, None, self.model_name, device_map=self.device_map,  **llava_model_args)
         self.model.eval()
         logger.info("Model and tokenizer loaded successfully")
 
