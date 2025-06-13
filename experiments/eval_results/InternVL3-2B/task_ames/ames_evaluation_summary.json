@@ -1,0 +1,12 @@
+{
+  "ames": {
+    "task": "ames",
+    "model": "InternVL3-2B",
+    "original_molecule_count": 50,
+    "total_molecules": 150,
+    "valid_smiles_count": 108,
+    "success_count": 5,
+    "valid_percentage": 72.0,
+    "success_percentage": 10.0
+  }
+}
