@@ -2,7 +2,7 @@
 
 [![NeurIPS 2025](https://img.shields.io/badge/NeurIPS-2025-blue.svg)](https://neurips.cc/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Paper](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2506.12345)
+[![Paper](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2506.10912)
 
 **ToxiMol** is a new large-scale benchmark designed to evaluate structure-level detoxification capabilities of molecular generation models. It provides a rigorous testbed for aligning molecule generation with real-world toxicological requirements, supporting both property control and structural preservation.
 
@@ -108,12 +108,14 @@ python eval.py --model MolGPT --dataset ./data/tox_pairs.csv
 If you use this benchmark, please cite:
 
 ```bibtex
-@article{lin2025breaking,
-  title={Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?},
-  author={Fei Lin and Ziyang Gong and Cong Wang and Yonglin Tian and Tengchao Zhang and Xue Yang and Gen Luo and Fei-Yue Wang},
-  journal={arXiv preprint},
-  year={2025},
-  note={Paper submitted to arXiv}
+@misc{lin2025breakingbadmoleculesmllms,
+      title={Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?}, 
+      author={Fei Lin and Ziyang Gong and Cong Wang and Yonglin Tian and Tengchao Zhang and Xue Yang and Gen Luo and Fei-Yue Wang},
+      year={2025},
+      eprint={2506.10912},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2506.10912}, 
 }
 ```
 
