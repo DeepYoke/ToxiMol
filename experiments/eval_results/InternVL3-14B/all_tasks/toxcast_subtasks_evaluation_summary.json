@@ -1,0 +1,122 @@
+{
+  "toxcast_APR_HepG2_MitoMass_24h_dn": {
+    "task": "toxcast_APR_HepG2_MitoMass_24h_dn",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 13,
+    "success_count": 4,
+    "valid_percentage": 86.66666666666667,
+    "success_percentage": 80.0,
+    "toxicity_improved_count": 4,
+    "toxicity_improved_percentage": 80.0
+  },
+  "toxcast_BSK_3C_ICAM1_down": {
+    "task": "toxcast_BSK_3C_ICAM1_down",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 10,
+    "success_count": 2,
+    "valid_percentage": 66.66666666666666,
+    "success_percentage": 40.0,
+    "toxicity_improved_count": 3,
+    "toxicity_improved_percentage": 60.0
+  },
+  "toxcast_Tanguay_ZF_120hpf_TR_up": {
+    "task": "toxcast_Tanguay_ZF_120hpf_TR_up",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 14,
+    "success_count": 4,
+    "valid_percentage": 93.33333333333333,
+    "success_percentage": 80.0,
+    "toxicity_improved_count": 4,
+    "toxicity_improved_percentage": 80.0
+  },
+  "toxcast_ATG_M_32_CIS_dn": {
+    "task": "toxcast_ATG_M_32_CIS_dn",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 13,
+    "success_count": 1,
+    "valid_percentage": 86.66666666666667,
+    "success_percentage": 20.0,
+    "toxicity_improved_count": 5,
+    "toxicity_improved_percentage": 100.0
+  },
+  "toxcast_ATG_RORg_TRANS_up": {
+    "task": "toxcast_ATG_RORg_TRANS_up",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 15,
+    "success_count": 1,
+    "valid_percentage": 100.0,
+    "success_percentage": 20.0,
+    "toxicity_improved_count": 4,
+    "toxicity_improved_percentage": 80.0
+  },
+  "toxcast_TOX21_p53_BLA_p3_ch2": {
+    "task": "toxcast_TOX21_p53_BLA_p3_ch2",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 11,
+    "success_count": 1,
+    "valid_percentage": 73.33333333333333,
+    "success_percentage": 20.0,
+    "toxicity_improved_count": 3,
+    "toxicity_improved_percentage": 60.0
+  },
+  "toxcast_BSK_3C_MCP1_down": {
+    "task": "toxcast_BSK_3C_MCP1_down",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 11,
+    "success_count": 4,
+    "valid_percentage": 73.33333333333333,
+    "success_percentage": 80.0,
+    "toxicity_improved_count": 4,
+    "toxicity_improved_percentage": 80.0
+  },
+  "toxcast_ATG_MRE_CIS_up": {
+    "task": "toxcast_ATG_MRE_CIS_up",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 12,
+    "success_count": 2,
+    "valid_percentage": 80.0,
+    "success_percentage": 40.0,
+    "toxicity_improved_count": 4,
+    "toxicity_improved_percentage": 80.0
+  },
+  "toxcast_NVS_GPCR_gLTB4": {
+    "task": "toxcast_NVS_GPCR_gLTB4",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 12,
+    "success_count": 3,
+    "valid_percentage": 80.0,
+    "success_percentage": 60.0,
+    "toxicity_improved_count": 4,
+    "toxicity_improved_percentage": 80.0
+  },
+  "toxcast_NVS_ENZ_hAChE": {
+    "task": "toxcast_NVS_ENZ_hAChE",
+    "model": "InternVL3-14B",
+    "original_molecule_count": 5,
+    "total_molecules": 15,
+    "valid_smiles_count": 14,
+    "success_count": 2,
+    "valid_percentage": 93.33333333333333,
+    "success_percentage": 40.0,
+    "toxicity_improved_count": 3,
+    "toxicity_improved_percentage": 60.0
+  }
+}

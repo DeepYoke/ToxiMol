@@ -1,0 +1,610 @@
+{
+  "task_name": "ames",
+  "model": "gpt-4.1",
+  "total_molecules": 50,
+  "success_count": 50,
+  "error_count": 0,
+  "timestamp": "2025-06-14 00:11:53",
+  "results": [
+    {
+      "modified_smiles": [
+        "Cc1nc2cc(F)ccc2[nH]1",
+        "Cc1nc2cc(Cl)ccc2n1C",
+        "Cc1nc2cc(Cl)ccc2[nH]1C"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1nc2cc(F)ccc2[nH]1;Cc1nc2cc(Cl)ccc2n1C;Cc1nc2cc(Cl)ccc2[nH]1C",
+      "task": "ames",
+      "molecule_id": 1,
+      "original_smiles": "Cc1nc2cc(Cl)ccc2[nH]1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=C1CCc2cc3c4c(c2O1)CCCN4CCC3",
+        "O=C1CCC2=CC3=C4C(=C2O1)CCCN4CCC3",
+        "O=C1CCC2=CC3=CC4=CC=CC=C4C3=C2O1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1CCc2cc3c4c(c2O1)CCCN4CCC3;O=C1CCC2=CC3=C4C(=C2O1)CCCN4CCC3;O=C1CCC2=CC3=CC4=CC=CC=C4C3=C2O1",
+      "task": "ames",
+      "molecule_id": 2,
+      "original_smiles": "O=c1ccc2cc3c4c(c2o1)CCCN4CCC3",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc(S(=O)(=O)Oc2ccc(C3=CC(C)=CC(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)=C3)cc2)cc1",
+        "Cc1ccc(S(=O)(=O)Oc2ccc(/N=C/c3ccc(-c4ccc(/N=C/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1",
+        "Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/NH/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc(S(=O)(=O)Oc2ccc(C3=CC(C)=CC(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)=C3)cc2)cc1;Cc1ccc(S(=O)(=O)Oc2ccc(/N=C/c3ccc(-c4ccc(/N=C/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1;Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/NH/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1",
+      "task": "ames",
+      "molecule_id": 3,
+      "original_smiles": "Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1c2ccccc2nc2ccc(OC)cc12",
+        "Nc1c2ccccc2nc2ccc(F)cc12",
+        "NCC1=NC2=CC=CC=C2C2=CC(O)=CC=C12"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1c2ccccc2nc2ccc(OC)cc12;Nc1c2ccccc2nc2ccc(F)cc12;NCC1=NC2=CC=CC=C2C2=CC(O)=CC=C12",
+      "task": "ames",
+      "molecule_id": 4,
+      "original_smiles": "Nc1c2ccccc2nc2ccc(O)cc12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCC(=O)CC",
+        "CC(C)=O",
+        "CC(C)C=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCC(=O)CC;CC(C)=O;CC(C)C=O",
+      "task": "ames",
+      "molecule_id": 5,
+      "original_smiles": "C=CC(=O)CC",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CN(C)c1ccc2cc3ccc(N(C)C)cc3nc2c1",
+        "CN(C)c1ccc2cc3ccc(NC)cc3nc2c1",
+        "CN(C)c1ccc2cc3ccc(N(C)C)cc3n(C)c2c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN(C)c1ccc2cc3ccc(N(C)C)cc3nc2c1;CN(C)c1ccc2cc3ccc(NC)cc3nc2c1;CN(C)c1ccc2cc3ccc(N(C)C)cc3n(C)c2c1",
+      "task": "ames",
+      "molecule_id": 6,
+      "original_smiles": "CN(C)c1ccc2cc3ccc(N(C)C)cc3nc2c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc2nc3ccccc3c(O)cc2cc1C",
+        "COc1cc2nc3ccccc3c(OC)cc2cc1OC",
+        "COc1cc2nc3ccccc3c(O)cc2cc1O"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc2nc3ccccc3c(O)cc2cc1C;COc1cc2nc3ccccc3c(OC)cc2cc1OC;COc1cc2nc3ccccc3c(O)cc2cc1O",
+      "task": "ames",
+      "molecule_id": 7,
+      "original_smiles": "COc1cc2nc3ccccc3c(O)c2cc1OC",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCO",
+        "CCCOC",
+        "CCCOCC"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCO;CCCOC;CCCOCC",
+      "task": "ames",
+      "molecule_id": 8,
+      "original_smiles": "CCCOO",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1ccc(Cc2ccc(N)c(Cl)c2)cc1F",
+        "Nc1ccc(Cc2ccc(NC)c(Cl)c2)cc1Cl",
+        "Nc1ccc(Cc2ccc(O)c(Cl)c2)cc1Cl"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1ccc(Cc2ccc(N)c(Cl)c2)cc1F;Nc1ccc(Cc2ccc(NC)c(Cl)c2)cc1Cl;Nc1ccc(Cc2ccc(O)c(Cl)c2)cc1Cl",
+      "task": "ames",
+      "molecule_id": 9,
+      "original_smiles": "Nc1ccc(Cc2ccc(N)c(Cl)c2)cc1Cl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "c1ccc(COCCO)cc1",
+        "c1ccc(COCC2COC2)cc1",
+        "c1ccc(CCOCC2CO2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: c1ccc(COCCO)cc1;c1ccc(COCC2COC2)cc1;c1ccc(CCOCC2CO2)cc1",
+      "task": "ames",
+      "molecule_id": 10,
+      "original_smiles": "c1ccc(COCC2CO2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "NCC1=CC=CC=C1-C2=CC=CC=C2",
+        "NS(=O)(=O)c1ccc(-c2ccccc2)cc1",
+        "Nc1ccc(-c2ccccc2)cc1F"
+      ],
+      "raw_response": "MODIFIED_SMILES: NCC1=CC=CC=C1-C2=CC=CC=C2;NS(=O)(=O)c1ccc(-c2ccccc2)cc1;Nc1ccc(-c2ccccc2)cc1F",
+      "task": "ames",
+      "molecule_id": 11,
+      "original_smiles": "Nc1ccc(-c2ccccc2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc2c(c1)Cc3cccc4ccc2c34",
+        "Cc1ccc2c(c1)Oc3cccc4ccc2c34",
+        "Cc1ccc2ccc3c(c2c1)C=CC4=CC=CC=C34"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc2c(c1)Cc3cccc4ccc2c34;Cc1ccc2c(c1)Oc3cccc4ccc2c34;Cc1ccc2ccc3c(c2c1)C=CC4=CC=CC=C34",
+      "task": "ames",
+      "molecule_id": 12,
+      "original_smiles": "Cc1ccc2ccc3cccc4ccc1c2c34",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1c(-c2ccc(Cl)cc2)nc2sccn12",
+        "Cc1c(-c2ccc(Cl)cc2)nc2sccn12",
+        "Oc1c(-c2ccc(Cl)cc2)nc2sccn12"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1c(-c2ccc(Cl)cc2)nc2sccn12;Cc1c(-c2ccc(Cl)cc2)nc2sccn12;Oc1c(-c2ccc(Cl)cc2)nc2sccn12",
+      "task": "ames",
+      "molecule_id": 13,
+      "original_smiles": "O=Nc1c(-c2ccc(Cl)cc2)nc2sccn12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCc1cc(O)cc2c3c([NH]c1C2)C(CC)(CC(=O)O)OCC3",
+        "CCc1cc(OC)cc2c3c([nH]c1c2)C(CC)(CC(=O)O)OCC3",
+        "CCc1cc(O)cc2c3c([nH]c1c2)C(CC)(CC(=O)O)OCC3C"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCc1cc(O)cc2c3c([NH]c1C2)C(CC)(CC(=O)O)OCC3;CCc1cc(OC)cc2c3c([nH]c1c2)C(CC)(CC(=O)O)OCC3;CCc1cc(O)cc2c3c([nH]c1c2)C(CC)(CC(=O)O)OCC3C",
+      "task": "ames",
+      "molecule_id": 14,
+      "original_smiles": "CCc1cc(O)cc2c3c([nH]c12)C(CC)(CC(=O)O)OCC3",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCCN(CCCC(=O)O)N",
+        "CCCCN(CCCC(=O)O)C=O",
+        "CCCCN(CCCC(=O)O)C"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCCN(CCCC(=O)O)N;CCCCN(CCCC(=O)O)C=O;CCCCN(CCCC(=O)O)C",
+      "task": "ames",
+      "molecule_id": 15,
+      "original_smiles": "CCCCN(CCCC(=O)O)N=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=C(O)/C(Cl)=C(\\CO)C(Cl)F",
+        "O=C(O)/C(Cl)=C(\\CO)C(F)F",
+        "O=C(O)/C(F)=C(\\CO)C(Cl)Cl"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(O)/C(Cl)=C(\\CO)C(Cl)F;O=C(O)/C(Cl)=C(\\CO)C(F)F;O=C(O)/C(F)=C(\\CO)C(Cl)Cl",
+      "task": "ames",
+      "molecule_id": 16,
+      "original_smiles": "O=C(O)/C(Cl)=C(\\CO)C(Cl)Cl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "N#Cc1cc(Cl)ccc1N",
+        "N#Cc1cc(O)ccc1N",
+        "N#Cc1cc(F)ccc1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: N#Cc1cc(Cl)ccc1N;N#Cc1cc(O)ccc1N;N#Cc1cc(F)ccc1N",
+      "task": "ames",
+      "molecule_id": 17,
+      "original_smiles": "N#Cc1cc([N+](=O)[O-])ccc1N",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC1CCC(C(C)(C)O)CC1",
+        "CC1CCC(C(C)CO)CC1",
+        "CC1CCC(C(C)(C)OC)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC1CCC(C(C)(C)O)CC1;CC1CCC(C(C)CO)CC1;CC1CCC(C(C)(C)OC)CC1",
+      "task": "ames",
+      "molecule_id": 18,
+      "original_smiles": "CC1CCC(C(C)(C)OO)CC1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1ccc(CN=c2ccccc2)cc1",
+        "Nc1ccc(NCc2ccccc2)cc1",
+        "Nc1ccc(N=COc2ccccc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1ccc(CN=c2ccccc2)cc1;Nc1ccc(NCc2ccccc2)cc1;Nc1ccc(N=COc2ccccc2)cc1",
+      "task": "ames",
+      "molecule_id": 19,
+      "original_smiles": "Nc1ccc(N=Nc2ccccc2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Oc1ccc(O)c2c(O)c3ccccc3c(O)c12",
+        "Oc1ccc(O)c2c(O)c3ccc(O)cc3c2c1",
+        "Oc1ccc(O)c2c(O)c3cc(O)ccc3c(O)c12"
+      ],
+      "raw_response": "MODIFIED_SMILES: Oc1ccc(O)c2c(O)c3ccccc3c(O)c12;Oc1ccc(O)c2c(O)c3ccc(O)cc3c2c1;Oc1ccc(O)c2c(O)c3cc(O)ccc3c(O)c12",
+      "task": "ames",
+      "molecule_id": 20,
+      "original_smiles": "Oc1ccc(O)c2c(O)c3ccccc3c(O)c12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(CO)[C@@]2(CO)C[C@@]12C",
+        "CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(C=O)[C@@]2(CO)C[C@@]12C",
+        "CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(CO)[C@@]2(C=O)C[C@@]12C"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(CO)[C@@]2(CO)C[C@@]12C;CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(C=O)[C@@]2(CO)C[C@@]12C;CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(CO)[C@@]2(C=O)C[C@@]12C",
+      "task": "ames",
+      "molecule_id": 21,
+      "original_smiles": "CC(=O)O[C@H]1[C@@]2(O)CC(C)(C)CC2=C(C=O)[C@@]2(C=O)C[C@@]12C",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)n2C)cc1",
+        "c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)o2)cc1",
+        "c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)[nH]2C(F)(F)F)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)n2C)cc1;c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)o2)cc1;c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)[nH]2C(F)(F)F)cc1",
+      "task": "ames",
+      "molecule_id": 22,
+      "original_smiles": "c1ccc(-c2nc(-c3ccccc3)c(-c3ccccc3)[nH]2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COC(=O)c1cccc2oc3c4c(cc(OC)c3c(=O)c12)OC1OC=CCO1",
+        "COC(=O)c1cccc2oc3c4c(cc(O)c3c(=O)c12)OC1OC=CC41",
+        "COC(=O)c1cccc2oc3c4c(cc(OC)c3c(=O)c12)OC1OCC=CO1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COC(=O)c1cccc2oc3c4c(cc(OC)c3c(=O)c12)OC1OC=CCO1;COC(=O)c1cccc2oc3c4c(cc(O)c3c(=O)c12)OC1OC=CC41;COC(=O)c1cccc2oc3c4c(cc(OC)c3c(=O)c12)OC1OCC=CO1",
+      "task": "ames",
+      "molecule_id": 23,
+      "original_smiles": "COC(=O)c1cccc2oc3c4c(cc(OC)c3c(=O)c12)OC1OC=CC41",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COCCOCC=O",
+        "COCCOC(O)=O",
+        "CCOCCOC(C)=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: COCCOCC=O;COCCOC(O)=O;CCOCCOC(C)=O",
+      "task": "ames",
+      "molecule_id": 24,
+      "original_smiles": "COCCOC(C)=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Clc1cc(Cl)c(Cl)cc1O",
+        "Clc1cc(Cl)c(Cl)cc1F",
+        "Clc1cc(Cl)c(Cl)cc1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Clc1cc(Cl)c(Cl)cc1O;Clc1cc(Cl)c(Cl)cc1F;Clc1cc(Cl)c(Cl)cc1N",
+      "task": "ames",
+      "molecule_id": 25,
+      "original_smiles": "O=[N+]([O-])c1cc(Cl)c(Cl)cc1Cl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "OCC(O)CF",
+        "OCC(O)CBr",
+        "OCC(O)CH3"
+      ],
+      "raw_response": "MODIFIED_SMILES: OCC(O)CF;OCC(O)CBr;OCC(O)CH3",
+      "task": "ames",
+      "molecule_id": 26,
+      "original_smiles": "OCC(O)CCl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCCOc1ccc2nc3cc(Cl)ccc3c(NCCCNCCO)c2n1",
+        "CCCCOc1ccc2nc3cc(Cl)ccc3c(NCCCNC)c2n1",
+        "CCCCOc1ccc2nc3cc(F)ccc3c(NCCCNCCCl)c2n1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCCOc1ccc2nc3cc(Cl)ccc3c(NCCCNCCO)c2n1;CCCCOc1ccc2nc3cc(Cl)ccc3c(NCCCNC)c2n1;CCCCOc1ccc2nc3cc(F)ccc3c(NCCCNCCCl)c2n1",
+      "task": "ames",
+      "molecule_id": 27,
+      "original_smiles": "CCCCOc1ccc2nc3cc(Cl)ccc3c(NCCCNCCCl)c2n1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "C[C@@H](O)CN(C)C",
+        "C[C@@H](O)CO",
+        "C[C@@H](O)CS"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[C@@H](O)CN(C)C;C[C@@H](O)CO;C[C@@H](O)CS",
+      "task": "ames",
+      "molecule_id": 28,
+      "original_smiles": "C[C@@H](O)CN",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1cc2c3c(ccc4cc(N)cc(c43)CC2)c1",
+        "O=[N+]([O-])c1cc2c3c(ccc4cc(OC)cc(c43)CC2)c1",
+        "O=[N+]([O-])c1cc2c3c(ccc4cc([N+](=O)[O-])cc(c43)CC2)c1C"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1cc2c3c(ccc4cc(N)cc(c43)CC2)c1;O=[N+]([O-])c1cc2c3c(ccc4cc(OC)cc(c43)CC2)c1;O=[N+]([O-])c1cc2c3c(ccc4cc([N+](=O)[O-])cc(c43)CC2)c1C",
+      "task": "ames",
+      "molecule_id": 29,
+      "original_smiles": "O=[N+]([O-])c1cc2c3c(ccc4cc([N+](=O)[O-])cc(c43)CC2)c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=c1c2c(O)cccc2oc2c3c(cc(OC)c12)O[C@@H]1OC=C[C@@H]31",
+        "O=c1c2c(O)cccc2oc2c3c(cc(O)c12)O[C@@H]1OCC[C@@H]31",
+        "O=c1c2c(O)cccc2oc2c3c(cc(O)c12)O[C@@H]1OC=CC1=O3"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=c1c2c(O)cccc2oc2c3c(cc(OC)c12)O[C@@H]1OC=C[C@@H]31;O=c1c2c(O)cccc2oc2c3c(cc(O)c12)O[C@@H]1OCC[C@@H]31;O=c1c2c(O)cccc2oc2c3c(cc(O)c12)O[C@@H]1OC=CC1=O3",
+      "task": "ames",
+      "molecule_id": 30,
+      "original_smiles": "O=c1c2c(O)cccc2oc2c3c(cc(O)c12)O[C@@H]1OC=C[C@@H]31",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)O)",
+        "CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)O)C(=O)OC",
+        "CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)O)C(=O)N"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)O);CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)O)C(=O)OC;CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)O)C(=O)N",
+      "task": "ames",
+      "molecule_id": 31,
+      "original_smiles": "CCOC(=O)[C@@H](C)C[C@](C)(C[C@H](C[C@@](C)(C[C@@H](C[C@](C)(CC)C(=O)O)C(=O)OCC)C(=O)O)C(=O)OCC)C(=O)O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc2c3c1ccc1ccccc13C2O",
+        "Cc1ccc2c3c1ccc1cccc(c13)C2F",
+        "Cc1ccc2c3c1ccc1cccc(c13)C2N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc2c3c1ccc1ccccc13C2O;Cc1ccc2c3c1ccc1cccc(c13)C2F;Cc1ccc2c3c1ccc1cccc(c13)C2N",
+      "task": "ames",
+      "molecule_id": 32,
+      "original_smiles": "Cc1ccc2c3c1ccc1cccc(c13)C2",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CN(C)C(=O)F",
+        "CN(C)C(=O)OCH3",
+        "CN(C)C(=O)NH2"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN(C)C(=O)F;CN(C)C(=O)OCH3;CN(C)C(=O)NH2",
+      "task": "ames",
+      "molecule_id": 33,
+      "original_smiles": "CN(C)C(=O)Cl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CNC(=O)OC",
+        "CNC(=O)N",
+        "CC(=O)ON"
+      ],
+      "raw_response": "MODIFIED_SMILES: CNC(=O)OC;CNC(=O)N;CC(=O)ON",
+      "task": "ames",
+      "molecule_id": 34,
+      "original_smiles": "CNC(=O)ON",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=CCCl",
+        "O=C(CCl)Cl",
+        "O=CCCl"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=CCCl;O=C(CCl)Cl;O=CCCl",
+      "task": "ames",
+      "molecule_id": 35,
+      "original_smiles": "O=C(Cl)C(Cl)Cl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "c1ccc(OCCO)cc1",
+        "c1ccc(OCC2COC2)cc1",
+        "c1ccc(OCCN)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: c1ccc(OCCO)cc1;c1ccc(OCC2COC2)cc1;c1ccc(OCCN)cc1",
+      "task": "ames",
+      "molecule_id": 36,
+      "original_smiles": "c1ccc(OCC2CO2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1cccc2c1-c1cc3ccccc3cc1C1OC(C)21",
+        "Cc1cccc2c1-c1cc3ccccc3cc1C1OC(=O)C21",
+        "Cc1cccc2c1-c1cc3ccccc3cc1C1OC(N)C21"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1cccc2c1-c1cc3ccccc3cc1C1OC(C)21;Cc1cccc2c1-c1cc3ccccc3cc1C1OC(=O)C21;Cc1cccc2c1-c1cc3ccccc3cc1C1OC(N)C21",
+      "task": "ames",
+      "molecule_id": 37,
+      "original_smiles": "Cc1cccc2c1-c1cc3ccccc3cc1C1OC21",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "C1=CC2OC2c2ncccc21",
+        "C1=CC2OC2c2ncc(C)cc21",
+        "C1=CC2OC2c2ncc(O)cc21"
+      ],
+      "raw_response": "MODIFIED_SMILES: C1=CC2OC2c2ncccc21;C1=CC2OC2c2ncc(C)cc21;C1=CC2OC2c2ncc(O)cc21",
+      "task": "ames",
+      "molecule_id": 38,
+      "original_smiles": "C1=C[C@@H]2O[C@@H]2c2ncccc21",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=C(O)c1ccc(Cl)cc1",
+        "O=C(O)c1ccc(Cl)c(O)c1",
+        "O=C(O)c1ccc(Cl)c(NH2)c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(O)c1ccc(Cl)cc1;O=C(O)c1ccc(Cl)c(O)c1;O=C(O)c1ccc(Cl)c(NH2)c1",
+      "task": "ames",
+      "molecule_id": 39,
+      "original_smiles": "O=C(O)c1ccc(Cl)c([N+](=O)[O-])c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "OCC1C=Cc2c(ccc3cc4c(ccc5ccccc54)cc23)C1O",
+        "OC1C=Cc2c(ccc3cc4c(ccc5ccccc54)cc23)C1OC",
+        "OC1C=CC2=C(C1O)C3=CC4=CC=CC=C4C=C3C=C2"
+      ],
+      "raw_response": "MODIFIED_SMILES: OCC1C=Cc2c(ccc3cc4c(ccc5ccccc54)cc23)C1O;OC1C=Cc2c(ccc3cc4c(ccc5ccccc54)cc23)C1OC;OC1C=CC2=C(C1O)C3=CC4=CC=CC=C4C=C3C=C2",
+      "task": "ames",
+      "molecule_id": 40,
+      "original_smiles": "OC1C=Cc2c(ccc3cc4c(ccc5ccccc54)cc23)C1O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=C(C(Br)=C/c1ccccc1)N",
+        "O=C(C(C)=C/c1ccccc1)N",
+        "O=[N+]([O-])C(C#N)=Cc1ccccc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(C(Br)=C/c1ccccc1)N;O=C(C(C)=C/c1ccccc1)N;O=[N+]([O-])C(C#N)=Cc1ccccc1",
+      "task": "ames",
+      "molecule_id": 41,
+      "original_smiles": "O=[N+]([O-])/C(Br)=C/c1ccccc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1ccc2ccc3ccccc3c2n1O",
+        "Cc1ccc2ccc3ccccc3c2n1",
+        "Nc1ccc2ccc3ccccc3c2n1F"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1ccc2ccc3ccccc3c2n1O;Cc1ccc2ccc3ccccc3c2n1;Nc1ccc2ccc3ccccc3c2n1F",
+      "task": "ames",
+      "molecule_id": 42,
+      "original_smiles": "Nc1ccc2ccc3ccccc3c2n1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1cc2cccc3ccc4c5ccccc5cc1c4c3C2O",
+        "Cc1cc2cccc3ccc4c(cc1c4c32)O",
+        "Cc1cc2cccc3ccc4c5ccccc5cc1c4c3N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1cc2cccc3ccc4c5ccccc5cc1c4c3C2O;Cc1cc2cccc3ccc4c(cc1c4c32)O;Cc1cc2cccc3ccc4c5ccccc5cc1c4c3N",
+      "task": "ames",
+      "molecule_id": 43,
+      "original_smiles": "Cc1cc2cccc3ccc4c5ccccc5cc1c4c32",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1C=COC1O2",
+        "COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1CCCOC1O2",
+        "COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1C=COCC1O2"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1C=COC1O2;COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1CCCOC1O2;COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1C=COCC1O2",
+      "task": "ames",
+      "molecule_id": 44,
+      "original_smiles": "COc1cc2c(c3oc(=O)c4c(c13)CCOC4=O)C1C=COC1O2",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1cc(Cl)cc(O)c1O",
+        "Nc1cc(Cl)cc(O)c1F",
+        "Nc1cc(Cl)cc(O)c1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1cc(Cl)cc(O)c1O;Nc1cc(Cl)cc(O)c1F;Nc1cc(Cl)cc(O)c1N",
+      "task": "ames",
+      "molecule_id": 45,
+      "original_smiles": "Nc1cc([N+](=O)[O-])cc(Cl)c1O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COC1=CC(=O)c2c(nc(C)c3c4c([NH]c23)CCCC4)C1=O",
+        "COC1=CC(=O)c2c(nc(C)c3c4c([NH]c23)CCNC4)C1=O",
+        "COC1=CC(=O)c2c(nc(C)c3c4c([NH]c23)CCOC4)C1=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: COC1=CC(=O)c2c(nc(C)c3c4c([NH]c23)CCCC4)C1=O;COC1=CC(=O)c2c(nc(C)c3c4c([NH]c23)CCNC4)C1=O;COC1=CC(=O)c2c(nc(C)c3c4c([NH]c23)CCOC4)C1=O",
+      "task": "ames",
+      "molecule_id": 46,
+      "original_smiles": "COC1=CC(=O)c2c(nc(C)c3c4c([nH]c23)CCCC4)C1=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC(C)(C)c1ccc(OCCO)cc1",
+        "CC(C)(C)c1ccc(OCC2COC2)cc1",
+        "CC(C)(C)c1ccc(OCCN)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(C)(C)c1ccc(OCCO)cc1;CC(C)(C)c1ccc(OCC2COC2)cc1;CC(C)(C)c1ccc(OCCN)cc1",
+      "task": "ames",
+      "molecule_id": 47,
+      "original_smiles": "CC(C)(C)c1ccc(OCC2CO2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "OCc1cnc2c(c1)nc1ccccn12",
+        "ONc1ccc2nc[nH]c2c1",
+        "OCCNc1cnc2c(c1)nc1ccccn12"
+      ],
+      "raw_response": "MODIFIED_SMILES: OCc1cnc2c(c1)nc1ccccn12;ONc1ccc2nc[nH]c2c1;OCCNc1cnc2c(c1)nc1ccccn12",
+      "task": "ames",
+      "molecule_id": 48,
+      "original_smiles": "ONc1cnc2c(c1)nc1ccccn12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1ccc2cccc3c2c1-c1ccccc1-3",
+        "Cc1ccc2cccc3c2c1-c1ccccc1-3",
+        "OCCc1ccc2cccc3c2c1-c1ccccc1-3"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1ccc2cccc3c2c1-c1ccccc1-3;Cc1ccc2cccc3c2c1-c1ccccc1-3;OCCc1ccc2cccc3c2c1-c1ccccc1-3",
+      "task": "ames",
+      "molecule_id": 49,
+      "original_smiles": "O=[N+]([O-])c1ccc2cccc3c2c1-c1ccccc1-3",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=NC1CCC(=O)CC1",
+        "CC(=O)N1CCC(=O)CC1",
+        "O=C1CCN(N)CC1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=NC1CCC(=O)CC1;CC(=O)N1CCC(=O)CC1;O=C1CCN(N)CC1",
+      "task": "ames",
+      "molecule_id": 50,
+      "original_smiles": "O=NN1CCC(=O)CC1",
+      "model": "gpt-4.1"
+    }
+  ]
+}

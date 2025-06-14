@@ -1,0 +1,610 @@
+{
+  "task_name": "carcinogens_lagunin",
+  "model": "gpt-4.1",
+  "total_molecules": 50,
+  "success_count": 50,
+  "error_count": 0,
+  "timestamp": "2025-06-14 00:16:14",
+  "results": [
+    {
+      "modified_smiles": [
+        "CNCCc1ccc(OC(=O)C(C)C)c(OC(=O)C) c1",
+        "CNCCc1ccc(OC(=O)C(C)C)c(OC)c1",
+        "CCNCCc1ccc(OC(=O)C(C)C)c(OC(=O)C(C)C)c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CNCCc1ccc(OC(=O)C(C)C)c(OC(=O)C) c1;CNCCc1ccc(OC(=O)C(C)C)c(OC)c1;CCNCCc1ccc(OC(=O)C(C)C)c(OC(=O)C(C)C)c1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 1,
+      "original_smiles": "CNCCc1ccc(OC(=O)C(C)C)c(OC(=O)C(C)C)c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "NCCNc1ncnc2[nH]cnc12",
+        "O=NCc1ncnc2[nH]cnc12",
+        "O=NCNc1ncnc2[nH]c(C)nc12"
+      ],
+      "raw_response": "MODIFIED_SMILES: NCCNc1ncnc2[nH]cnc12;O=NCc1ncnc2[nH]cnc12;O=NCNc1ncnc2[nH]c(C)nc12",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 2,
+      "original_smiles": "O=NCNc1ncnc2[nH]cnc12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC(O)CNC(=O)NNC(C)Cl",
+        "CC(O)CNC(=O)N(N)C(C)Cl",
+        "CC(O)CNC(=O)N(C)N(C)C(C)Cl"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(O)CNC(=O)NNC(C)Cl;CC(O)CNC(=O)N(N)C(C)Cl;CC(O)CNC(=O)N(C)N(C)C(C)Cl",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 3,
+      "original_smiles": "CC(O)CNC(=O)N(N=O)C(C)Cl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(O)c(-c3ccc(S(=O)(=O)O)cc3)c12",
+        "CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(O)c(-c3ccc(N)cc3)c12",
+        "CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(O)c(-c3ccc(S(=O)(=O)O)cc3)c12"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(O)c(-c3ccc(S(=O)(=O)O)cc3)c12;CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(O)c(-c3ccc(N)cc3)c12;CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(O)c(-c3ccc(S(=O)(=O)O)cc3)c12",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 4,
+      "original_smiles": "CC(=O)Nc1ccc(S(=O)(=O)O)c2cc(S(=O)(=O)O)c(/N=N/c3ccc(/N=N/c4ccc(S(=O)(=O)O)cc4)c4ccc(S(=O)(=O)O)cc34)c(O)c12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O",
+        "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(/N=N/c3ccc(-c4ccc(O)cc4)cc3)c(O)c12",
+        "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1/N=N/c3ccc(-c4ccc(O)cc4)cc3"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O;Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(/N=N/c3ccc(-c4ccc(O)cc4)cc3)c(O)c12;Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1/N=N/c3ccc(-c4ccc(O)cc4)cc3",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 5,
+      "original_smiles": "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(/N=N/c3ccc(-c4ccc(/N=N/c5c(S(=O)(=O)O)cc6cc(S(=O)(=O)O)cc(N)c6c5O)cc4)cc3)c(O)c12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=S(=O)(O)c1ccc(NCc2c(O)ccc3cc(S(=O)(=O)O)ccc23)cc1",
+        "O=S(=O)(O)c1ccc(/N=N/c2c(O)ccc3cc(S(=O)(=O)O)ccn23)cc1",
+        "O=S(=O)(O)c1ccc(Cc2c(O)ccc3cc(S(=O)(=O)O)ccc23)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=S(=O)(O)c1ccc(NCc2c(O)ccc3cc(S(=O)(=O)O)ccc23)cc1;O=S(=O)(O)c1ccc(/N=N/c2c(O)ccc3cc(S(=O)(=O)O)ccn23)cc1;O=S(=O)(O)c1ccc(Cc2c(O)ccc3cc(S(=O)(=O)O)ccc23)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 6,
+      "original_smiles": "O=S(=O)(O)c1ccc(/N=N/c2c(O)ccc3cc(S(=O)(=O)O)ccc23)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCC1NC(=O)C2C(C)C(C)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O",
+        "CCC1NC(=O)C2CC(C)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O",
+        "CCC1NC(=O)C2C(C)C(CO)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCC1NC(=O)C2C(C)C(C)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O;CCC1NC(=O)C2CC(C)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O;CCC1NC(=O)C2C(C)C(CO)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 7,
+      "original_smiles": "CCC1NC(=O)C2C(Cl)C(Cl)CN2C(=O)C(C(C)O)NC(=O)CC(c2ccccc2)NC(=O)C(CO)NC1=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)N)cc21",
+        "O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)OH)cc21",
+        "O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)F)cc21"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)N)cc21;O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)OH)cc21;O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)F)cc21",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 8,
+      "original_smiles": "O=C1/C(=C2\\Nc3ccc(S(=O)(=O)O)cc3C2=O)Nc2ccc(S(=O)(=O)O)cc21",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC(O)CN(C)c1ccc(NC)nn1",
+        "CC(O)CN(C)c1ccc(N)nn1",
+        "CC(O)CN(C)c1ccc(O)nn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(O)CN(C)c1ccc(NC)nn1;CC(O)CN(C)c1ccc(N)nn1;CC(O)CN(C)c1ccc(O)nn1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 9,
+      "original_smiles": "CC(O)CN(C)c1ccc(NN)nn1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC(CO)OC(C)CO",
+        "CC(CCl)OC(C)CO",
+        "CC(CO)OC(C)CCl"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC(CO)OC(C)CO;CC(CCl)OC(C)CO;CC(CO)OC(C)CCl",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 10,
+      "original_smiles": "CC(CCl)OC(C)CCl",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COc1ccc(C(=O)/C(Cl)=C\\C(=O)O)cc1",
+        "COc1ccc(C(=O)/C=C/C(=O)O)cc1",
+        "COc1ccc(C(=O)/C(C)=C\\C(=O)O)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1ccc(C(=O)/C(Cl)=C\\C(=O)O)cc1;COc1ccc(C(=O)/C=C/C(=O)O)cc1;COc1ccc(C(=O)/C(C)=C\\C(=O)O)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 11,
+      "original_smiles": "COc1ccc(C(=O)/C(Br)=C\\C(=O)O)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)[O-])c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)[O-])c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 12,
+      "original_smiles": "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=[N+](CC)Cc3cccc(S(=O)(=O)[O-])c3)C=C2)c2ccc(S(=O)(=O)O)cc2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccccc1OCC(O)CNCCn1cc(C)c(=O)nc1=O",
+        "Cc1ccccc1OCC(O)CNCCn1cc(C)cc1=O",
+        "Cc1ccccc1OCC(O)CNCCn1cc(C)c(=O)[nH]c1N"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccccc1OCC(O)CNCCn1cc(C)c(=O)nc1=O;Cc1ccccc1OCC(O)CNCCn1cc(C)cc1=O;Cc1ccccc1OCC(O)CNCCn1cc(C)c(=O)[nH]c1N",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 13,
+      "original_smiles": "Cc1ccccc1OCC(O)CNCCn1cc(C)c(=O)[nH]c1=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc(S(=O)(=O)O)cc1",
+        "Cc1cc(C)ccc1S(=O)(=O)N",
+        "Cc1cc(C)cc(S(=O)(=O)N)c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc(S(=O)(=O)O)cc1;Cc1cc(C)ccc1S(=O)(=O)N;Cc1cc(C)cc(S(=O)(=O)N)c1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 14,
+      "original_smiles": "Cc1cc(C)cc(S(=O)(=O)O)c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccc(F)cc1)c1ccccc1",
+        "CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccccc1)c1ccc(F)cc1",
+        "CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccccc1)c1ccccn1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccc(F)cc1)c1ccccc1;CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccccc1)c1ccc(F)cc1;CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccccc1)c1ccccn1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 15,
+      "original_smiles": "CCC(OC(C)=O)C(CC(C)N(C)C)(c1ccccc1)c1ccccc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccccc3C(=O)O)c-2cc1C",
+        "CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccc(F)cc3C(=O)OCC)c-2cc1C",
+        "CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccccc3C(=O)OCC)c-2cc1O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccccc3C(=O)O)c-2cc1C;CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccc(F)cc3C(=O)OCC)c-2cc1C;CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccccc3C(=O)OCC)c-2cc1O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 16,
+      "original_smiles": "CC/N=c1\\cc2oc3cc(NCC)c(C)cc3c(-c3ccccc3C(=O)OCC)c-2cc1C",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)c4ccccc34)c(O)cc2c1",
+        "O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)cc3)c(O)cc2c1",
+        "O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)c4ccc(O)cc4c3)c(O)cc2c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)c4ccccc34)c(O)cc2c1;O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)cc3)c(O)cc2c1;O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)c4ccc(O)cc4c3)c(O)cc2c1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 17,
+      "original_smiles": "O=S(=O)(O)c1ccc2c(/N=N/c3ccc(S(=O)(=O)O)c4ccccc34)c(O)c(S(=O)(=O)O)cc2c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1N",
+        "O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1/N=N/c1ccc(S(=O)(=O)N)cc1",
+        "O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1/N=N/c1ccc(S(=O)(=O)O)cc1F"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1N;O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1/N=N/c1ccc(S(=O)(=O)N)cc1;O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1/N=N/c1ccc(S(=O)(=O)O)cc1F",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 18,
+      "original_smiles": "O=C(O)C1=NN(c2ccc(S(=O)(=O)O)cc2)C(=O)C1/N=N/c1ccc(S(=O)(=O)O)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(O)c56)c(C)c4)cc3C)cc2)cc1",
+        "Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1",
+        "Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(O)c56)c(C)c4)cc3C)cc2)cc1;Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1;Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 19,
+      "original_smiles": "Cc1ccc(S(=O)(=O)Oc2ccc(/N=N/c3ccc(-c4ccc(/N=N/c5c(O)ccc6cc(S(=O)(=O)O)cc(S(=O)(=O)O)c56)c(C)c4)cc3C)cc2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)N)c1",
+        "Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)OCC)c1",
+        "Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)F)c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)N)c1;Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)OCC)c1;Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)F)c1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 20,
+      "original_smiles": "Cc1cc(C)c(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c(S(=O)(=O)O)c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1ccc(S(=O)(=O)OCC(N)CO)cc1",
+        "Cc1ccc(S(=O)(=O)OCC(N)C=O)cc1",
+        "Cc1ccc(S(=O)(=O)OCC(N)C(O)=O)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1ccc(S(=O)(=O)OCC(N)CO)cc1;Cc1ccc(S(=O)(=O)OCC(N)C=O)cc1;Cc1ccc(S(=O)(=O)OCC(N)C(O)=O)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 21,
+      "original_smiles": "Cc1ccc(S(=O)(=O)OCC(N)CN=O)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=S(=O)(O)c1ccc2ccccc2c1/N=N/c3ccc4ccccc4c3O",
+        "O=S(=O)(O)c1ccc2ccccc2c1/NH/Nc3ccc4ccccc4c3O",
+        "O=S(=O)(O)c1ccc2ccccc2c1/N=N/c3ccc(O)cc3"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=S(=O)(O)c1ccc2ccccc2c1/N=N/c3ccc4ccccc4c3O;O=S(=O)(O)c1ccc2ccccc2c1/NH/Nc3ccc4ccccc4c3O;O=S(=O)(O)c1ccc2ccccc2c1/N=N/c3ccc(O)cc3",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 22,
+      "original_smiles": "O=S(=O)(O)c1c(/N=N/c2c(O)ccc3ccccc23)ccc2ccccc12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O",
+        "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O-c3ccc(O)cc3",
+        "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O-c3ccc(CO)cc3"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O;Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O-c3ccc(O)cc3;Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(O)cc2c1O-c3ccc(CO)cc3",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 23,
+      "original_smiles": "Nc1cc(S(=O)(=O)O)cc2cc(S(=O)(=O)O)c(/N=N/c3ccc(-c4ccc(/N=N/c5c(S(=O)(=O)O)cc6cc(S(=O)(=O)O)cc(N)c6c5O)c(O)c4)cc3O)c(O)c12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "OCC=O",
+        "OCCO",
+        "OC(C)C=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: OCC=O;OCCO;OC(C)C=O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 24,
+      "original_smiles": "O=C/C=C\\O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCN(C)N",
+        "CCNC(O)",
+        "CCN(C)C"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(C)N;CCNC(O);CCN(C)C",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 25,
+      "original_smiles": "CCNN",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](O)C2=O",
+        "C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](OC1=O)C2=O",
+        "C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](OC1=O)C2=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](O)C2=O;C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](OC1=O)C2=O;C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](OC1=O)C2=O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 26,
+      "original_smiles": "C=C/C1=C/C(C)(C)[C@](C)(OC(C)=O)C(=O)OC/C2=C/CN(C)CC[C@@H](OC1=O)C2=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccc(O)oc3)nc21",
+        "Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccc(OC)oc3)nc21",
+        "Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccco3)nc21"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccc(O)oc3)nc21;Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccc(OC)oc3)nc21;Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccco3)nc21",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 27,
+      "original_smiles": "Cn1cc(C(=O)O)c(=O)c2ccc(/C=C/c3ccc([N+](=O)[O-])o3)nc21",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccccc2)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(F)cc2)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccncc2)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccccc2)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(F)cc2)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccncc2)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 28,
+      "original_smiles": "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=[N+](CC)Cc3cccc(S(=O)(=O)[O-])c3)C=C2)c2ccccc2)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccccc2S(=O)(=O)O)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NC(C)Cc3cccc(S(=O)(=O)O)c3)C=C2)c2ccccc2S(=O)(=O)O)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=N)C=C2)c2ccccc2S(=O)(=O)O)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccccc2S(=O)(=O)O)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NC(C)Cc3cccc(S(=O)(=O)O)c3)C=C2)c2ccccc2S(=O)(=O)O)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=N)C=C2)c2ccccc2S(=O)(=O)O)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 29,
+      "original_smiles": "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=[N+](CC)Cc3cccc(S(=O)(=O)[O-])c3)C=C2)c2ccccc2S(=O)(=O)O)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "COc1cc(-c2ccc(Nc3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1Nc1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O",
+        "COc1cc(-c2ccc(/N=N/c3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1/c1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O",
+        "COc1cc(-c2ccc(Nc3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1Nc1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O"
+      ],
+      "raw_response": "MODIFIED_SMILES: COc1cc(-c2ccc(Nc3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1Nc1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O;COc1cc(-c2ccc(/N=N/c3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1/c1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O;COc1cc(-c2ccc(Nc3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1Nc1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 30,
+      "original_smiles": "COc1cc(-c2ccc(/N=N/c3c(S(=O)(=O)O)cc4cc(S(=O)(=O)O)cc(N)c4c3O)c(OC)c2)ccc1/N=N/c1c(S(=O)(=O)O)cc2cc(S(=O)(=O)O)cc(N)c2c1O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCN(CC)CCCNC(=O)Cn1ncc(-c2ccc(F)cc2)c1-c1ccccc1",
+        "CCN(CC)CCCNC(=O)Cn1ncc(-c2ccccc2)c1-c1ccc(OC)cc1",
+        "CCN(CC)CCCNC(=O)Cn1ncc(-c2ccccc2)c1-c1ccc(CF3)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(CC)CCCNC(=O)Cn1ncc(-c2ccc(F)cc2)c1-c1ccccc1;CCN(CC)CCCNC(=O)Cn1ncc(-c2ccccc2)c1-c1ccc(OC)cc1;CCN(CC)CCCNC(=O)Cn1ncc(-c2ccccc2)c1-c1ccc(CF3)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 31,
+      "original_smiles": "CCN(CC)CCCNC(=O)Cn1ncc(-c2ccccc2)c1-c1ccccc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=S(=O)(O)c1ccc(NCc2cc(S(=O)(=O)O)c3ccccc3c2O)c2ccccc12",
+        "O=S(=O)(O)c1ccc(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2OCC)c2ccccc12",
+        "O=S(=O)(O)c1ccc(/N=N/c2cc(S(=O)(=O)O)c3cccc(O)c3c2)c2ccccc12"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=S(=O)(O)c1ccc(NCc2cc(S(=O)(=O)O)c3ccccc3c2O)c2ccccc12;O=S(=O)(O)c1ccc(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2OCC)c2ccccc12;O=S(=O)(O)c1ccc(/N=N/c2cc(S(=O)(=O)O)c3cccc(O)c3c2)c2ccccc12",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 32,
+      "original_smiles": "O=S(=O)(O)c1ccc(/N=N/c2cc(S(=O)(=O)O)c3ccccc3c2O)c2ccccc12",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCCNCCCO",
+        "CCCNCNCCCC",
+        "CCCNCCNCC"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCCNCCCO;CCCNCNCCCC;CCCNCCNCC",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 33,
+      "original_smiles": "CCCCNNCCCC",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCNNCC=C",
+        "C=CCNCCN",
+        "CCNNCCN"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCNNCC=C;C=CCNCCN;CCNNCCN",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 34,
+      "original_smiles": "C=CCNNCC=C",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCCN(C)N",
+        "CCCCNC(O)N",
+        "CC(C)CCNN"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCCN(C)N;CCCCNC(O)N;CC(C)CCNN",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 35,
+      "original_smiles": "CCCCCNN",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CC[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(O)cc3CC[C@]12C",
+        "C#C[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(OC)cc3CC[C@]12C",
+        "C#C[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(O)cc3CC[C@]12O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CC[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(O)cc3CC[C@]12C;C#C[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(OC)cc3CC[C@]12C;C#C[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(O)cc3CC[C@]12O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 36,
+      "original_smiles": "C#C[C@@]1(O)CC[C@]2(C)[C@]1(C)CC[C@]1(C)c3ccc(O)cc3CC[C@]12C",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Cc1c(NCCS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C",
+        "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccc(F)cc2)n1C",
+        "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1O"
+      ],
+      "raw_response": "MODIFIED_SMILES: Cc1c(NCCS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C;Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccc(F)cc2)n1C;Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 37,
+      "original_smiles": "Cc1c(N(C)CS(=O)(=O)O)c(=O)n(-c2ccccc2)n1C",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1",
+        "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCC3=CC=C(S(=O)(=O)O)C=C3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCCc3cccc(S(=O)(=O)O)c3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1;CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=NCC3=CC=C(S(=O)(=O)O)C=C3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 38,
+      "original_smiles": "CCN(Cc1cccc(S(=O)(=O)O)c1)c1ccc(C(=C2C=CC(=[N+](CC)Cc3cccc(S(=O)(=O)[O-])c3)C=C2)c2ccc(O)cc2S(=O)(=O)O)cc1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "N=C1C=CC(=C(c2ccc(O)cc2)c2ccc(O)cc2)C=C1",
+        "N=C1C=CC(=C(c2ccc(N)cc2)c2ccc(F)cc2)C=C1",
+        "N=C1C=CC(=C(c2ccc(N)cc2)c2ccc(OMe)cc2)C=C1"
+      ],
+      "raw_response": "MODIFIED_SMILES: N=C1C=CC(=C(c2ccc(O)cc2)c2ccc(O)cc2)C=C1;N=C1C=CC(=C(c2ccc(N)cc2)c2ccc(F)cc2)C=C1;N=C1C=CC(=C(c2ccc(N)cc2)c2ccc(OMe)cc2)C=C1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 39,
+      "original_smiles": "N=C1C=CC(=C(c2ccc(N)cc2)c2ccc(N)cc2)C=C1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCCN(C)N",
+        "CCCCNHCO",
+        "CCCCOC(N)N"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCCN(C)N; CCCCNHCO; CCCCOC(N)N",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 40,
+      "original_smiles": "CCCCNN",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1c(F)c(N)c(F)cc1F",
+        "Nc1c(F)ccc(N)c1F",
+        "Nc1ccc(N)c(F)c1F"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1c(F)c(N)c(F)cc1F;Nc1c(F)ccc(N)c1F;Nc1ccc(N)c(F)c1F",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 41,
+      "original_smiles": "Nc1c(F)c(N)c(F)c(F)c1F",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1ccc(c(N)c1)/N=N/c2ccc(-c3ccc(c4c(S(=O)(=O)O)cc5cc(c(O)c5c4N)N=Nc6ccccc6)cc3)cc2",
+        "Nc1ccc(c(N)c1)C=Cc2ccc(-c3ccc(c4c(S(=O)(=O)O)cc5cc(c(O)c5c4N)N=Nc6ccccc6)cc3)cc2",
+        "Nc1ccc(c(N)c1)/N=N/c2ccc(-c3ccc(c4c(S(=O)(=O)O)cc5cc(c(O)c5c4N)N=Nc6ccccc6)cc3)cc2S(=O)(=O)O"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1ccc(c(N)c1)/N=N/c2ccc(-c3ccc(c4c(S(=O)(=O)O)cc5cc(c(O)c5c4N)N=Nc6ccccc6)cc3)cc2;Nc1ccc(c(N)c1)C=Cc2ccc(-c3ccc(c4c(S(=O)(=O)O)cc5cc(c(O)c5c4N)N=Nc6ccccc6)cc3)cc2;Nc1ccc(c(N)c1)/N=N/c2ccc(-c3ccc(c4c(S(=O)(=O)O)cc5cc(c(O)c5c4N)N=Nc6ccccc6)cc3)cc2S(=O)(=O)O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 42,
+      "original_smiles": "Nc1ccc(/N=N/c2ccc(-c3ccc(/N=N/c4c(S(=O)(=O)O)cc5cc(S(=O)(=O)O)c(/N=N/c6ccccc6)c(O)c5c4N)cc3)cc2)c(N)c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCN",
+        "CCCN(C)C",
+        "CCCOC"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCN;CCCN(C)C;CCCOC",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 43,
+      "original_smiles": "CCCNN",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NCc3ccc(S(=O)(=O)O)c4ccccc34)c2c1",
+        "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(Cc3ccc(S(=O)(=O)O)c4ccccc34)c2c1",
+        "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NCc3ccc(S(=O)(=O)O)cc3)c2c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NCc3ccc(S(=O)(=O)O)c4ccccc34)c2c1;O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(Cc3ccc(S(=O)(=O)O)c4ccccc34)c2c1;O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NCc3ccc(S(=O)(=O)O)cc3)c2c1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 44,
+      "original_smiles": "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(/N=N\\c3ccc(S(=O)(=O)O)c4ccccc34)c(O)ccc2c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCCCCCCCCCCCN(C)C(=O)NH2",
+        "CCCCCCCCCCCCNC(=O)NH2",
+        "CCCCCCCCCCCNH2"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCCCCCCCCCCCN(C)C(=O)NH2;CCCCCCCCCCCCNC(=O)NH2;CCCCCCCCCCCNH2",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 45,
+      "original_smiles": "CCCCCCCCCCCCNC(=N)N",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NC3=CC=CC=C3)c2c1",
+        "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc2c1",
+        "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NH2)c2c1"
+      ],
+      "raw_response": "MODIFIED_SMILES: O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NC3=CC=CC=C3)c2c1;O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc2c1;O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(O)ccc(NH2)c2c1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 46,
+      "original_smiles": "O=S(=O)(O)c1cc(S(=O)(=O)O)c2c(/N=N/c3ccccc3)c(O)ccc2c1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CCC1(c2ccccn2)C(=O)N=C(O)NC1=O",
+        "CC(C)C1C(=O)N=C(O)NC1=O",
+        "CCC1(c2ccccc2)C(=O)NCC1=O"
+      ],
+      "raw_response": "MODIFIED_SMILES: CCC1(c2ccccn2)C(=O)N=C(O)NC1=O;CC(C)C1C(=O)N=C(O)NC1=O;CCC1(c2ccccc2)C(=O)NCC1=O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 47,
+      "original_smiles": "CCC1(c2ccccc2)C(=O)N=C(O)NC1=O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)c(=O)[nH]1",
+        "Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)c[nH]1",
+        "Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)nc1"
+      ],
+      "raw_response": "MODIFIED_SMILES: Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)c(=O)[nH]1;Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)c[nH]1;Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)nc1",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 48,
+      "original_smiles": "Nc1nc2c(ncn2[C@H]2CC(O)[C@@H](CO)O2)c(=S)[nH]1",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "C[C@](N)(Cc1ccc(O)cc1)C(=O)O",
+        "C[C@](N)(Cc1ccc(O)c(O)c1)C(=O)N",
+        "C[C@](N)(Cc1ccc(OC)c(O)c1)C(=O)O"
+      ],
+      "raw_response": "MODIFIED_SMILES: C[C@](N)(Cc1ccc(O)cc1)C(=O)O;C[C@](N)(Cc1ccc(O)c(O)c1)C(=O)N;C[C@](N)(Cc1ccc(OC)c(O)c1)C(=O)O",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 49,
+      "original_smiles": "C[C@](N)(Cc1ccc(O)c(O)c1)C(=O)O",
+      "model": "gpt-4.1"
+    },
+    {
+      "modified_smiles": [
+        "CN1C2CCC1CC(NC(=O)c1cc(F)cc3c1OC(C)(C)C3)C2",
+        "CN1C2CCC1CC(NC(=O)c1cc(Cl)cc3c1OC(C)C(C)C3)C2",
+        "CN1C2CCC1CC(NC(=O)c1cc(Cl)cc3c1OCC(C)(C)C3)C2"
+      ],
+      "raw_response": "MODIFIED_SMILES: CN1C2CCC1CC(NC(=O)c1cc(F)cc3c1OC(C)(C)C3)C2;CN1C2CCC1CC(NC(=O)c1cc(Cl)cc3c1OC(C)C(C)C3)C2;CN1C2CCC1CC(NC(=O)c1cc(Cl)cc3c1OCC(C)(C)C3)C2",
+      "task": "carcinogens_lagunin",
+      "molecule_id": 50,
+      "original_smiles": "CN1C2CCC1CC(NC(=O)c1cc(Cl)cc3c1OC(C)(C)C3)C2",
+      "model": "gpt-4.1"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+Task,Original Molecules,Total Modified Molecules,Valid SMILES,Successful Repairs,Valid %,Success %,Toxicity Improved,Toxicity Improved %
+tox21_SR_ARE,5,15,11,1,73.33%,20.00%,2,40.00%
+tox21_SR_p53,5,15,12,3,80.00%,60.00%,4,80.00%
+tox21_NR_Aromatase,5,15,8,3,53.33%,60.00%,4,80.00%
+tox21_SR_ATAD5,5,15,13,2,86.67%,40.00%,4,80.00%
+tox21_NR_ER_LBD,5,15,8,2,53.33%,40.00%,3,60.00%
+tox21_SR_HSE,5,15,15,3,100.00%,60.00%,5,100.00%
+tox21_NR_AR,5,15,12,2,80.00%,40.00%,3,60.00%
+tox21_NR_PPAR_gamma,5,15,10,2,66.67%,40.00%,4,80.00%
+tox21_NR_ER,5,15,14,4,93.33%,80.00%,4,80.00%
+tox21_SR_MMP,5,15,10,1,66.67%,20.00%,2,40.00%
+tox21_NR_AhR,5,15,12,2,80.00%,40.00%,4,80.00%
+tox21_NR_AR_LBD,5,15,14,3,93.33%,60.00%,4,80.00%
