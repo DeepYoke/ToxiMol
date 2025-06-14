@@ -72,14 +72,14 @@ This work explores the ability of general multimodal large language models (MLLM
 
 The **ToxiMol** benchmark provides:
 - 🧪 A curated dataset of **560 toxic molecules** across **11 task types**, including functional group preservation, endpoint-specific detoxification, and mechanism-aware edits.
-- 🧭 An expert-informed **prompt annotation pipeline**, tailored for general-purpose and chemical-aware models.
+- 🧭 An expert-informed **Mechanism-Aware Prompt Annotation Pipeline**, tailored for general-purpose and chemical-aware models.
 
 The **ToxiEval** evaluation framework, offering automated assessment on:
-  - Toxicity reduction (Δtox)
-  - Drug-likeness
-  - Chemical validity
-  - Rule compliance
-  - Structural similarity
+  - Safety Score
+  - Quantitative Estimate of Drug-likeness
+  - Synthetic Accessibility Score
+  - Lipinski’s Rule of Five
+  - Structural Similarity
 
 
 We systematically test nearly 30 state-of-the-art MLLMs with diverse architectures and input modalities to assess their ability to perform structure-level molecular toxicity repair.
@@ -113,13 +113,14 @@ You can also access the dataset on Hugging Face:
 
 We propose **ToxiEval**, a multi-dimensional evaluation protocol consisting of the following metrics:
 
-| Aspect                | Metric           | Description                                                                  | Range             | Threshold for Success             |
-|------------------------|------------------|-------------------------------------------------------------------------------|-------------------|-----------------------------------|
-| Toxicity reduction     | **Safety Score** | Indicates toxicity mitigation, based on TxGemma-Predict classification        | 0–1 or binary     | =1 (binary) or >0.5 (LD50 task)   |
-| Drug-likeness          | **QED**          | Drug-likeness score from [0,1]; higher means more drug-like                   | 0–1               | ≥ 0.5                             |
-| Chemical validity      | **SAS**          | Synthetic feasibility; lower scores are better                                | 1–10              | ≤ 6                               |
-| Rule compliance        | **RO5**          | Number of Lipinski rule violations (should be minimal)                        | Integer (≥0)      | ≤ 1                               |
-| Structural similarity  | **SS**           | Scaffold similarity (Tanimoto) between original and repaired molecules        | 0–1               | ≥ 0.4                             |
+| Metric                                  | Description                                                                  | Range             | Threshold for Success             |
+|-----------------------------------------|-------------------------------------------------------------------------------|-------------------|-----------------------------------|
+| **Safety Score**                   | Indicates toxicity mitigation, based on TxGemma-Predict classification        | 0–1 or binary     | =1 (binary) or >0.5 (LD50 task)   |
+| **Quantitative Estimate of Drug-likeness (QED)** | Drug-likeness score from [0,1]; higher means more drug-like                   | 0–1               | ≥ 0.5                             |
+| **Synthetic Accessibility Score (SAS)** | Synthetic feasibility; lower scores are better                                | 1–10              | ≤ 6                               |
+| **Lipinski’s Rule of Five (RO5)**       | Number of Lipinski rule violations (should be minimal)                        | Integer (≥0)      | ≤ 1                               |
+| **Structural Similarity(SS)**               | Scaffold similarity (Tanimoto) between original and repaired molecules        | 0–1               | ≥ 0.4                             |
+
 
 A candidate molecule is considered successfully detoxified **only if it satisfies all five criteria simultaneously**.
 
