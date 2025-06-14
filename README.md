@@ -147,6 +147,38 @@ python experiments/opensource/run_opensource_hf.py --model InternVL3 --model_pat
 
 ---
 
+## 🙏 Acknowledgement
+
+We sincerely thank the developers and contributors of the following tools and resources, which made this project possible. This project makes use of several external assets for molecular processing and evaluation. All assets are used in accordance with their respective licenses and terms of use:
+
+### TxGemma-Predict
+
+Used for toxicity prediction tasks. Provided by Google via the [Hugging Face Transformers](https://huggingface.co/google/txgemma-9b-predict) library.
+
+- **License:** [Health AI Developer Foundations Terms of Use](https://developers.google.com/health-ai-developer-foundations/terms)  
+- **Official GitHub:** [gemma-cookbook](https://github.com/google-gemini/gemma-cookbook/tree/main/TxGemma)  
+- **Paper:** [TxGemma: Efficient and Agentic LLMs for Therapeutics](https://arxiv.org/abs/2504.06196)
+
+### RDKit
+
+Used for computing QED, Lipinski’s Rule of Five (RO5), molecular similarity, and other molecular operations.
+
+- **Version:** 2023.09.6  
+- **License:** [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)  
+- **Source Code:** [github.com/rdkit/rdkit](https://github.com/rdkit/rdkit)  
+- **Website:** [rdkit.org](https://www.rdkit.org)
+
+### Synthetic Accessibility Score (SAS)
+
+Used to evaluate the synthetic feasibility of generated molecules.
+ 
+- **License:** [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)  
+- **Original Code:** Provided by the authors and typically distributed with RDKit  
+- **Paper:** [Estimation of synthetic accessibility score of drug-like molecules based on molecular complexity and fragment contributions](https://doi.org/10.1186/1758-2946-1-8)
+
+
+---
+
 ## ⭐ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=DeepYoke/ToxiMol&type=Date)](https://star-history.com/#DeepYoke/ToxiMol&Date)
