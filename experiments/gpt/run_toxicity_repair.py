@@ -94,7 +94,7 @@ def load_task_data(task_name: str) -> Tuple[List[Dict], Dict]:
         molecules = molecules_hf.to_pandas().to_dict(orient='records')  
         
         # Load task prompt
-        prompt_path = DATA_DIR / task_name / f"{task_name}_prompt.json"
+        prompt_path = BASE_DIR / "annotation" / f"{task_name}_prompt.json"
         task_prompt = load_json_file(prompt_path)
         
         return molecules, task_prompt
@@ -109,7 +109,7 @@ def load_repair_prompt() -> Dict:
     Returns:
         Repair prompt dictionary
     """
-    repair_prompt_path = DATA_DIR / "repair_prompt.json"
+    repair_prompt_path = BASE_DIR / "annotation" / "repair_prompt.json"
     return load_json_file(repair_prompt_path)
 
 def get_specific_prompt(task_name: str, molecule: Dict, task_prompt: Dict) -> str:
