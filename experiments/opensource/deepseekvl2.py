@@ -34,7 +34,6 @@ logger = logging.getLogger("toxicity_repair")
 
 # Constants
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = BASE_DIR / "data" / "Experimental_dataset"
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
 # InternVL3 model constants
