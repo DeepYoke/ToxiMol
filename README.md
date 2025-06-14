@@ -35,7 +35,7 @@
 
 
 
-This work explores the ability of general multimodal large language models (MLLMs) to detoxify molecules at the structural level. We present ToxiMol, the first benchmark designed specifically for this task, covering 11 toxicity remediation tasks with a total of 560 toxic molecules, and provide an evaluation framework (ToxiEval) to assess toxicity reduction, structural validity, and drug-likeness. The following figure shows an example. We conducted a large-scale study on various open-source and closed-source MLLMs, revealing the potential limitations and current limitations of these models in real-world toxicity remediation.
+This work explores the ability of general multimodal large language models (MLLMs) to detoxify molecules at the structural level. We present ToxiMol, the first benchmark designed specifically for this task, covering 11 toxicity remediation tasks with a total of 560 toxic molecules, and provide an evaluation framework (ToxiEval) to assess toxicity reduction, structural validity, and drug-likeness. 
 
 <div align="center">
 <br><br>
@@ -68,20 +68,19 @@ This work explores the ability of general multimodal large language models (MLLM
 
 ## 🧬 Overview
 
-**ToxiMol** is the first benchmark specifically designed for evaluating **molecular toxicity repair** — generating structurally valid alternatives to toxic molecules while preserving essential chemical features.
 
-This benchmark provides:
+
+The **ToxiMol** benchmark provides:
 - 🧪 A curated dataset of **560 toxic molecules** across **11 task types**, including functional group preservation, endpoint-specific detoxification, and mechanism-aware edits.
 - 🧭 An expert-informed **prompt annotation pipeline**, tailored for general-purpose and chemical-aware models.
-- 📊 The **ToxiEval** evaluation framework, offering automated assessment on:
+
+The **ToxiEval** evaluation framework, offering automated assessment on:
   - Toxicity reduction (Δtox)
   - Drug-likeness
   - Chemical validity
   - Rule compliance
   - Structural similarity
 
-
-ToxiMol is designed as a benchmark to evaluate the detoxification capabilities of general-purpose Multimodal Large Language Models (MLLMs).  
 
 We systematically test nearly 30 state-of-the-art MLLMs with diverse architectures and input modalities to assess their ability to perform structure-level molecular toxicity repair.
 
@@ -91,7 +90,7 @@ We systematically test nearly 30 state-of-the-art MLLMs with diverse architectur
 
 The **ToxiMol** dataset consists of 560 curated toxic molecules sampled from 12 established toxicity datasets, covering both binary classification and regression tasks across diverse mechanisms:
 
-| Dataset             | Task Type                  | # Molecules | Description                                                                 |
+| Dataset             | Task Type                  | Molecules | Description                                                                 |
 |---------------------|----------------------------|-------------|-----------------------------------------------------------------------------|
 | AMES                | Binary Classification      | 50          | Mutagenicity testing                                                        |
 | Carcinogens | Binary Classification      | 50          | Carcinogenicity prediction                                                  |
