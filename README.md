@@ -37,7 +37,7 @@
 
 <div align="center">
 <br><br>
-<img src="Lunwendatu" width="100%">
+<img src="ToxiMol_show.png" width="100%">
 <br><br>
 </div>
 
