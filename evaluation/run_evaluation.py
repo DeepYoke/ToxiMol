@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Evaluation script for toxicity repair experiments using TxGemma.
 
@@ -54,23 +53,19 @@ def main():
     
     args = parser.parse_args()
     
-    # Check if results directory exists
     if not os.path.exists(args.results_dir):
         print(f"Error: Results directory '{args.results_dir}' does not exist.")
         sys.exit(1)
     
-    # Load TxGemma model for toxicity prediction
     print("Loading TxGemma model for toxicity prediction...")
     load_txgemma_model()
     print("TxGemma will classify toxicity by extracting the first 'A' or 'B' from generated text.")
     
-    # If a specific task is provided, only evaluate that task
     if args.task and args.model:
         print(f"Evaluating task '{args.task}' for model '{args.model}'...")
         evaluator = ResultEvaluator(args.results_dir, args.output_dir)
         results, summary = evaluator.evaluate_task_results(args.model, args.task, args.full)
         
-        # Print summary
         print("\nEvaluation Summary:")
         print(f"Task: {args.task}")
         print(f"Model: {args.model}")
@@ -78,20 +73,15 @@ def main():
         print(f"Valid SMILES: {summary['valid_smiles_count']} ({summary['valid_percentage']:.2f}%)")
         print(f"Successful repairs: {summary['success_count']} ({summary['success_percentage']:.2f}%)")
         
-        # Print toxicity improvements if available
         if 'toxicity_improved_count' in summary:
             print(f"Toxicity improved: {summary['toxicity_improved_count']} ({summary['toxicity_improved_percentage']:.2f}%)")
         
-        # Save detailed results will be handled by evaluator
         
-        # Create a dictionary with task summary
         task_summary = {args.task: summary}
         
-        # Save summary
         evaluator.save_evaluation_results(args.model, task_summary)
         
     else:
-        # Evaluate all models or a specific model
         print(f"Analyzing experiment results in '{args.results_dir}'...")
         if args.model:
             print(f"Focusing on model: {args.model}")
@@ -103,7 +93,6 @@ def main():
             args.output_dir
         )
         
-        # Print overall summary
         print("\nOverall Evaluation Summary:")
         for model_name, summaries in all_model_summaries.items():
             if 'overall' in summaries:
@@ -113,7 +102,6 @@ def main():
                 print(f"Valid SMILES: {overall['valid_smiles_count']} ({overall['valid_percentage']:.2f}%)")
                 print(f"Successful repairs: {overall['success_count']} ({overall['success_percentage']:.2f}%)")
                 
-                # Print toxicity improvements if available
                 if 'toxicity_improved_count' in overall:
                     print(f"Toxicity improved: {overall['toxicity_improved_count']} ({overall['toxicity_improved_percentage']:.2f}%)")
                 

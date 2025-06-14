@@ -23,21 +23,17 @@ import logging
 from datasets import load_dataset
 import base64
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger("toxicity_repair")
 
-# Constants
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
-# InternVL3 model constants
 DEFAULT_MODEL_PATH = "OpenGVLab/InternVL3-8B"
 
-# All available tasks
 AVAILABLE_TASKS = [
     "ames", "clintox", "carcinogens_lagunin", "dili", "herg", 
     "herg_central", "herg_karim", "ld50_zhu", "skin_reaction", 
@@ -78,11 +74,9 @@ def load_task_data(task_name: str) -> Tuple[List[Dict], Dict]:
         Tuple of (molecules list, task prompt dictionary)
     """
     try:
-        # Load molecules data
         molecules_hf = load_dataset("DeepYoke/ToxiMol-benchmark", data_dir=task_name, split="train", trust_remote_code=True)
         molecules = molecules_hf.to_pandas().to_dict(orient='records')  
 
-        # Load task prompt
         prompt_path = BASE_DIR / "annotation" / f"{task_name}_prompt.json"
         task_prompt = load_json_file(prompt_path)
         
@@ -113,26 +107,21 @@ def get_specific_prompt(task_name: str, molecule: Dict, task_prompt: Dict) -> st
     Returns:
         Formatted prompt string for the molecule
     """
-    # Handle special cases for tox21 and toxcast with subtasks
     if task_name == "tox21" and "subtasks" in task_prompt:
-        # Extract actual subtask name from the molecule task field (e.g., "tox21_SR_ARE" -> "SR_ARE")
         subtask = molecule["task"].replace("tox21_", "")
         if subtask in task_prompt["subtasks"]:
             instruction = task_prompt["subtasks"][subtask]["instruction"]
         else:
             instruction = task_prompt["subtasks"]["default"]["instruction"]
     elif task_name == "toxcast" and "subtasks" in task_prompt:
-        # Extract actual subtask name from the molecule task field (e.g., "toxcast_APR_HepG2_MitoMass_24h_dn" -> "APR_HepG2_MitoMass_24h_dn")
         subtask = molecule["task"].replace("toxcast_", "")
         if subtask in task_prompt["subtasks"]:
             instruction = task_prompt["subtasks"][subtask]["instruction"]
         else:
             instruction = task_prompt["subtasks"]["default"]["instruction"]
     else:
-        # Regular tasks
         instruction = task_prompt["instruction"]
     
-    # Return the instruction, replacing any {{ smiles }} placeholders with the actual SMILES
     return instruction.replace("{{ smiles }}", molecule["smiles"])
 
 def create_user_prompt(
@@ -151,10 +140,8 @@ def create_user_prompt(
     Returns:
         Formatted user prompt string
     """
-    # Generate specific instruction for the molecule
     specific_instruction = get_specific_prompt(task_name, molecule, task_prompt)
     
-    # Create the user prompt
     user_prompt = (
         f"Task: Modify the following molecule to reduce its {task_prompt['task_description']} while "
         f"maintaining its therapeutic properties.\n\n"
@@ -177,7 +164,6 @@ def create_system_prompt(repair_prompt: Dict) -> str:
     Returns:
         Formatted system prompt string
     """
-    # Create the system message from the repair prompt
     system_prompt = (
         f"You are a {repair_prompt['agent_role']}. "
         f"{repair_prompt['task_overview']} "
@@ -197,23 +183,18 @@ def extract_results(response_text: str) -> Dict:
         
     Returns:
         Dictionary containing the parsed results
-    """
-    # Initialize results
+    """ 
     results = {
         "modified_smiles": [],
         "raw_response": response_text
     }
     
-    # Extract modified SMILES using the strict format
     if "MODIFIED_SMILES:" in response_text:
-        # Get everything after MODIFIED_SMILES:
         smiles_part = response_text.split("MODIFIED_SMILES:")[1].strip()
-        # Split by semicolons and clean up
         if ";" in smiles_part:
             smiles_candidates = [s.strip() for s in smiles_part.split(";") if s.strip()]
             results["modified_smiles"] = smiles_candidates
         else:
-            # Handle case with only one SMILES or 'none'
             if smiles_part.lower().strip() == "none":
                 results["modified_smiles"] = []
             else:
@@ -248,7 +229,6 @@ def process_molecule(
     molecule_id = molecule["id"]
     logger.info(f"Processing {task_name} molecule ID: {molecule_id}")
     task = molecule['task']
-    # Get the image binary and save it to tmp dir
     image_binary = molecule["image"]
     tmp_dir = f'~/toximol_tmp_images/{task}'
     if not os.path.exists(tmp_dir):
@@ -260,22 +240,17 @@ def process_molecule(
         logger.error(f"Image not found: {image_path}")
         raise FileNotFoundError(f"Image not found: {image_path}")
     
-    # Create the system and user prompts
     system_prompt = create_system_prompt(repair_prompt)
     user_prompt = create_user_prompt(molecule, task_name, task_prompt)
     
-    # Set default generation config if not provided
     if generation_config is None:
         generation_config = dict(max_new_tokens=1024, do_sample=True, temperature=0.5)
     
-    # Call the model
     try:
         response = agent.generate_completion(system_prompt, user_prompt, str(image_path), generation_config)
         
-        # Parse the results
         results = extract_results(response)
         
-        # Add metadata
         results["task"] = molecule["task"] if "task" in molecule else task_name
         results["molecule_id"] = molecule_id
         results["original_smiles"] = molecule["smiles"]
@@ -286,7 +261,6 @@ def process_molecule(
     
     except Exception as e:
         logger.error(f"Error processing molecule {molecule_id}: {e}")
-        # Create error result
         error_result = {
             "task": molecule["task"] if "task" in molecule else task_name,
             "molecule_id": molecule_id,
@@ -308,12 +282,10 @@ def cleanup_old_results(output_dir: Path, task_name: str):
         task_name: Name of the task
     """
     try:
-        # Find all individual result files
         individual_files = list(output_dir.glob(f"{task_name}_*.json"))
         if individual_files:
             logger.info(f"Cleaning up {len(individual_files)} old individual result files")
             for file in individual_files:
-                # Skip the combined results file
                 if file.name == f"{task_name}_results.json":
                     continue
                 try:
@@ -343,8 +315,7 @@ def run_task(
         
     Returns:
         List of result dictionaries
-    """
-    # Create model agent
+    """ 
     if model == "internvl3":
         from internvl3 import InternVL3Agent
         agent = InternVL3Agent(model_path)
@@ -357,23 +328,17 @@ def run_task(
     elif model == "qwen2.5vl":
         from qwen2_5vl import QwenVLAgent
         agent = QwenVLAgent(model_path)
-    # Extract model name from path
     model_name = model_path.split('/')[-1]
     
-    # Create output directory
     output_dir = RESULTS_DIR / model_name / task_name
     os.makedirs(output_dir, exist_ok=True)
     
-    # Clean up old individual result files if they exist
     cleanup_old_results(output_dir, task_name)
-    
-    # Load task data  (two dicts, molecules contain id and smiles, and task prompt contains diverse prompts)
 
     molecules, task_prompt = load_task_data(task_name)
 
     repair_prompt = load_repair_prompt()
     
-    # Filter molecules if needed (not be activated)
     if molecules_ids:
         molecules = [m for m in molecules if m["id"] in molecules_ids]
     
@@ -382,7 +347,6 @@ def run_task(
     
     logger.info(f"Running task {task_name} with {len(molecules)} molecules")
     
-    # Process each molecule
     all_results = []
     for molecule in molecules:
         result = process_molecule(
@@ -396,10 +360,8 @@ def run_task(
         )
         all_results.append(result)
         
-        # Add a short delay to avoid potential issues
         time.sleep(1)
     
-    # Create combined results
     combined_results = {
         "task_name": task_name,
         "model": model_name,
@@ -410,7 +372,6 @@ def run_task(
         "results": all_results
     }
     
-    # Save combined results to a single file
     output_file = output_dir / f"{task_name}_results.json"
     with open(output_file, 'w') as f:
         json.dump(combined_results, f, indent=2)
@@ -438,7 +399,6 @@ def run_all_tasks(
     """
     all_results = {}
     
-    # Extract model name from path
     model_name = model_path.split('/')[-1]
     
     for task_name in AVAILABLE_TASKS:
@@ -453,7 +413,6 @@ def run_all_tasks(
             gc.collect()
             logger.info(f"GPU memory cleared. Current memory allocated: {torch.cuda.memory_allocated() / (1024**3):.2f} GB")
     
-    # Save overall summary
     overall_summary = {
         "model": model_name,
         "tasks_completed": len(AVAILABLE_TASKS),
@@ -523,10 +482,8 @@ def main():
     
     args = parser.parse_args()
     
-    # Ensure results directory exists
     os.makedirs(RESULTS_DIR, exist_ok=True)
     
-    # Set generation config
     generation_config = {
         "max_new_tokens": args.max_tokens,
         "do_sample": True,

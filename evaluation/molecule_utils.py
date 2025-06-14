@@ -10,17 +10,13 @@ from rdkit.Chem.EnumerateStereoisomers import EnumerateStereoisomers
 from typing import Dict, List, Optional, Union, Any, Tuple
 import os
 from pathlib import Path
-
-# Import the original SA scorer
 from sascorer import calculateScore as calculate_sa_score_original
-
-# TxGemma imports
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import json
 import re
 
-# Singleton pattern for TxGemma model to avoid loading multiple times
+
 _txgemma_model = None
 _txgemma_tokenizer = None
 _tdc_prompts = None
@@ -33,7 +29,7 @@ def load_txgemma_model():
     global _txgemma_model, _txgemma_tokenizer, _tdc_prompts
     
     if _txgemma_model is None:
-        model_name = "google/txgemma-9b-predict"  # 可根据需要更改为2b或27b
+        model_name = "google/txgemma-9b-predict"
         _txgemma_tokenizer = AutoTokenizer.from_pretrained(model_name)
         _txgemma_model = AutoModelForCausalLM.from_pretrained(
             model_name,
@@ -41,7 +37,6 @@ def load_txgemma_model():
             device_map="auto",
         )
         
-        # Load TDC prompts
         prompts_file = "evaluation/tdc_prompts.json"
         if os.path.exists(prompts_file):
             with open(prompts_file, "r") as f:
@@ -61,40 +56,26 @@ def _extract_label(response: str) -> Optional[str]:
     Returns:
         str or None: Extracted label ('A' or 'B') or None if not found
     """
-    # 清理输入文本并查找第一个出现的A或B
     match = re.search(r"[AB]", response.upper())
     return match.group(0) if match else None
 
 def predict_toxicity(smiles: str, endpoint: str) -> Tuple[str, float]:
     """
     Predict toxicity for a molecule using TxGemma model.
-    使用生成+解析文本的方法，而不是logits。
-    
-    Args:
-        smiles: SMILES string of the molecule
-        endpoint: Toxicity endpoint to predict
-        
-    Returns:
-        Tuple[str, float]: Prediction value and safety probability
     """
     global _txgemma_model, _txgemma_tokenizer, _tdc_prompts
     
-    # Load model if not already loaded
     if _txgemma_model is None:
         load_txgemma_model()
         
-    # Check if prompts are available
     if not _tdc_prompts or endpoint not in _tdc_prompts:
         raise ValueError(f"Prompt not found for endpoint {endpoint}")
         
-    # Generate prompt
     prompt = _tdc_prompts[endpoint].replace("{Drug SMILES}", smiles)
     
-    # Generate input tensors
     inputs = _txgemma_tokenizer(prompt, return_tensors="pt").to(_txgemma_model.device)
 
-    # Generate text output
-    max_new_tokens = 6 if endpoint == "LD50_Zhu" else 2  # 较短的token数，足够获取首个A/B
+    max_new_tokens = 6 if endpoint == "LD50_Zhu" else 2
     gen_out = _txgemma_model.generate(
         **inputs, 
         max_new_tokens=max_new_tokens, 
@@ -103,22 +84,17 @@ def predict_toxicity(smiles: str, endpoint: str) -> Tuple[str, float]:
     new_tokens = gen_out[0][inputs["input_ids"].shape[-1]:]
     response = _txgemma_tokenizer.decode(new_tokens, skip_special_tokens=True)
     
-    # Process based on endpoint type
     if endpoint != "LD50_Zhu":
-        # 从生成的文本中提取第一个A或B
         label = _extract_label(response)
         
-        # 如果无法找到标签，默认为B（有毒）
         if label is None:
             label = "B"
             safety_probability = 0.0
         else:
-            # 安全概率：A=1.0, B=0.0
             safety_probability = 1.0 if label == "A" else 0.0
         
         value = label
     else:
-        # LD50 endpoint: 解析数值
         ld50_value = parse_ld50_value(response)
         safety_probability = min(1.0, max(0.0, ld50_value / 1000.0))
         value = str(ld50_value)
@@ -182,7 +158,6 @@ def calculate_properties(smiles: str) -> Dict[str, float]:
             "lipinski_violations": 4,
         }
     
-    # Calculate Lipinski violations
     mw = Descriptors.MolWt(mol)
     logp = Descriptors.MolLogP(mol)
     h_donors = Lipinski.NumHDonors(mol)
@@ -194,10 +169,8 @@ def calculate_properties(smiles: str) -> Dict[str, float]:
     if h_donors > 5: violations += 1
     if h_acceptors > 10: violations += 1
     
-    # Calculate other properties
     qed_value = QED.qed(mol)
     
-    # Use the original SA score calculation instead of the simplified version
     sa_score = calculate_sa_score_original(mol)
     
     rotatable_bonds = Descriptors.NumRotatableBonds(mol)

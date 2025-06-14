@@ -31,15 +31,13 @@ from llava.conversation import conv_templates, SeparatorStyle
 import warnings
 import copy
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger("llava_one_vision")
 
-# Constants
-DEFAULT_MODEL_PATH = ""  # 替换为你使用的实际模型路径
+DEFAULT_MODEL_PATH = "" 
 
 class LlavaOneVisionAgent:
     def __init__(self, model_path):
@@ -71,7 +69,7 @@ class LlavaOneVisionAgent:
         image_tensor = process_images([image], self.image_processor, self.model.config)
         image_tensor = [_image.to(dtype=torch.float16, device=self.device) for _image in image_tensor]
 
-        conv_template = "qwen_1_5"  # Make sure you use correct chat template for different models
+        conv_template = "qwen_1_5" 
         question = DEFAULT_IMAGE_TOKEN + system_prompt + user_prompt
         conv = copy.deepcopy(conv_templates[conv_template])
         conv.append_message(conv.roles[0], question)

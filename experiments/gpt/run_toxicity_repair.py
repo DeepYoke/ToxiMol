@@ -20,21 +20,17 @@ import logging
 import base64
 from datasets import load_dataset
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger("toxicity_repair")
 
-# Constants
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
-# Default API key
 DEFAULT_API_KEY = "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"
 
-# All available tasks
 AVAILABLE_TASKS = [
     "ames", "carcinogens_lagunin", "clintox", "dili", "herg", 
     "herg_central", "herg_karim", "ld50_zhu", "skin_reaction", 
@@ -88,11 +84,9 @@ def load_task_data(task_name: str) -> Tuple[List[Dict], Dict]:
         Tuple of (molecules list, task prompt dictionary)
     """
     try:
-        # Load molecules data
         molecules_hf = load_dataset("DeepYoke/ToxiMol-benchmark", data_dir=task_name, split="train", trust_remote_code=True)
         molecules = molecules_hf.to_pandas().to_dict(orient='records')  
         
-        # Load task prompt
         prompt_path = BASE_DIR / "annotation" / f"{task_name}_prompt.json"
         task_prompt = load_json_file(prompt_path)
         
@@ -123,26 +117,21 @@ def get_specific_prompt(task_name: str, molecule: Dict, task_prompt: Dict) -> st
     Returns:
         Formatted prompt string for the molecule
     """
-    # Handle special cases for tox21 and toxcast with subtasks
     if task_name == "tox21" and "subtasks" in task_prompt:
-        # Extract actual subtask name from the molecule task field (e.g., "tox21_SR_ARE" -> "SR_ARE")
         subtask = molecule["task"].replace("tox21_", "")
         if subtask in task_prompt["subtasks"]:
             instruction = task_prompt["subtasks"][subtask]["instruction"]
         else:
             instruction = task_prompt["subtasks"]["default"]["instruction"]
     elif task_name == "toxcast" and "subtasks" in task_prompt:
-        # Extract actual subtask name from the molecule task field (e.g., "toxcast_APR_HepG2_MitoMass_24h_dn" -> "APR_HepG2_MitoMass_24h_dn")
         subtask = molecule["task"].replace("toxcast_", "")
         if subtask in task_prompt["subtasks"]:
             instruction = task_prompt["subtasks"][subtask]["instruction"]
         else:
             instruction = task_prompt["subtasks"]["default"]["instruction"]
     else:
-        # Regular tasks
         instruction = task_prompt["instruction"]
     
-    # Return the instruction, replacing any {{ smiles }} placeholders with the actual SMILES
     return instruction.replace("{{ smiles }}", molecule["smiles"])
 
 def create_repair_request(
@@ -165,13 +154,10 @@ def create_repair_request(
     Returns:
         List of message dictionaries for the API request
     """
-    # Generate specific instruction for the molecule
     specific_instruction = get_specific_prompt(task_name, molecule, task_prompt)
     
-    # Encode the molecule image
     encoded_image = encode_image(image_path)
     
-    # Create the system message from the repair prompt
     system_content = (
         f"You are a {repair_prompt['agent_role']}. "
         f"{repair_prompt['task_overview']} "
@@ -180,7 +166,6 @@ def create_repair_request(
         f"Your output must strictly follow this format: {repair_prompt['output_format']['structure']}"
     )
     
-    # Create the user message with the specific instruction and image
     user_content = [
         {
             "type": "text",
@@ -202,7 +187,6 @@ def create_repair_request(
         }
     ]
     
-    # Construct the messages
     messages = [
         {"role": "system", "content": system_content},
         {"role": "user", "content": user_content}
@@ -244,7 +228,6 @@ def call_openai_api(
             if attempt < max_retries - 1:
                 logger.info(f"Retrying in {retry_delay} seconds...")
                 time.sleep(retry_delay)
-                # Increase delay for next retry (exponential backoff)
                 retry_delay *= 2
             else:
                 logger.error(f"Failed after {max_retries} attempts")
@@ -260,22 +243,17 @@ def extract_results(response_text: str) -> Dict:
     Returns:
         Dictionary containing the parsed results
     """
-    # Initialize results
     results = {
         "modified_smiles": [],
         "raw_response": response_text
     }
     
-    # Extract modified SMILES using the strict format
     if "MODIFIED_SMILES:" in response_text:
-        # Get everything after MODIFIED_SMILES:
         smiles_part = response_text.split("MODIFIED_SMILES:")[1].strip()
-        # Split by semicolons and clean up
         if ";" in smiles_part:
             smiles_candidates = [s.strip() for s in smiles_part.split(";") if s.strip()]
             results["modified_smiles"] = smiles_candidates
         else:
-            # Handle case with only one SMILES or 'none'
             if smiles_part.lower().strip() == "none":
                 results["modified_smiles"] = []
             else:
@@ -308,7 +286,6 @@ def process_molecule(
     molecule_id = molecule["id"]
     logger.info(f"Processing {task_name} molecule ID: {molecule_id}")
     task = molecule['task']
-    # Get the image binary and save it to tmp dir
     image_binary = molecule["image"]
     tmp_dir = f'~/toximol_tmp_images/{task}'
     if not os.path.exists(tmp_dir):
@@ -320,7 +297,6 @@ def process_molecule(
         logger.error(f"Image not found: {image_path}")
         raise FileNotFoundError(f"Image not found: {image_path}")
 
-    # Create the API request
     messages = create_repair_request(
         molecule, 
         task_name, 
@@ -329,14 +305,11 @@ def process_molecule(
         str(image_path)
     )
     
-    # Call the API
     try:
         response = call_openai_api(client, messages, model)
         
-        # Parse the results
         results = extract_results(response)
         
-        # Add metadata
         results["task"] = molecule["task"] if "task" in molecule else task_name
         results["molecule_id"] = molecule_id
         results["original_smiles"] = molecule["smiles"]
@@ -347,7 +320,6 @@ def process_molecule(
     
     except Exception as e:
         logger.error(f"Error processing molecule {molecule_id}: {e}")
-        # Create error result
         error_result = {
             "task": molecule["task"] if "task" in molecule else task_name,
             "molecule_id": molecule_id,
@@ -369,12 +341,10 @@ def cleanup_old_results(output_dir: Path, task_name: str):
         task_name: Name of the task
     """
     try:
-        # Find all individual result files
         individual_files = list(output_dir.glob(f"{task_name}_*.json"))
         if individual_files:
             logger.info(f"Cleaning up {len(individual_files)} old individual result files")
             for file in individual_files:
-                # Skip the combined results file
                 if file.name == f"{task_name}_results.json":
                     continue
                 try:
@@ -404,21 +374,16 @@ def run_task(
     Returns:
         List of result dictionaries
     """
-    # Create API client
     client = OpenAI(api_key=api_key)
     
-    # Create output directory
     output_dir = RESULTS_DIR / model / task_name
     os.makedirs(output_dir, exist_ok=True)
     
-    # Clean up old individual result files if they exist
     cleanup_old_results(output_dir, task_name)
     
-    # Load task data
     molecules, task_prompt = load_task_data(task_name)
     repair_prompt = load_repair_prompt()
     
-    # Filter molecules if needed
     if molecules_ids:
         molecules = [m for m in molecules if m["id"] in molecules_ids]
     
@@ -427,7 +392,6 @@ def run_task(
     
     logger.info(f"Running task {task_name} with {len(molecules)} molecules")
     
-    # Process each molecule
     all_results = []
     for molecule in molecules:
         result = process_molecule(
@@ -440,10 +404,8 @@ def run_task(
         )
         all_results.append(result)
         
-        # Add a short delay to avoid rate limits
         time.sleep(1)
     
-    # Create combined results
     combined_results = {
         "task_name": task_name,
         "model": model,
@@ -453,8 +415,7 @@ def run_task(
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         "results": all_results
     }
-    
-    # Save combined results to a single file
+
     output_file = output_dir / f"{task_name}_results.json"
     with open(output_file, 'w') as f:
         json.dump(combined_results, f, indent=2)
@@ -486,7 +447,6 @@ def run_all_tasks(
         task_results = run_task(task_name, model, api_key, molecule_limit)
         all_results[task_name] = task_results
     
-    # Save overall summary
     overall_summary = {
         "model": model,
         "tasks_completed": len(AVAILABLE_TASKS),
@@ -541,7 +501,6 @@ def main():
     
     args = parser.parse_args()
     
-    # Ensure results directory exists
     os.makedirs(RESULTS_DIR, exist_ok=True)
     
     logger.info(f"Starting experiment with model: {args.model}")

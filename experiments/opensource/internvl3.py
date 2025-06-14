@@ -23,23 +23,19 @@ from typing import List, Dict, Any, Optional, Tuple, Union
 from pathlib import Path
 import logging
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger("toxicity_repair")
 
-# Constants
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
-# InternVL3 model constants
 DEFAULT_MODEL_PATH = "OpenGVLab/InternVL3-38B"
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
-# All available tasks
 AVAILABLE_TASKS = [
     "ames", "clintox", "carcinogens_lagunin", "dili", "herg", 
     "herg_central", "herg_karim", "ld50_zhu", "skin_reaction", 
@@ -87,7 +83,6 @@ class InternVL3Agent:
             config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
             num_layers = config.llm_config.num_hidden_layers
             
-            # Since the first GPU will be used for ViT, treat it as half a GPU
             num_layers_per_gpu = math.ceil(num_layers / (world_size - 0.5))
             num_layers_per_gpu = [num_layers_per_gpu] * world_size
             num_layers_per_gpu[0] = math.ceil(num_layers_per_gpu[0] * 0.5)
@@ -145,22 +140,18 @@ class InternVL3Agent:
         orig_width, orig_height = image.size
         aspect_ratio = orig_width / orig_height
 
-        # Calculate the existing image aspect ratio
         target_ratios = set(
             (i, j) for n in range(min_num, max_num + 1) for i in range(1, n + 1) for j in range(1, n + 1) if
             i * j <= max_num and i * j >= min_num)
         target_ratios = sorted(target_ratios, key=lambda x: x[0] * x[1])
 
-        # Find the closest aspect ratio to the target
         target_aspect_ratio = self._find_closest_aspect_ratio(
             aspect_ratio, target_ratios, orig_width, orig_height, image_size)
 
-        # Calculate the target width and height
         target_width = image_size * target_aspect_ratio[0]
         target_height = image_size * target_aspect_ratio[1]
         blocks = target_aspect_ratio[0] * target_aspect_ratio[1]
 
-        # Resize the image
         resized_img = image.resize((target_width, target_height))
         processed_images = []
         for i in range(blocks):
@@ -170,7 +161,6 @@ class InternVL3Agent:
                 ((i % (target_width // image_size)) + 1) * image_size,
                 ((i // (target_width // image_size)) + 1) * image_size
             )
-            # Split the image
             split_img = resized_img.crop(box)
             processed_images.append(split_img)
         assert len(processed_images) == blocks
@@ -198,13 +188,11 @@ class InternVL3Agent:
         if generation_config is None:
             generation_config = dict(max_new_tokens=1024, do_sample=True)
             
-        try:
-            # Load image if provided
+        try:    
             pixel_values = None
             if image_path:
                 pixel_values = self.load_image(image_path)
                 
-            # Add image placeholder to user prompt if image is provided
             if pixel_values is not None:
                 if '<image>' not in user_prompt:
                     user_prompt = '<image>\n' + user_prompt
@@ -213,7 +201,6 @@ class InternVL3Agent:
             if system_prompt:
                 history = [{"role": "system", "content": system_prompt}]
                 
-            # Get the response
             response = self.model.chat(
                 self.tokenizer, 
                 pixel_values, 

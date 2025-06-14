@@ -25,23 +25,19 @@ import logging
 from DeepSeek.deepseek_vl2.models import DeepseekVLV2Processor, DeepseekVLV2ForCausalLM
 from DeepSeek.deepseek_vl2.utils.io import load_pil_images
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger("toxicity_repair")
 
-# Constants
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
-# InternVL3 model constants
 DEFAULT_MODEL_PATH = "deepseek-ai/deepseek-vl2"
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
-# All available tasks
 AVAILABLE_TASKS = [
     "clintox", "ames", "carcinogens_lagunin", "dili", "herg", 
     "herg_central", "herg_karim", "ld50_zhu", "skin_reaction", 
@@ -82,7 +78,6 @@ class DeepseekVLV2Agent:
             config = AutoConfig.from_pretrained(model_path, trust_remote_code=True)
             num_layers = config.num_hidden_layers
             
-            # Since the first GPU will be used for ViT, treat it as half a GPU
             num_layers_per_gpu = math.ceil(num_layers / (world_size - 0.5))
             num_layers_per_gpu = [num_layers_per_gpu] * world_size
             num_layers_per_gpu[0] = math.ceil(num_layers_per_gpu[0] * 0.5)
@@ -120,7 +115,6 @@ class DeepseekVLV2Agent:
             generation_config = dict(max_new_tokens=1024, do_sample=True)
             
         try:
-            # Prepare conversation
             conversation = [
                 {
                     "role": "<|User|>",
@@ -130,7 +124,6 @@ class DeepseekVLV2Agent:
                 {"role": "<|Assistant|>", "content": ""}
             ]
             
-            # Load images and prepare inputs
             pil_images = load_pil_images(conversation)
             prepare_inputs = self.processor(
                 conversations=conversation,
@@ -151,7 +144,6 @@ class DeepseekVLV2Agent:
             
             input_dict = {k: v for k, v in input_dict.items() if v is not None}
             
-            # Run image encoder to get the image embeddings
             with torch.cuda.amp.autocast(dtype=torch.bfloat16):
                 inputs_embeds = self.model.prepare_inputs_embeds(**input_dict)
                 

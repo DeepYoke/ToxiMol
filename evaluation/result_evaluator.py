@@ -56,24 +56,19 @@ class ResultEvaluator:
         Returns:
             List[EvaluationResult]: List of evaluation results for all modified molecules
         """
-        # Load the result file
         with open(result_file, 'r') as f:
             data = json.load(f)
         
-        # Extract basic information
         model = data.get('model', '')
         task = data.get('task', '')
         molecule_id = data.get('molecule_id', 0)
         original_smiles = data.get('original_smiles', '')
         raw_response = data.get('raw_response', '')
         
-        # Get all modified SMILES
         modified_smiles_list = data.get('modified_smiles', [])
         
-        # Limit to maximum 3 SMILES for evaluation
         modified_smiles_list = modified_smiles_list[:3]
         
-        # If no modified SMILES, return a failed result
         if not modified_smiles_list:
             details = {
                 'validation': {
@@ -99,13 +94,11 @@ class ResultEvaluator:
                 message="Failed: No modified SMILES provided"
             )]
         
-        # Process each modified SMILES
         evaluation_results = []
         valid_smiles_found = False
         any_repair_success = False
         
         for modified_smiles in modified_smiles_list:
-            # Initialize details dictionary
             details = {
                 'validation': {
                     'valid_smiles': False,
@@ -117,7 +110,6 @@ class ResultEvaluator:
                 'properties': {}
             }
             
-            # Check if the SMILES is valid
             if not modified_smiles:
                 details['validation']['valid_smiles'] = False
                 details['validation']['error'] = "Empty SMILES string"
@@ -136,7 +128,6 @@ class ResultEvaluator:
                 ))
                 continue
             
-            # Validate the SMILES
             if not validate_smiles(modified_smiles):
                 details['validation']['valid_smiles'] = False
                 details['validation']['error'] = "Invalid SMILES string"
@@ -158,9 +149,7 @@ class ResultEvaluator:
             valid_smiles_found = True
             details['validation']['valid_smiles'] = True
             
-            # If full evaluation is requested, calculate molecular properties
             if full_evaluation:
-                # Evaluate repair criteria
                 repair_results = self._evaluate_repair_criteria(
                     task, 
                     original_smiles, 
@@ -176,19 +165,15 @@ class ResultEvaluator:
                 
                 success = repair_results.passed_repair
                     
-                # Track if any repair was successful
                 if success:
                     any_repair_success = True
                     
                 message = "Success: Molecule meets all repair criteria" if success else f"Failed: {', '.join(repair_results.fails)}"
                 
-                # Add toxicity endpoints and deltas
                 toxicity_endpoints = repair_results.toxicity_endpoints
                 
-                # Calculate deltas between original and modified molecules
                 toxicity_deltas = self._calculate_toxicity_deltas(repair_results.toxicity_endpoints)
                 
-                # Update toxicity details
                 details['toxicity']['endpoints'] = {
                     endpoint: {
                         'value': endpoint_result.value, 
@@ -196,8 +181,7 @@ class ResultEvaluator:
                     } for endpoint, endpoint_result in toxicity_endpoints.items()
                 }
                 details['toxicity']['improved'] = repair_results.toxicity_improved
-            else:
-                # If not performing full evaluation, just check for valid SMILES
+            else:   
                 success = True
                 message = "Basic validation passed"
                 toxicity_endpoints = {}
@@ -216,7 +200,6 @@ class ResultEvaluator:
                 message=message
             ))
         
-        # If no valid SMILES found, return a single failed result
         if not valid_smiles_found and not evaluation_results:
             details = {
                 'validation': {
@@ -242,7 +225,6 @@ class ResultEvaluator:
                 message="Failed: No valid SMILES found among modifications"
             )]
         
-        # Return all evaluation results
         return evaluation_results
     
     def evaluate_task_results(
@@ -262,22 +244,17 @@ class ResultEvaluator:
         Returns:
             Tuple[List[EvaluationResult], Dict[str, Any]]: List of evaluation results and summary
         """
-        # First check if a consolidated results file exists
         task_dir = self.results_dir / model / task
         consolidated_file = task_dir / f"{task}_results.json"
         
         if consolidated_file.exists():
-            # Process consolidated results file
             print(f"Found consolidated results file: {consolidated_file}")
             evaluation_results = self._process_consolidated_results(consolidated_file, full_evaluation)
         else:
-            # Find all individual result files for this task and model
             result_files = list(task_dir.glob(f"{task}_*.json"))
             
-            # Filter out summary files
             result_files = [f for f in result_files if "summary" not in f.name and "error" not in f.name]
             
-            # Evaluate each result
             evaluation_results = []
             for result_file in result_files:
                 try:
@@ -286,24 +263,19 @@ class ResultEvaluator:
                 except Exception as e:
                     print(f"Error evaluating {result_file}: {e}")
         
-        # Group results by molecule_id
         results_by_molecule = {}
         for result in evaluation_results:
             if result.molecule_id not in results_by_molecule:
                 results_by_molecule[result.molecule_id] = []
             results_by_molecule[result.molecule_id].append(result)
         
-        # Count original molecules
         original_molecule_count = len(results_by_molecule)
         
-        # Calculate total modified molecules (original * 3)
-        molecules_per_original = 3  # Each original molecule typically has 3 modifications
+        molecules_per_original = 3 
         total_modified_molecules = original_molecule_count * molecules_per_original
         
-        # Count valid SMILES and successful repairs
         valid_smiles_count = sum(1 for r in evaluation_results if r.details['validation']['valid_smiles'])
         
-        # A molecule is successfully repaired if ANY of its modifications passes all criteria
         success_count = 0
         for molecule_id, results in results_by_molecule.items():
             if any(r.success for r in results):
@@ -313,7 +285,7 @@ class ResultEvaluator:
             'task': task,
             'model': model,
             'original_molecule_count': original_molecule_count,
-            'total_molecules': total_modified_molecules,  # Total modified molecules (original * 3)
+            'total_molecules': total_modified_molecules,
             'valid_smiles_count': valid_smiles_count,
             'success_count': success_count,
             'valid_percentage': valid_smiles_count / total_modified_molecules * 100 if total_modified_molecules > 0 else 0,
@@ -336,31 +308,24 @@ class ResultEvaluator:
             
         Returns:
             List[EvaluationResult]: List of evaluation results
-        """
-        # Load the consolidated results file
+        """     
         with open(consolidated_file, 'r') as f:
             data = json.load(f)
         
-        # Extract model and task information
         model = data.get('model', '')
         task_name = data.get('task_name', '')
         
-        # Process each molecule result
         evaluation_results = []
         for result in data.get('results', []):
-            # Extract basic information
             molecule_id = result.get('molecule_id', 0)
-            task = result.get('task', task_name)  # Use the molecule-specific task if available
+            task = result.get('task', task_name)
             original_smiles = result.get('original_smiles', '')
             raw_response = result.get('raw_response', '')
             
-            # Get all modified SMILES (usually 3)
             modified_smiles_list = result.get('modified_smiles', [])
             
-            # Limit to maximum 3 SMILES for evaluation
             modified_smiles_list = modified_smiles_list[:3]
             
-            # If no modified SMILES at all, create one failed result
             if not modified_smiles_list:
                 details = {
                     'validation': {
@@ -387,13 +352,11 @@ class ResultEvaluator:
                 ))
                 continue
             
-            # Process each modified SMILES
             valid_smiles_found = False
             any_repair_success = False
             molecule_results = []
             
             for modified_smiles in modified_smiles_list:
-                # Initialize details dictionary
                 details = {
                     'validation': {
                         'valid_smiles': False,
@@ -405,7 +368,6 @@ class ResultEvaluator:
                     'properties': {}
                 }
                 
-                # Validate the SMILES
                 if not modified_smiles:
                     details['validation']['valid_smiles'] = False
                     details['validation']['error'] = "Empty SMILES string"
@@ -442,13 +404,10 @@ class ResultEvaluator:
                     ))
                     continue
                 
-                # At least one valid SMILES found
                 valid_smiles_found = True
                 details['validation']['valid_smiles'] = True
                 
-                # If full evaluation is requested, calculate molecular properties
                 if full_evaluation:
-                    # Evaluate repair criteria
                     repair_results = self._evaluate_repair_criteria(
                         task, 
                         original_smiles, 
@@ -463,20 +422,16 @@ class ResultEvaluator:
                     }
                     
                     success = repair_results.passed_repair
-                        
-                    # Track if any repair was successful
+
                     if success:
                         any_repair_success = True
                     
                     message = "Success: Molecule meets all repair criteria" if success else f"Failed: {', '.join(repair_results.fails)}"
                     
-                    # Add toxicity endpoints and deltas
                     toxicity_endpoints = repair_results.toxicity_endpoints
                     
-                    # Calculate deltas between original and modified molecules
                     toxicity_deltas = self._calculate_toxicity_deltas(repair_results.toxicity_endpoints)
                     
-                    # Update toxicity details
                     details['toxicity']['endpoints'] = {
                         endpoint: {
                                 'value': endpoint_result.value, 
@@ -485,7 +440,6 @@ class ResultEvaluator:
                     }
                     details['toxicity']['improved'] = repair_results.toxicity_improved
                 else:
-                    # If not performing full evaluation, just check for valid SMILES
                     success = True
                     message = "Basic validation passed"
                     toxicity_endpoints = {}
@@ -504,10 +458,8 @@ class ResultEvaluator:
                     message=message
                 ))
             
-            # Add all results for this molecule
             evaluation_results.extend(molecule_results)
             
-            # If no valid SMILES found for this molecule, add a failed result
             if not valid_smiles_found:
                 details = {
                     'validation': {
@@ -550,27 +502,22 @@ class ResultEvaluator:
         Returns:
             Dict[str, Dict[str, Any]]: Dictionary mapping task names to their summaries
         """
-        # Find all task directories
         model_dir = self.results_dir / model
         task_dirs = [d for d in model_dir.iterdir() if d.is_dir()]
         
-        # Evaluate each task
         all_summaries = {}
         for task_dir in task_dirs:
             task = task_dir.name
             results, summary = self.evaluate_task_results(model, task, full_evaluation)
             all_summaries[task] = summary
             
-            # Add toxicity improvement statistics if available
             if full_evaluation:
-                # Group results by molecule_id for toxicity improvement analysis
                 results_by_molecule = {}
                 for result in results:
                     if result.molecule_id not in results_by_molecule:
                         results_by_molecule[result.molecule_id] = []
                     results_by_molecule[result.molecule_id].append(result)
                 
-                # A molecule's toxicity is improved if ANY of its modifications shows improvement
                 toxicity_improved_count = 0
                 for molecule_id, molecule_results in results_by_molecule.items():
                     if any(r.details.get('toxicity', {}).get('improved', False) for r in molecule_results):
@@ -579,7 +526,6 @@ class ResultEvaluator:
                 summary['toxicity_improved_count'] = toxicity_improved_count
                 summary['toxicity_improved_percentage'] = toxicity_improved_count / len(results_by_molecule) * 100 if results_by_molecule else 0
         
-        # Create overall summary
         original_molecule_count = sum(summary['original_molecule_count'] for summary in all_summaries.values())
         total_molecules = sum(summary['total_molecules'] for summary in all_summaries.values())
         valid_smiles_count = sum(summary['valid_smiles_count'] for summary in all_summaries.values())
@@ -596,7 +542,6 @@ class ResultEvaluator:
             'tasks_completed': len(all_summaries)
         }
         
-        # Add toxicity improvement statistics if available
         if full_evaluation and all('toxicity_improved_count' in summary for summary in all_summaries.values()):
             toxicity_improved_count = sum(summary['toxicity_improved_count'] for summary in all_summaries.values())
             overall['toxicity_improved_count'] = toxicity_improved_count
@@ -620,26 +565,21 @@ class ResultEvaluator:
             
         Returns:
             str: Path to the summary file
-        """
-        # Create base output directory with new path
+        """ 
         base_output_dir = self.output_dir / model
         base_output_dir.mkdir(exist_ok=True, parents=True)
         
-        # Determine if this is a single task or all tasks evaluation
         is_single_task = len(all_summaries) == 1 and "overall" not in all_summaries
         
         if is_single_task:
-            # Single task evaluation
             task_name = list(all_summaries.keys())[0]
             output_dir = base_output_dir / f"task_{task_name}"
             output_dir.mkdir(exist_ok=True, parents=True)
             
-            # Save task summary
             summary_file = output_dir / f"{task_name}_evaluation_summary.json"
             with open(summary_file, 'w') as f:
                 json.dump(all_summaries, f, indent=2)
             
-            # Create a DataFrame for CSV export
             summary_data = []
             summary = all_summaries[task_name]
             row = {
@@ -652,30 +592,25 @@ class ResultEvaluator:
                 "Success %": f"{summary['success_percentage']:.2f}%",
             }
             
-            # Add toxicity improvement if available
             if 'toxicity_improved_count' in summary:
                 row["Toxicity Improved"] = summary["toxicity_improved_count"]
                 row["Toxicity Improved %"] = f"{summary['toxicity_improved_percentage']:.2f}%"
             
             summary_data.append(row)
             
-            # Save as CSV
             df = pd.DataFrame(summary_data)
             csv_file = output_dir / f"{task_name}_evaluation_summary.csv"
             df.to_csv(csv_file, index=False)
             
             return str(summary_file)
         else:
-            # All tasks evaluation
             output_dir = base_output_dir / "all_tasks"
             output_dir.mkdir(exist_ok=True, parents=True)
             
-            # Save overall summary
             summary_file = output_dir / "all_tasks_evaluation_summary.json"
             with open(summary_file, 'w') as f:
                 json.dump(all_summaries, f, indent=2)
             
-            # Create a DataFrame for CSV export
             summary_data = []
             for task, summary in all_summaries.items():
                 if task != "overall":
@@ -689,14 +624,12 @@ class ResultEvaluator:
                         "Success %": f"{summary['success_percentage']:.2f}%",
                     }
                     
-                    # Add toxicity improvement if available
                     if 'toxicity_improved_count' in summary:
                         row["Toxicity Improved"] = summary["toxicity_improved_count"]
                         row["Toxicity Improved %"] = f"{summary['toxicity_improved_percentage']:.2f}%"
                     
                     summary_data.append(row)
-            
-            # Add overall row
+
             if "overall" in all_summaries:
                 overall = all_summaries["overall"]
                 row = {
@@ -709,19 +642,16 @@ class ResultEvaluator:
                     "Success %": f"{overall['success_percentage']:.2f}%",
                 }
                 
-                # Add toxicity improvement if available
                 if 'toxicity_improved_count' in overall:
                     row["Toxicity Improved"] = overall["toxicity_improved_count"]
                     row["Toxicity Improved %"] = f"{overall['toxicity_improved_percentage']:.2f}%"
                     
                 summary_data.append(row)
             
-            # Save as CSV
             df = pd.DataFrame(summary_data)
             csv_file = output_dir / "all_tasks_evaluation_summary.csv"
             df.to_csv(csv_file, index=False)
             
-            # Process subtasks for tox21 and toxcast if they exist in the summaries
             if "tox21" in all_summaries or "toxcast" in all_summaries:
                 self._generate_subtask_summaries(model, output_dir)
                 
@@ -735,11 +665,9 @@ class ResultEvaluator:
             model: Model name
             output_dir: Directory to save the summaries
         """
-        # Process tox21 subtasks if results exist
         if self._process_tox21_subtasks(model, output_dir):
             print(f"Generated tox21 subtask evaluation summary")
         
-        # Process toxcast subtasks if results exist
         if self._process_toxcast_subtasks(model, output_dir):
             print(f"Generated toxcast subtask evaluation summary")
     
@@ -754,11 +682,9 @@ class ResultEvaluator:
         Returns:
             bool: True if processed successfully, False otherwise
         """
-        # First evaluate the task to get proper evaluation results
         try:
             evaluation_results, _ = self.evaluate_task_results(model, "tox21", True)
             
-            # Group results by subtask
             subtasks = {}
             for result in evaluation_results:
                 task = result.task
@@ -766,27 +692,21 @@ class ResultEvaluator:
                     subtasks[task] = []
                 subtasks[task].append(result)
             
-            # Calculate statistics for each subtask
             subtask_summaries = {}
             for subtask, results in subtasks.items():
-                # Group results by molecule_id to calculate success rate
                 results_by_molecule = {}
                 for result in results:
                     if result.molecule_id not in results_by_molecule:
                         results_by_molecule[result.molecule_id] = []
                     results_by_molecule[result.molecule_id].append(result)
                 
-                # Count original molecules
                 original_molecule_count = len(results_by_molecule)
                 
-                # Calculate total modified molecules (original * 3)
-                molecules_per_original = 3  # Each original molecule typically has 3 modifications
+                molecules_per_original = 3 
                 total_modified_molecules = original_molecule_count * molecules_per_original
                 
-                # Count valid SMILES and successful repairs
                 valid_smiles_count = sum(1 for r in results if r.details['validation']['valid_smiles'])
                 
-                # A molecule is successfully repaired if ANY of its modifications passes all criteria
                 success_count = 0
                 for molecule_id, molecule_results in results_by_molecule.items():
                     if any(r.success for r in molecule_results):
@@ -802,8 +722,7 @@ class ResultEvaluator:
                     'valid_percentage': valid_smiles_count / total_modified_molecules * 100 if total_modified_molecules > 0 else 0,
                     'success_percentage': success_count / original_molecule_count * 100 if original_molecule_count > 0 else 0
                 }
-                
-                # Add toxicity improvement statistics if available
+
                 toxicity_improved_count = 0
                 for molecule_id, molecule_results in results_by_molecule.items():
                     if any(r.details.get('toxicity', {}).get('improved', False) for r in molecule_results):
@@ -813,12 +732,10 @@ class ResultEvaluator:
                     subtask_summaries[subtask]['toxicity_improved_count'] = toxicity_improved_count
                     subtask_summaries[subtask]['toxicity_improved_percentage'] = toxicity_improved_count / original_molecule_count * 100 if original_molecule_count > 0 else 0
             
-            # Save as JSON
             json_file = output_dir / "tox21_subtasks_evaluation_summary.json"
             with open(json_file, 'w') as f:
                 json.dump(subtask_summaries, f, indent=2)
             
-            # Create DataFrame for CSV
             csv_data = []
             for subtask, summary in subtask_summaries.items():
                 row = {
@@ -831,14 +748,12 @@ class ResultEvaluator:
                     "Success %": f"{summary['success_percentage']:.2f}%",
                 }
                 
-                # Add toxicity improvement if available
                 if 'toxicity_improved_count' in summary:
                     row["Toxicity Improved"] = summary["toxicity_improved_count"]
                     row["Toxicity Improved %"] = f"{summary['toxicity_improved_percentage']:.2f}%"
                 
                 csv_data.append(row)
             
-            # Save as CSV
             df = pd.DataFrame(csv_data)
             csv_file = output_dir / "tox21_subtasks_evaluation_summary.csv"
             df.to_csv(csv_file, index=False)
@@ -859,11 +774,9 @@ class ResultEvaluator:
         Returns:
             bool: True if processed successfully, False otherwise
         """
-        # First evaluate the task to get proper evaluation results
         try:
             evaluation_results, _ = self.evaluate_task_results(model, "toxcast", True)
             
-            # Group results by subtask
             subtasks = {}
             for result in evaluation_results:
                 task = result.task
@@ -871,27 +784,21 @@ class ResultEvaluator:
                     subtasks[task] = []
                 subtasks[task].append(result)
             
-            # Calculate statistics for each subtask
             subtask_summaries = {}
             for subtask, results in subtasks.items():
-                # Group results by molecule_id to calculate success rate
                 results_by_molecule = {}
                 for result in results:
                     if result.molecule_id not in results_by_molecule:
                         results_by_molecule[result.molecule_id] = []
                     results_by_molecule[result.molecule_id].append(result)
                 
-                # Count original molecules
                 original_molecule_count = len(results_by_molecule)
                 
-                # Calculate total modified molecules (original * 3)
-                molecules_per_original = 3  # Each original molecule typically has 3 modifications
+                molecules_per_original = 3 
                 total_modified_molecules = original_molecule_count * molecules_per_original
                 
-                # Count valid SMILES and successful repairs
                 valid_smiles_count = sum(1 for r in results if r.details['validation']['valid_smiles'])
                 
-                # A molecule is successfully repaired if ANY of its modifications passes all criteria
                 success_count = 0
                 for molecule_id, molecule_results in results_by_molecule.items():
                     if any(r.success for r in molecule_results):
@@ -908,7 +815,6 @@ class ResultEvaluator:
                     'success_percentage': success_count / original_molecule_count * 100 if original_molecule_count > 0 else 0
                 }
                 
-                # Add toxicity improvement statistics if available
                 toxicity_improved_count = 0
                 for molecule_id, molecule_results in results_by_molecule.items():
                     if any(r.details.get('toxicity', {}).get('improved', False) for r in molecule_results):
@@ -917,13 +823,11 @@ class ResultEvaluator:
                 if toxicity_improved_count > 0:
                     subtask_summaries[subtask]['toxicity_improved_count'] = toxicity_improved_count
                     subtask_summaries[subtask]['toxicity_improved_percentage'] = toxicity_improved_count / original_molecule_count * 100 if original_molecule_count > 0 else 0
-            
-            # Save as JSON
+
             json_file = output_dir / "toxcast_subtasks_evaluation_summary.json"
             with open(json_file, 'w') as f:
                 json.dump(subtask_summaries, f, indent=2)
             
-            # Create DataFrame for CSV
             csv_data = []
             for subtask, summary in subtask_summaries.items():
                 row = {
@@ -936,14 +840,12 @@ class ResultEvaluator:
                     "Success %": f"{summary['success_percentage']:.2f}%",
                 }
                 
-                # Add toxicity improvement if available
                 if 'toxicity_improved_count' in summary:
                     row["Toxicity Improved"] = summary["toxicity_improved_count"]
                     row["Toxicity Improved %"] = f"{summary['toxicity_improved_percentage']:.2f}%"
                 
                 csv_data.append(row)
             
-            # Save as CSV
             df = pd.DataFrame(csv_data)
             csv_file = output_dir / "toxcast_subtasks_evaluation_summary.csv"
             df.to_csv(csv_file, index=False)
@@ -978,30 +880,24 @@ class ResultEvaluator:
         Returns:
             RepairResults: Results of repair evaluation
         """
-        # Get task mapping and primary endpoints
         mapping = get_task_mapping(task_type)
         primary_endpoints = mapping.get("primary_endpoints", [])
         
-        # Default to standard endpoints if none are specified
         if not primary_endpoints:
             if task_type == "ames":
                 primary_endpoints = ["AMES"]
             elif "herg" in task_type.lower():
                 primary_endpoints = ["hERG"]
             else:
-                # Generic endpoint for testing
                 primary_endpoints = ["AMES"]
         
-        # Calculate molecular properties
         properties = calculate_properties(modified_smiles)
         qed = properties.get("qed", 0.0)
         sas_score = properties.get("sas_score", 10.0)
         lipinski_violations = properties.get("lipinski_violations", 0)
         
-        # Calculate similarity
         similarity = calculate_similarity(original_smiles, modified_smiles)
         
-        # Predict toxicity for modified molecule
         modified_toxicity_endpoints = {}
         for endpoint in primary_endpoints:
             value, probability = predict_toxicity(modified_smiles, endpoint)
@@ -1011,31 +907,25 @@ class ResultEvaluator:
                 probability=probability
             )
         
-        # For original molecule, assume very low safety probability (0.01)
-        # This matches the approach in evaluators.py
         original_toxicity_endpoints = {}
         for endpoint in primary_endpoints:
             if endpoint == "LD50_Zhu":
-                # For LD50, use a low value (100) to indicate high toxicity
                 original_toxicity_endpoints[endpoint] = ToxicityEndpointResult(
                     endpoint=endpoint,
                     value="100",
-                    probability=0.1  # Slightly higher but still toxic
+                    probability=0.1 
                 )
             else:
-                # For classification endpoints, use "B" (toxic) with very low safety probability
                 original_toxicity_endpoints[endpoint] = ToxicityEndpointResult(
                     endpoint=endpoint,
                     value="B",
-                    probability=0.01  # Very low safety probability (0.01 matches evaluators.py)
+                    probability=0.01  
                 )
-        
-        # Calculate toxicity deltas
+
         toxicity_deltas = []
         toxicity_improved = False
         improvement_count = 0
         
-        # Get maximum safety probability across all endpoints
         max_safety_prob = 0.0
         if modified_toxicity_endpoints:
             max_safety_prob = max(endpoint.probability for endpoint in modified_toxicity_endpoints.values())
@@ -1050,7 +940,6 @@ class ResultEvaluator:
                     improved = False
                 else:
                     changed = True
-                    # Safety probability increase = improvement, no matter how small
                     improved = modified.probability > original.probability
                 
                 toxicity_deltas.append(ToxicityDelta(
@@ -1066,18 +955,14 @@ class ResultEvaluator:
                 if improved:
                     improvement_count += 1
         
-        # Per original framework: toxicity is considered improved if any endpoint is improved
         if improvement_count > 0:
             toxicity_improved = True
         
-        # Check if passing all criteria
         fails = []
         
-        # 1. Toxicity standard - per original scoring.py: safety probability must be > 0.5
         if max_safety_prob <= 0.5:
             fails.append("Toxicity not reduced to safe level (safety probability ≤ 0.5)")
         
-        # 2. Structure standards
         if qed < 0.5:
             fails.append("Insufficient drug-likeness")
         
@@ -1090,7 +975,6 @@ class ResultEvaluator:
         if similarity < 0.4:
             fails.append("Low structural similarity")
         
-        # Passed if no failures
         passed_repair = len(fails) == 0
         
         return RepairResults(
@@ -1121,17 +1005,13 @@ class ResultEvaluator:
         deltas = []
         
         for endpoint, modified in modified_endpoints.items():
-            # Assume original molecule is toxic (B), with very low safety probability
-            # Using 0.01 to match original framework in evaluators.py
             original_value = "B"
             original_prob = 0.01
             
-            # For LD50, use a low value (100) for original molecule
             if endpoint == "LD50_Zhu":
                 original_value = "100"
                 original_prob = 0.1
             
-            # Safety probability increase = improvement, no matter how small
             improved = modified.probability > original_prob
             
             deltas.append(ToxicityDelta(
@@ -1140,7 +1020,7 @@ class ResultEvaluator:
                 modified=modified.value,
                 original_prob=original_prob,
                 modified_prob=modified.probability,
-                changed=True,  # Always true since we're comparing to default values
+                changed=True,
                 improved=improved
             ))
         
@@ -1165,8 +1045,7 @@ def analyze_experiment_results(
         Dict[str, Dict[str, Any]]: Dictionary mapping models to their summaries
     """
     evaluator = ResultEvaluator(results_dir, output_dir)
-    
-    # Get available models
+
     results_path = Path(results_dir)
     if model:
         models = [model]
@@ -1175,7 +1054,6 @@ def analyze_experiment_results(
     
     all_model_summaries = {}
     
-    # Evaluate each model
     for model_name in models:
         try:
             summaries = evaluator.evaluate_all_results(model_name, full_evaluation)

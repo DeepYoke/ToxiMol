@@ -5,55 +5,43 @@ This module maps task names to their corresponding toxicity endpoints.
 """
 from typing import Dict, List, Any, Optional
 
-# Task to toxicity endpoint mappings
-# primary_endpoints: Main evaluation metrics
 TASK_MAPPINGS = {
-    # Ames mutagenicity
     "ames": {
         "primary_endpoints": ["AMES"]
     },
     
-    # Carcinogens (Lagunin dataset)
     "carcinogens_lagunin": {
         "primary_endpoints": ["Carcinogens_Lagunin"]
     },
     
-    # Clinical toxicity
     "clintox": {
         "primary_endpoints": ["ClinTox"]
     },
     
-    # Drug-induced liver injury
     "dili": {
         "primary_endpoints": ["DILI"]
     },
     
-    # hERG channel inhibition
     "herg": {
         "primary_endpoints": ["hERG"]
     },
     
-    # hERG central
     "herg_central": {
         "primary_endpoints": ["herg_central"]
     },
     
-    # hERG Karim dataset
     "herg_karim": {
         "primary_endpoints": ["hERG_Karim"]
     },
     
-    # Acute toxicity (LD50)
     "ld50_zhu": {
         "primary_endpoints": ["LD50_Zhu"]
     },
     
-    # Skin reaction
     "skin_reaction": {
         "primary_endpoints": ["Skin_Reaction"]
     },
     
-    # Tox21 assays - Each subtask maps to its corresponding endpoint
     "tox21": {
         "primary_endpoints": [
             "Tox21_SR_ARE",
@@ -85,7 +73,6 @@ TASK_MAPPINGS = {
         }
     },
     
-    # ToxCast assays - Each subtask maps to its corresponding endpoint
     "toxcast": {
         "primary_endpoints": [
             "ToxCast_APR_HepG2_MitoMass_24h_dn",

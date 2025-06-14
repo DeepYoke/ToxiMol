@@ -15,7 +15,6 @@ from typing import List, Optional, Union, Dict, Any
 from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
 import logging
 
-# Logging configuration
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - QwenVLAgent - %(levelname)s - %(message)s')
 logger = logging.getLogger("qwen2vl")
 
@@ -38,7 +37,6 @@ class QwenVLAgent:
         self.processor = AutoProcessor.from_pretrained(model_path)
 
     def load_image(self, image_path: Union[str, Image.Image]) -> Image.Image:
-        """Load image from local path, URL, or PIL.Image object and convert to RGB."""
         try:
             if isinstance(image_path, Image.Image):
                 return image_path.convert("RGB")

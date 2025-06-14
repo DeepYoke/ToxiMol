@@ -1,10 +1,3 @@
-"""
-TxGemma-based toxicity repair evaluation package.
-
-This package provides tools for evaluating the results of toxicity repair experiments
-using TxGemma for toxicity prediction.
-"""
-
 from .evaluation_models import (
     EvaluationResult,
     PropertyResult,
