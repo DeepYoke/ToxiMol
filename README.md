@@ -3,11 +3,11 @@
 # 🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?
 
 
-[Fei Lin]()<sup>1*</sup>,
+[Fei Lin](https://github.com/linfei-mise)<sup>1*</sup>,
 [Ziyang Gong](https://scholar.google.com/citations?user=cWip8QgAAAAJ&hl=zh-CN&oi=ao)<sup>2, 4*</sup>,
-[Cong Wang]()<sup>3*</sup>,
+[Cong Wang](https://github.com/Michael-Evans-Savitar)<sup>3*</sup>,
 [Yonglin Tian](https://scholar.google.com.hk/citations?hl=zh-CN&user=bq0EODcAAAAJ)<sup>3</sup>,
-[Tengchao Zhang]()<sup>1</sup>,
+[Tengchao Zhang](https://github.com/MillerTeng)<sup>1</sup>,
 [Xue Yang](https://scholar.google.com/citations?user=2xTlvV0AAAAJ&hl=zh-CN)<sup>2</sup>,
 [Gen Luo](https://scholar.google.com/citations?user=EyZqU9gAAAAJ&hl=zh-CN)<sup>4</sup>,
 [Fei-Yue Wang](https://scholar.google.com.hk/citations?user=3TTXGAoAAAAJ&hl=zh-CN&oi=ao)<sup>1, 3</sup>
@@ -35,7 +35,7 @@
 
 
 
-**ToxiMol** is a new large-scale benchmark designed to evaluate structure-level detoxification capabilities of molecular generation models. It provides a rigorous testbed for aligning molecule generation with real-world toxicological requirements, supporting both property control and structural preservation.
+This work explores the ability of general multimodal large language models (MLLMs) to detoxify molecules at the structural level. We present ToxiMol, the first benchmark designed specifically for this task, covering 11 toxicity remediation tasks with a total of 560 toxic molecules, and provide an evaluation framework (ToxiEval) to assess toxicity reduction, structural validity, and drug-likeness. The following figure shows an example. We conducted a large-scale study on various open-source and closed-source MLLMs, revealing the potential limitations and current limitations of these models in real-world toxicity remediation.
 
 <div align="center">
 <br><br>
@@ -61,7 +61,6 @@
 - [🧬 Overview](#-overview)
 - [📂 Dataset Structure](#-dataset-structure)
 - [📊 Evaluation](#-evaluation)
-- [🧠 Model Evaluation: General-Purpose MLLMs](#-model-evaluation-general-purpose-mllms)
 - [🛠 Usage](#-usage)
 - [🧑‍🔬 Citation](#-citation)
 
@@ -76,9 +75,11 @@ This benchmark provides:
 - 🧭 An expert-informed **prompt annotation pipeline**, tailored for general-purpose and chemical-aware models.
 - 📊 The **ToxiEval** evaluation framework, offering automated assessment on:
   - Toxicity reduction (Δtox)
-  - Structural similarity
-  - Chemical validity
   - Drug-likeness
+  - Chemical validity
+  - Rule compliance
+  - Structural similarity
+
 
 ToxiMol is designed as a benchmark to evaluate the detoxification capabilities of general-purpose Multimodal Large Language Models (MLLMs).  
 
@@ -92,15 +93,15 @@ The **ToxiMol** dataset consists of 560 curated toxic molecules sampled from 12 
 
 | Dataset             | Task Type                  | # Molecules | Description                                                                 |
 |---------------------|----------------------------|-------------|-----------------------------------------------------------------------------|
-| Ames                | Binary Classification      | 50          | Mutagenicity testing                                                        |
-| Carcinogens_Lagunin | Binary Classification      | 50          | Carcinogenicity prediction                                                  |
+| AMES                | Binary Classification      | 50          | Mutagenicity testing                                                        |
+| Carcinogens | Binary Classification      | 50          | Carcinogenicity prediction                                                  |
 | ClinTox             | Binary Classification      | 50          | Clinical toxicity data                                                      |
 | DILI                | Binary Classification      | 50          | Drug-induced liver injury                                                   |
 | hERG                | Binary Classification      | 50          | hERG channel inhibition                                                     |
 | hERG_Central        | Binary Classification      | 50          | Large-scale hERG database with cardiac safety profiles                      |
 | hERG_Karim          | Binary Classification      | 50          | hERG data from Karim et al.                                                 |
-| LD50_Zhu            | Regression (log(LD50)<2)   | 50          | Acute toxicity                                                              |
-| Skin_Reaction       | Binary Classification      | 50          | Adverse skin reactions                                                      |
+| LD50            | Regression (log(LD50)<2)   | 50          | Acute toxicity                                                              |
+| SkinReaction       | Binary Classification      | 50          | Adverse skin reactions                                                      |
 | Tox21               | Binary Classification (12 sub-tasks) | 60 | Nuclear receptors & stress response pathways (e.g., ARE, p53, ER, AR)       |
 | ToxCast             | Binary Classification (10 sub-tasks) | 50 | Diverse toxicity pathways incl. mitochondrial dysfunction & neurotoxicity  |
 
@@ -113,28 +114,18 @@ You can also access the dataset on Hugging Face:
 
 We propose **ToxiEval**, a multi-dimensional evaluation protocol consisting of the following metrics:
 
-| Metric           | Description                                                                  | Range             | Threshold for Success             |
-|------------------|-------------------------------------------------------------------------------|-------------------|-----------------------------------|
-| **Safety Score** | Indicates toxicity mitigation, based on TxGemma-Predict classification        | 0–1 or binary     | =1 (binary) or >0.5 (LD50 task)   |
-| **QED**          | Drug-likeness score from [0,1]; higher means more drug-like                   | 0–1               | ≥ 0.5                             |
-| **SAS**          | Synthetic feasibility; lower scores are better                                | 1–10              | ≤ 6                               |
-| **RO5**          | Number of Lipinski rule violations (should be minimal)                        | Integer (≥0)      | ≤ 1                               |
-| **SS**           | Scaffold similarity (Tanimoto) between original and repaired molecules        | 0–1               | ≥ 0.4                             |
+| Aspect                | Metric           | Description                                                                  | Range             | Threshold for Success             |
+|------------------------|------------------|-------------------------------------------------------------------------------|-------------------|-----------------------------------|
+| Toxicity reduction     | **Safety Score** | Indicates toxicity mitigation, based on TxGemma-Predict classification        | 0–1 or binary     | =1 (binary) or >0.5 (LD50 task)   |
+| Drug-likeness          | **QED**          | Drug-likeness score from [0,1]; higher means more drug-like                   | 0–1               | ≥ 0.5                             |
+| Chemical validity      | **SAS**          | Synthetic feasibility; lower scores are better                                | 1–10              | ≤ 6                               |
+| Rule compliance        | **RO5**          | Number of Lipinski rule violations (should be minimal)                        | Integer (≥0)      | ≤ 1                               |
+| Structural similarity  | **SS**           | Scaffold similarity (Tanimoto) between original and repaired molecules        | 0–1               | ≥ 0.4                             |
 
 A candidate molecule is considered successfully detoxified **only if it satisfies all five criteria simultaneously**.
 
 
 ---
-## 🧠 Model Evaluation: General-Purpose MLLMs
-
-We evaluate **27 general-purpose Multimodal Large Language Models (MLLMs)** on the ToxiMol benchmark to assess their structure-level detoxification capabilities.
-
-These models include:
-- **Proprietary MLLMs**: GPT-4o, Gemini-2.5 pro-exp, Claude-3.7 Sonnet Thinking, Grok-2-vision, etc.
-- **Open-source MLLMs**: InternVL3.0, Qwen2.5-VL, DeepSeek-VL2, LLaVA-OneVision, etc.
-
-
-📂 Evaluation scripts and model wrappers are provided in the [`mllm_eval/`](./mllm_eval) directory.---
 
 ## 🛠 Usage
 
