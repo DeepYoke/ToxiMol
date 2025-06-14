@@ -1,22 +1,22 @@
 <div align="center">
 
-# 🧪 ToxiMol: A Benchmark for Structure-Level Molecular Detoxification
+# 🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?
 
 
 [Fei Lin]()<sup>1*</sup>,
 [Ziyang Gong](https://scholar.google.com/citations?user=cWip8QgAAAAJ&hl=zh-CN&oi=ao)<sup>2, 4*</sup>,
 [Cong Wang]()<sup>3*</sup>,
 [Yonglin Tian](https://scholar.google.com.hk/citations?hl=zh-CN&user=bq0EODcAAAAJ)<sup>3</sup>,
-[tengchao Zhang]()<sup>1</sup>,
+[Tengchao Zhang]()<sup>1</sup>,
 [Xue Yang](https://scholar.google.com/citations?user=2xTlvV0AAAAJ&hl=zh-CN)<sup>2</sup>,
 [Gen Luo](https://scholar.google.com/citations?user=EyZqU9gAAAAJ&hl=zh-CN)<sup>4</sup>,
 [Fei-Yue Wang](https://scholar.google.com.hk/citations?user=3TTXGAoAAAAJ&hl=zh-CN&oi=ao)<sup>1, 3</sup>,
 
 
 <sup>1</sup> Macau University of Science and Technology, 
-<sup>2</sup> Shanghai Jiao Tong University,  
+<sup>2</sup> Shanghai Jiao Tong University 
 <sup>3</sup> Institute of Automation, Chinese Academy of Sciences, 
-<sup>4</sup> Shanghai AI Laboratory, 
+<sup>4</sup> Shanghai AI Laboratory
 
 
 <sup>*</sup> Equal contribution
@@ -24,6 +24,7 @@
 
 [![Visitors](https://visitor-badge.laobi.icu/badge?page_id=DeepYoke.ToxiMol)](https://github.com/DeepYoke/ToxiMol)
 [![GitHub Stars](https://img.shields.io/github/stars/DeepYoke/ToxiMol?style=social)](https://github.com/DeepYoke/ToxiMol/stargazers)
+[![🌐 Project Page](https://img.shields.io/badge/🌐_Project_Page-blue.svg?style=flat-square)](https://github.com/DeepYoke)
 [![Hugging Face](https://img.shields.io/badge/HuggingFace-DATASET-yellow.svg)](https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark)
 [![Paper](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2506.10912)
 
@@ -40,6 +41,15 @@
 <img src="ToxiMol_show.png" width="100%">
 <br><br>
 </div>
+
+
+
+---
+
+# 🔥🔥🔥 News
+
+- 📚 [2025/06/13] The paper of ToxiMol is released at [Arxiv](https://arxiv.org/abs/2506.10912), and it will be updating continually!
+- 📊 [2025/06/09] We have released the Dataset for ToxiMol at Hugging Face.
 
 
 
@@ -142,6 +152,12 @@ python experiments/opensource/run_opensource_hf.py --model InternVL3 --model_pat
 
 
 ```
+
+---
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=DeepYoke/ToxiMol&type=Date)](https://star-history.com/#DeepYoke/ToxiMol&Date)
 
 ---
 
