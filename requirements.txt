@@ -1,0 +1,21 @@
+# ToxiMol Dependencies
+# 
+# For basic installation, you can also use:
+# pip install .
+# 
+# This file provides a quick way to install dependencies without installing the package
+
+# Core dependencies
+datasets>=2.19.0
+pandas>=2.0.0
+numpy>=1.24.0
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.35.0
+rdkit-pypi>=2023.9.1
+Pillow>=10.0.0
+requests>=2.31.0
+openai>=1.0.0
+
+# Note: For development dependencies, use: pip install -e ".[dev]"
+# Note: For complete project installation, use: pip install -e .
