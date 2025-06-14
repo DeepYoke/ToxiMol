@@ -1,10 +1,47 @@
+<div align="center">
+
 # 🧪 ToxiMol: A Benchmark for Structure-Level Molecular Detoxification
 
-[![NeurIPS 2025](https://img.shields.io/badge/NeurIPS-2025-blue.svg)](https://neurips.cc/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+[Fei Lin]()<sup>1*</sup>,
+[Ziyang Gong](https://scholar.google.com/citations?user=cWip8QgAAAAJ&hl=zh-CN&oi=ao)<sup>2, 4*</sup>,
+[Cong Wang]()<sup>3*</sup>,
+[Yonglin Tian](https://scholar.google.com.hk/citations?hl=zh-CN&user=bq0EODcAAAAJ)<sup>3</sup>,
+[tengchao Zhang]()<sup>1</sup>,
+[Xue Yang](https://scholar.google.com/citations?user=2xTlvV0AAAAJ&hl=zh-CN)<sup>2</sup>,
+[Gen Luo](https://scholar.google.com/citations?user=EyZqU9gAAAAJ&hl=zh-CN)<sup>4</sup>,
+[Fei-Yue Wang](https://scholar.google.com.hk/citations?user=3TTXGAoAAAAJ&hl=zh-CN&oi=ao)<sup>1, 3</sup>,
+
+
+<sup>1</sup> Macau University of Science and Technology, 
+<sup>2</sup> Shanghai Jiao Tong University,  
+<sup>3</sup> Institute of Automation, Chinese Academy of Sciences, 
+<sup>4</sup> Shanghai AI Laboratory, 
+
+
+<sup>*</sup> Equal contribution
+
+
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=DeepYoke.ToxiMol)](https://github.com/DeepYoke/ToxiMol)
+[![GitHub Stars](https://img.shields.io/github/stars/DeepYoke/ToxiMol?style=social)](https://github.com/DeepYoke/ToxiMol/stargazers)
+[![Hugging Face](https://img.shields.io/badge/HuggingFace-DATASET-yellow.svg)](https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark)
 [![Paper](https://img.shields.io/badge/arXiv-Paper-red.svg)](https://arxiv.org/abs/2506.10912)
 
+</div>
+
+---
+
+
+
 **ToxiMol** is a new large-scale benchmark designed to evaluate structure-level detoxification capabilities of molecular generation models. It provides a rigorous testbed for aligning molecule generation with real-world toxicological requirements, supporting both property control and structural preservation.
+
+<div align="center">
+<br><br>
+<img src="Lunwendatu" width="100%">
+<br><br>
+</div>
+
+
 
 ---
 
@@ -16,7 +53,6 @@
 - [🧠 Model Evaluation: General-Purpose MLLMs](#-model-evaluation-general-purpose-mllms)
 - [🛠 Usage](#-usage)
 - [🧑‍🔬 Citation](#-citation)
-- [📬 Contact](#-contact)
 
 
 
@@ -72,8 +108,10 @@ We propose **ToxiEval**, a multi-dimensional evaluation protocol consisting of t
 | **QED**          | Drug-likeness score from [0,1]; higher means more drug-like                   | 0–1               | ≥ 0.5                             |
 | **SAS**          | Synthetic feasibility; lower scores are better                                | 1–10              | ≤ 6                               |
 | **RO5**          | Number of Lipinski rule violations (should be minimal)                        | Integer (≥0)      | ≤ 1                               |
+| **SS**           | Scaffold similarity (Tanimoto) between original and repaired molecules        | 0–1               | ≥ 0.4                             |
 
-A candidate molecule is considered successfully detoxified **only if it satisfies all four criteria simultaneously**.
+A candidate molecule is considered successfully detoxified **only if it satisfies all five criteria simultaneously**.
+
 
 ---
 ## 🧠 Model Evaluation: General-Purpose MLLMs
@@ -123,8 +161,4 @@ If you use this benchmark, please cite:
 }
 ```
 
----
 
-## 📬 Contact
-
-For questions or collaborations, feel free to [open an issue](https://github.com/your-org/ToxiMol/issues) or contact via email at [zhangtengchao@ieee.org](mailto:zhangtengchao@ieee.org).
