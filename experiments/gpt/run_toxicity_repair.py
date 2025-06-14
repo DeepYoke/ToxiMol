@@ -29,7 +29,7 @@ logger = logging.getLogger("toxicity_repair")
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 RESULTS_DIR = Path(__file__).resolve().parent / "results"
 
-DEFAULT_API_KEY = "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"
+DEFAULT_API_KEY = ""
 
 AVAILABLE_TASKS = [
     "ames", "carcinogens_lagunin", "clintox", "dili", "herg", 
@@ -482,7 +482,7 @@ def main():
     parser.add_argument(
         "--api-key", 
         default=DEFAULT_API_KEY,
-        help="OpenAI API key (default: use environment variable)"
+        help="OpenAI API key (required)"
     )
     
     parser.add_argument(
