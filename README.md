@@ -63,9 +63,18 @@ This work investigates the capacity of general Multimodal Large Language Models 
   - [🧬 Overview](#-overview)
   - [📂 Dataset Structure](#-dataset-structure)
   - [📊 Evaluation](#-evaluation)
+    - [Implementation Details](#implementation-details)
   - [🛠 Usage](#-usage)
+    - [🚀 Quick Start](#-quick-start)
+    - [📊 Dataset Access](#-dataset-access)
+    - [🤖 Running Experiments](#-running-experiments)
+      - [**Option 1: OpenAI GPT Models**](#option-1-openai-gpt-models)
+      - [**Option 2: Open-Source MLLMs**](#option-2-open-source-mllms)
+    - [📈 Evaluation](#-evaluation-1)
+    - [📁 Output Structure](#-output-structure)
+    - [⚡ Advanced Usage](#-advanced-usage)
   - [🫶🏻 Acknowledgement](#-acknowledgement)
-    - [TDC (Therapeutics Data Commons)](#tdc-therapeutics-data-commons)
+    - [TDC](#tdc)
     - [TxGemma-Predict](#txgemma-predict)
     - [RDKit](#rdkit)
     - [Synthetic Accessibility Score (SAS)](#synthetic-accessibility-score-sas)
@@ -97,7 +106,7 @@ We systematically test nearly 30 state-of-the-art MLLMs with diverse architectur
 
 ## 📂 Dataset Structure
 
-To construct a representative and challenging benchmark for molecular toxicity repair, we systematically define **11 toxicity repair tasks** based on all toxicity prediction tasks under the **"Single-instance Prediction Problem"** category from the [**TDC (Therapeutics Data Commons) platform**](https://tdcommons.ai/single_pred_tasks/tox/). 
+To construct a representative and challenging benchmark for molecular toxicity repair, we systematically define **11 toxicity repair tasks** based on all toxicity prediction tasks under the **"Single-instance Prediction Problem"** category from the [**Therapeutics Data Commons (TDC) platform**](https://tdcommons.ai/single_pred_tasks/tox/). 
 
 The **ToxiMol** dataset consists of 560 curated toxic molecules covering both binary classification and regression tasks across diverse toxicity mechanisms. The **Tox21** dataset retains all of its 12 original sub-tasks, while 10 sub-tasks are randomly selected from the **ToxCast** dataset. All task names are kept consistent with those in the original datasets.
 
@@ -135,25 +144,173 @@ We propose **ToxiEval**, a multi-dimensional evaluation protocol consisting of t
 
 A candidate molecule is considered successfully detoxified **only if it satisfies all five criteria simultaneously**.
 
+### Implementation Details
+
+- **Safety Score**: Computed using [txgemma-9b-predict](https://huggingface.co/collections/google/txgemma-release-67dd92e931c857d15e4d1e87) by default in [`evaluation/molecule_utils.py`](evaluation/molecule_utils.py). Users can choose 2b/9b/27b variants - see ablation studies in our [paper](https://arxiv.org/abs/2506.10912).
+
+- **SAS Score**: Calculated using [`evaluation/sascorer.py`](evaluation/sascorer.py) and [`evaluation/fpscores.pkl.gz`](evaluation/fpscores.pkl.gz) from [RDKit Contrib](https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score).
+
+- **TxGemma Prompts**: Task-specific prompts stored in [`evaluation/tdc_prompts.json`](evaluation/tdc_prompts.json), sourced from [TxGemma's official release](https://huggingface.co/collections/google/txgemma-release-67dd92e931c857d15e4d1e87).
 
 ---
 
 ## 🛠 Usage
 
+### 🚀 Quick Start
+
 ```bash
-# Clone the repo
-git clone https://github.com/your-org/ToxiMol.git
+# Clone the repository
+git clone https://github.com/DeepYoke/ToxiMol.git
 cd ToxiMol
 
 # Install dependencies
 pip install -r requirements.txt
+```
 
-# Run baseline evaluation （For opensource, take InternVL3-8B as an example）
-cd ToxiMol
-python experiments/opensource/run_opensource_hf.py --model internvl3 --model_path OpenGVLab/InternVL3-8B
-# After that you will get results at ToxiMol/experiments/opensource/results/InternVL3-8B
+### 📊 Dataset Access
 
+The **ToxiMol** dataset is hosted on Hugging Face:
 
+```python
+from datasets import load_dataset
+
+# Load a specific task
+dataset = load_dataset("DeepYoke/ToxiMol-benchmark", data_dir="ames", split="train", trust_remote_code=True)
+```
+
+**Available tasks:** `ames`, `carcinogens_lagunin`, `clintox`, `dili`, `herg`, `herg_central`, `herg_karim`, `ld50_zhu`, `skin_reaction`, `tox21`, `toxcast`
+
+### 🤖 Running Experiments
+
+#### **Option 1: OpenAI GPT Models**
+
+For **closed-source MLLMs**, we provide GPT series as an example. Any GPT model supporting text+image input can be tested (e.g., `gpt-4.1`, `gpt-4o`, `gpt-o3`), provided your API key has access.
+
+```bash
+# Run single task
+python experiments/gpt/run_toxicity_repair.py \
+    --task ames \
+    --model gpt-4.1 \
+    --api-key YOUR_OPENAI_API_KEY
+
+# Run all tasks
+python experiments/gpt/run_toxicity_repair.py \
+    --task all \
+    --model gpt-4.1 \
+    --api-key YOUR_OPENAI_API_KEY
+
+# Limit molecules per task (useful for testing)
+python experiments/gpt/run_toxicity_repair.py \
+    --task ames \
+    --model gpt-4.1 \
+    --api-key YOUR_OPENAI_API_KEY \
+    --limit 10
+```
+
+#### **Option 2: Open-Source MLLMs**
+
+```bash
+# InternVL3 (recommended)
+python experiments/opensource/run_opensource.py \
+    --task ames \
+    --model internvl3 \
+    --model_path OpenGVLab/InternVL3-8B
+
+# DeepSeek-VL V2
+python experiments/opensource/run_opensource.py \
+    --task all \
+    --model deepseekvl2 \
+    --model_path deepseek-ai/deepseek-vl2-small
+
+# LLaVA-OneVision
+python experiments/opensource/run_opensource.py \
+    --task clintox \
+    --model llava-onevision \
+    --model_path lmms-lab/llava-onevision-qwen2-7b-ov
+
+# Qwen2.5-VL
+python experiments/opensource/run_opensource.py \
+    --task herg \
+    --model qwen2.5vl \
+    --model_path Qwen/Qwen2.5-VL-7B-Instruct
+```
+
+**Available Tasks:** `ames`, `carcinogens_lagunin`, `clintox`, `dili`, `herg`, `herg_central`, `herg_karim`, `ld50_zhu`, `skin_reaction`, `tox21`, `toxcast`, `all`
+
+**Supported Models:** `internvl3`, `deepseekvl2`, `llava-onevision`, `qwen2.5vl`
+
+### 📈 Evaluation
+
+After running experiments, evaluate the results using our **ToxiEval** framework:
+
+```bash
+# Evaluate specific model and task
+python evaluation/run_evaluation.py \
+    --results-dir experiments/opensource/results \
+    --model InternVL3-8B \
+    --task ames \
+    --full
+
+# Evaluate all results from a model
+python evaluation/run_evaluation.py \
+    --results-dir experiments/gpt/results \
+    --model gpt-4.1 \
+    --full
+
+# Quick evaluation without full molecular property calculations
+python evaluation/run_evaluation.py \
+    --results-dir experiments/opensource/results \
+    --model DeepSeek-VL2-Small
+```
+
+### 📁 Output Structure
+
+Results are organized as follows:
+
+```
+experiments/
+├── gpt/results/
+│   └── gpt-4.1/
+│       ├── ames/ames_results.json
+│       ├── clintox/clintox_results.json
+│       └── overall_summary.json
+└── opensource/results/
+    └── InternVL3-8B/
+        ├── ames/ames_results.json
+        └── overall_summary.json
+
+experiments/eval_results/
+├── gpt-4.1_evaluation_summary.json
+└── InternVL3-8B_evaluation_summary.json
+```
+
+### ⚡ Advanced Usage
+
+**Custom Generation Parameters:**
+```bash
+python experiments/opensource/run_opensource.py \
+    --task ames \
+    --model internvl3 \
+    --model_path OpenGVLab/InternVL3-8B \
+    --temperature 0.7 \
+    --max-tokens 1024
+```
+
+**Process Specific Molecules:**
+```bash
+python experiments/gpt/run_toxicity_repair.py \
+    --task ames \
+    --model gpt-4.1 \
+    --api-key YOUR_OPENAI_API_KEY \
+    --molecule-ids 1 5 10 15
+```
+
+**Custom Output Directory:**
+```bash
+python evaluation/run_evaluation.py \
+    --results-dir experiments/opensource/results \
+    --output-dir custom_eval_results \
+    --full
 ```
 
 ---
@@ -162,7 +319,7 @@ python experiments/opensource/run_opensource_hf.py --model internvl3 --model_pat
 
 We sincerely thank the developers and contributors of the following tools and resources, which made this project possible. This project makes use of several external assets for molecular processing and evaluation. All assets are used in accordance with their respective licenses and terms of use:
 
-### TDC (Therapeutics Data Commons)
+### TDC
 
 Used for toxicity datasets that form the foundation of the ToxiMol benchmark. Provided by [Therapeutics Data Commons](https://tdcommons.ai/).
 
@@ -193,11 +350,11 @@ Used for computing QED, Lipinski’s Rule of Five (RO5), molecular similarity, a
 
 ### Synthetic Accessibility Score (SAS)
 
-Used to evaluate the synthetic feasibility of generated molecules.
- 
+Used to evaluate the synthetic feasibility of generated molecules. Implementation from RDKit Contrib directory by Peter Ertl and Greg Landrum.
+
 - **License:** [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)  
-- **Original Code:** it’s typically distributed as part of the RDKit control package. 
-- **Paper:** [Estimation of synthetic accessibility score of drug-like molecules based on molecular complexity and fragment contributions](https://doi.org/10.1186/1758-2946-1-8)
+- **Official GitHub:** [github.com/rdkit/rdkit/tree/master/Contrib/SA_Score](https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score)  
+- **Paper:** [Estimation of synthetic accessibility score of drug-like molecules based on molecular complexity and fragment contributions](https://doi.org/10.1186/1758-2946-1-8) (Journal of Cheminformatics 2009)
 
 
 ---
