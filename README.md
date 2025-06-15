@@ -57,9 +57,6 @@ This work investigates the capacity of general Multimodal Large Language Models 
 ---
 
 ## 📚 Table of Contents
-- [🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?](#-breaking-bad-molecules-are-mllms-ready-for-structure-level-molecular-detoxification)
-- [🔥🔥🔥 News](#-news)
-  - [📚 Table of Contents](#-table-of-contents)
   - [🧬 Overview](#-overview)
   - [📂 Dataset Structure](#-dataset-structure)
   - [📊 Evaluation](#-evaluation)
@@ -68,8 +65,8 @@ This work investigates the capacity of general Multimodal Large Language Models 
     - [🚀 Quick Start](#-quick-start)
     - [📊 Dataset Access](#-dataset-access)
     - [🤖 Running Experiments](#-running-experiments)
-      - [**Option 1: OpenAI GPT Models**](#option-1-openai-gpt-models)
-      - [**Option 2: Open-Source MLLMs**](#option-2-open-source-mllms)
+      - [Option 1: OpenAI GPT Models](#option-1-openai-GPT-models)
+      - [Option 2: Open-Source MLLMs](#option-2-open-source-mllms)
     - [📈 Evaluation](#-evaluation-1)
     - [📁 Output Structure](#-output-structure)
     - [⚡ Advanced Usage](#-advanced-usage)
