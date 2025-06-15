@@ -35,7 +35,7 @@
 
 
 
-This work explores the ability of general multimodal large language models (MLLMs) to detoxify molecules at the structural level. We present ToxiMol, the first benchmark designed specifically for this task, covering 11 toxicity remediation tasks with a total of 560 toxic molecules, and provide an evaluation framework (ToxiEval) to assess toxicity reduction, structural validity, and drug-likeness. 
+This work explores the ability of general multimodal large language models (MLLMs) to detoxify molecules at the structural level. We present ToxiMol, the first benchmark designed specifically for this task, covering 11 toxicity remediation tasks with a total of 560 toxic molecules, and provide an evaluation framework (ToxiEval) to assess toxicity reduction, structural validity, and drug-likeness, etc. 
 
 <div align="center">
 <br><br>
@@ -50,7 +50,7 @@ This work explores the ability of general multimodal large language models (MLLM
 # 🔥🔥🔥 News
 
 - 📚 [2025/06/13] The paper of ToxiMol is released at [Arxiv](https://arxiv.org/abs/2506.10912), and it will be updating continually!
-- 📊 [2025/06/09] We have released the Dataset for ToxiMol at Hugging Face.
+- 📊 [2025/06/09] We have released the Dataset for ToxiMol at [Hugging Face](https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark).
 
 
 
@@ -58,11 +58,19 @@ This work explores the ability of general multimodal large language models (MLLM
 
 ## 📚 Table of Contents
 
-- [🧬 Overview](#-overview)
-- [📂 Dataset Structure](#-dataset-structure)
-- [📊 Evaluation](#-evaluation)
-- [🛠 Usage](#-usage)
-- [🧑‍🔬 Citation](#-citation)
+- [🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?](#-breaking-bad-molecules-are-mllms-ready-for-structure-level-molecular-detoxification)
+- [🔥🔥🔥 News](#-news)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [🧬 Overview](#-overview)
+  - [📂 Dataset Structure](#-dataset-structure)
+  - [📊 Evaluation](#-evaluation)
+  - [🛠 Usage](#-usage)
+  - [🫶🏻 Acknowledgement](#-acknowledgement)
+    - [TxGemma-Predict](#txgemma-predict)
+    - [RDKit](#rdkit)
+    - [Synthetic Accessibility Score (SAS)](#synthetic-accessibility-score-sas)
+  - [⭐ Star History](#-star-history)
+  - [🧑‍🔬 Citation](#-citation)
 
 
 
@@ -88,7 +96,7 @@ We systematically test nearly 30 state-of-the-art MLLMs with diverse architectur
 
 ## 📂 Dataset Structure
 
-The **ToxiMol** dataset consists of 560 curated toxic molecules sampled from 12 established toxicity datasets, covering both binary classification and regression tasks across diverse mechanisms:
+The **ToxiMol** dataset consists of 560 curated toxic molecules sampled from 11 established toxicity datasets, covering both binary classification and regression tasks across diverse mechanisms:
 
 | Dataset             | Task Type                  | Molecules | Description                                                                 |
 |---------------------|----------------------------|-------------|-----------------------------------------------------------------------------|
