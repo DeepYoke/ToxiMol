@@ -57,19 +57,14 @@ This work explores the ability of general multimodal large language models (MLLM
 ---
 
 ## 📚 Table of Contents
-- [🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?](#-breaking-bad-molecules-are-mllms-ready-for-structure-level-molecular-detoxification)
-- [🔥🔥🔥 News](#-news)
-  - [📚 Table of Contents](#-table-of-contents)
-  - [🧬 Overview](#-overview)
-  - [📂 Dataset Structure](#-dataset-structure)
-  - [📊 Evaluation](#-evaluation)
-  - [🛠 Usage](#-usage)
-  - [🫶🏻 Acknowledgement](#-acknowledgement)
-    - [TxGemma-Predict](#txgemma-predict)
-    - [RDKit](#rdkit)
-    - [Synthetic Accessibility Score (SAS)](#synthetic-accessibility-score-sas)
-  - [⭐ Star History](#-star-history)
-  - [🧑‍🔬 Citation](#-citation)
+- [📚 Table of Contents](#-table-of-contents)
+- [🧬 Overview](#-overview)
+- [📂 Dataset Structure](#-dataset-structure)
+- [📊 Evaluation](#-evaluation)
+- [🛠 Usage](#-usage)
+- [🫶🏻 Acknowledgement](#-acknowledgement)
+- [⭐ Star History](#-star-history)
+- [🧑‍🔬 Citation](#-citation)
 
 
 
