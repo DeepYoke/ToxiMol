@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?
+# <img src="logo.png" alt="logo" height="80"/> Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?
 
 
 [Fei Lin](https://github.com/linfei-mise)<sup>1*</sup>,
