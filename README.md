@@ -257,7 +257,7 @@ python evaluation/run_evaluation.py \
 # Quick evaluation without full molecular property calculations
 python evaluation/run_evaluation.py \
     --results-dir experiments/opensource/results \
-    --model DeepSeek-VL2-Small
+    --model deepseek-vl2-small
 ```
 
 ### 📁 Output Structure
