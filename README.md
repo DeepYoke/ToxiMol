@@ -49,7 +49,7 @@ This work investigates the capacity of general Multimodal Large Language Models 
 
 # 🔥🔥🔥 News
 
-- 📚 [2025/06/13] The paper of ToxiMol is released at [Arxiv](https://arxiv.org/abs/2506.10912), and it will be updating continually!
+- 📚 [2025/06/13] The paper of ToxiMol is released at [arXiv](https://arxiv.org/abs/2506.10912), and it will be updated continually!
 - 📊 [2025/06/09] We have released the Dataset for ToxiMol at [Hugging Face](https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark).
 
 
@@ -89,7 +89,7 @@ The **ToxiMol** benchmark provides:
 - 🧪 A curated dataset of **560 toxic molecules** across **11 task types**, including functional group preservation, endpoint-specific detoxification, and mechanism-aware edits.
 - 🧭 An expert-informed **Mechanism-Aware Prompt Annotation Pipeline**, tailored for general-purpose and chemical-aware models.
 
-The **ToxiEval** evaluation framework, offering automated assessment on:
+The **ToxiEval** evaluation framework, offers an automated assessment on:
   - Safety Score
   - Quantitative Estimate of Drug-likeness
   - Synthetic Accessibility Score
@@ -328,7 +328,7 @@ Used for toxicity datasets that form the foundation of the ToxiMol benchmark. Pr
   - [Therapeutics data commons: Machine learning datasets and tasks for drug discovery and development](https://arxiv.org/pdf/2102.09548) (arXiv 2021)
   - [Artificial intelligence foundation for therapeutic science](https://doi.org/10.1038/s41589-022-01131-2) (Nature Chemical Biology 2022)
 
-### TxGemma-Predict
+### TxGemma
 
 Used for toxicity prediction tasks. Provided by Google via the [Hugging Face Transformers](https://huggingface.co/google/txgemma-9b-predict) library.
 
