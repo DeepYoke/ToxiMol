@@ -147,7 +147,7 @@ pip install -r requirements.txt
 
 # Run baseline evaluation （For opensource, take InternVL3-8B as an example）
 cd ToxiMol
-python experiments/opensource/run_opensource_hf.py --model InternVL3 --model_path OpenGVLab/InternVL3-8B
+python experiments/opensource/run_opensource.py --model InternVL3 --model_path OpenGVLab/InternVL3-8B
 # After that you will get results at ToxiMol/experiments/opensource/results/InternVL3-8B
 
 
