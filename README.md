@@ -35,7 +35,7 @@
 
 
 
-This work explores the ability of general multimodal large language models (MLLMs) to detoxify molecules at the structural level. We present ToxiMol, the first benchmark designed specifically for this task, covering 11 toxicity remediation tasks with a total of 560 toxic molecules, and provide an evaluation framework (ToxiEval) to assess toxicity reduction, structural validity, and drug-likeness, etc. 
+This work investigates the capacity of general Multimodal Large Language Models (MLLMs) to refine molecules at the structural level. We present **ToxiMol**, the first benchmark designed explicitly for this task, which encompasses 11 toxicity remediation tasks involving a total of 560 toxic molecules. We also provide an evaluation framework (**ToxiEval**) to assess toxicity reduction, structural validity, drug-likeness, and other relevant properties. 
 
 <div align="center">
 <br><br>
