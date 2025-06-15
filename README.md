@@ -147,7 +147,7 @@ python experiments/opensource/run_opensource_hf.py --model InternVL3 --model_pat
 
 ---
 
-## 🙏 Acknowledgement
+## 🫶🏻 Acknowledgement
 
 We sincerely thank the developers and contributors of the following tools and resources, which made this project possible. This project makes use of several external assets for molecular processing and evaluation. All assets are used in accordance with their respective licenses and terms of use:
 
@@ -165,7 +165,7 @@ Used for computing QED, Lipinski’s Rule of Five (RO5), molecular similarity, a
 
 - **Version:** 2023.09.6  
 - **License:** [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)  
-- **Source Code:** [github.com/rdkit/rdkit](https://github.com/rdkit/rdkit)  
+- **Official GitHub:** [github.com/rdkit](https://github.com/rdkit)  
 - **Website:** [rdkit.org](https://www.rdkit.org)
 
 ### Synthetic Accessibility Score (SAS)
@@ -173,7 +173,7 @@ Used for computing QED, Lipinski’s Rule of Five (RO5), molecular similarity, a
 Used to evaluate the synthetic feasibility of generated molecules.
  
 - **License:** [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)  
-- **Original Code:** Provided by the authors and typically distributed with RDKit  
+- **Original Code:** it’s typically distributed as part of the RDKit control package. 
 - **Paper:** [Estimation of synthetic accessibility score of drug-like molecules based on molecular complexity and fragment contributions](https://doi.org/10.1186/1758-2946-1-8)
 
 
