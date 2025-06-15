@@ -57,14 +57,20 @@ This work investigates the capacity of general Multimodal Large Language Models 
 ---
 
 ## 📚 Table of Contents
-- [📚 Table of Contents](#-table-of-contents)
-- [🧬 Overview](#-overview)
-- [📂 Dataset Structure](#-dataset-structure)
-- [📊 Evaluation](#-evaluation)
-- [🛠 Usage](#-usage)
-- [🫶🏻 Acknowledgement](#-acknowledgement)
-- [⭐ Star History](#-star-history)
-- [🧑‍🔬 Citation](#-citation)
+- [🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?](#-breaking-bad-molecules-are-mllms-ready-for-structure-level-molecular-detoxification)
+- [🔥🔥🔥 News](#-news)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [🧬 Overview](#-overview)
+  - [📂 Dataset Structure](#-dataset-structure)
+  - [📊 Evaluation](#-evaluation)
+  - [🛠 Usage](#-usage)
+  - [🫶🏻 Acknowledgement](#-acknowledgement)
+    - [TDC (Therapeutics Data Commons)](#tdc-therapeutics-data-commons)
+    - [TxGemma-Predict](#txgemma-predict)
+    - [RDKit](#rdkit)
+    - [Synthetic Accessibility Score (SAS)](#synthetic-accessibility-score-sas)
+  - [⭐ Star History](#-star-history)
+  - [🧑‍🔬 Citation](#-citation)
 
 
 
@@ -91,23 +97,25 @@ We systematically test nearly 30 state-of-the-art MLLMs with diverse architectur
 
 ## 📂 Dataset Structure
 
-The **ToxiMol** dataset consists of 560 curated toxic molecules sampled from 11 established toxicity datasets, covering both binary classification and regression tasks across diverse mechanisms:
+To construct a representative and challenging benchmark for molecular toxicity repair, we systematically define **11 toxicity repair tasks** based on all toxicity prediction tasks under the **"Single-instance Prediction Problem"** category from the [**TDC (Therapeutics Data Commons) platform**](https://tdcommons.ai/single_pred_tasks/tox/). 
+
+The **ToxiMol** dataset consists of 560 curated toxic molecules covering both binary classification and regression tasks across diverse toxicity mechanisms. The **Tox21** dataset retains all of its 12 original sub-tasks, while 10 sub-tasks are randomly selected from the **ToxCast** dataset. All task names are kept consistent with those in the original datasets.
 
 | Dataset             | Task Type                  | Molecules | Description                                                                 |
 |---------------------|----------------------------|-------------|-----------------------------------------------------------------------------|
-| AMES                | Binary Classification      | 50          | Mutagenicity testing                                                        |
-| Carcinogens | Binary Classification      | 50          | Carcinogenicity prediction                                                  |
-| ClinTox             | Binary Classification      | 50          | Clinical toxicity data                                                      |
+| AMES                | Binary Classification      | 50          | Mutagenicity testing via Ames assay                                        |
+| Carcinogens         | Binary Classification      | 50          | Carcinogenicity prediction                                                  |
+| ClinTox             | Binary Classification      | 50          | Clinical toxicity from failed trials                                       |
 | DILI                | Binary Classification      | 50          | Drug-induced liver injury                                                   |
-| hERG                | Binary Classification      | 50          | hERG channel inhibition                                                     |
-| hERG_Central        | Binary Classification      | 50          | Large-scale hERG database with cardiac safety profiles                      |
-| hERG_Karim          | Binary Classification      | 50          | hERG data from Karim et al.                                                 |
-| LD50            | Regression (log(LD50)<2)   | 50          | Acute toxicity                                                              |
-| SkinReaction       | Binary Classification      | 50          | Adverse skin reactions                                                      |
-| Tox21               | Binary Classification (12 sub-tasks) | 60 | Nuclear receptors & stress response pathways (e.g., ARE, p53, ER, AR)       |
-| ToxCast             | Binary Classification (10 sub-tasks) | 50 | Diverse toxicity pathways incl. mitochondrial dysfunction & neurotoxicity  |
+| hERG                | Binary Classification      | 50          | hERG channel inhibition (cardiotoxicity)                                   |
+| hERG_Central        | Binary Classification      | 50          | Large-scale hERG database with cardiac safety profiles                     |
+| hERG_Karim          | Binary Classification      | 50          | Integrated hERG dataset from multiple sources                              |
+| LD50_Zhu            | Regression (log(LD50)<2)   | 50          | Acute toxicity lethal dose prediction                                       |
+| Skin Reaction       | Binary Classification      | 50          | Adverse skin sensitization reactions                                        |
+| Tox21               | Binary Classification (12 sub-tasks) | 60 | Nuclear receptors & stress response pathways (e.g., ARE, p53, ER, AR)     |
+| ToxCast             | Binary Classification (10 sub-tasks) | 50 | Diverse toxicity pathways including mitochondrial dysfunction & neurotoxicity |
 
-Each sample is paired with structural detoxification prompts and evaluation metadata.
+Each sample is paired with structural detoxification prompts and comprehensive evaluation metadata. The benchmark covers approximately 30 distinct small-molecule toxicity mechanisms, providing a comprehensive testbed for molecular detoxification methods.
 
 You can also access the dataset on Hugging Face:  
 👉 [https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark](https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark)
@@ -153,6 +161,18 @@ python experiments/opensource/run_opensource_hf.py --model internvl3 --model_pat
 ## 🫶🏻 Acknowledgement
 
 We sincerely thank the developers and contributors of the following tools and resources, which made this project possible. This project makes use of several external assets for molecular processing and evaluation. All assets are used in accordance with their respective licenses and terms of use:
+
+### TDC (Therapeutics Data Commons)
+
+Used for toxicity datasets that form the foundation of the ToxiMol benchmark. Provided by [Therapeutics Data Commons](https://tdcommons.ai/).
+
+- **License:** MIT License  
+- **Official Website:** [tdcommons.ai](https://tdcommons.ai/)  
+- **Official GitHub:** [github.com/mims-harvard/TDC](https://github.com/mims-harvard/TDC)  
+- **Papers:** 
+  - [TDC-2: Multimodal foundation for therapeutic science](https://www.biorxiv.org/content/10.1101/2024.06.12.598655v3.full.pdf) (bioRxiv 2024)
+  - [Therapeutics data commons: Machine learning datasets and tasks for drug discovery and development](https://arxiv.org/pdf/2102.09548) (arXiv 2021)
+  - [Artificial intelligence foundation for therapeutic science](https://doi.org/10.1038/s41589-022-01131-2) (Nature Chemical Biology 2022)
 
 ### TxGemma-Predict
 
