@@ -157,7 +157,7 @@ A candidate molecule is considered successfully detoxified **only if it satisfie
 
 ```bash
 # Clone the repository
-git clone https://github.com/DeepYoke/ToxiMol.git
+git clone https://github.com/DeepYoke/ToxiMol.git --recursive
 cd ToxiMol
 
 # Install dependencies
