@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?
+# <img src="logo.png" alt="logo" height="80"/> Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?
 
 
 [Fei Lin](https://github.com/linfei-mise)<sup>1*</sup>,
@@ -49,7 +49,7 @@ This work investigates the capacity of general Multimodal Large Language Models 
 
 # 🔥🔥🔥 News
 
-- 📚 [2025/06/13] The paper of ToxiMol is released at [Arxiv](https://arxiv.org/abs/2506.10912), and it will be updating continually!
+- 📚 [2025/06/13] The paper of ToxiMol is released at [arXiv](https://arxiv.org/abs/2506.10912), and it will be updated continually!
 - 📊 [2025/06/09] We have released the Dataset for ToxiMol at [Hugging Face](https://huggingface.co/datasets/DeepYoke/ToxiMol-benchmark).
 
 
@@ -57,9 +57,6 @@ This work investigates the capacity of general Multimodal Large Language Models 
 ---
 
 ## 📚 Table of Contents
-- [🧪 Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?](#-breaking-bad-molecules-are-mllms-ready-for-structure-level-molecular-detoxification)
-- [🔥🔥🔥 News](#-news)
-  - [📚 Table of Contents](#-table-of-contents)
   - [🧬 Overview](#-overview)
   - [📂 Dataset Structure](#-dataset-structure)
   - [📊 Evaluation](#-evaluation)
@@ -68,8 +65,8 @@ This work investigates the capacity of general Multimodal Large Language Models 
     - [🚀 Quick Start](#-quick-start)
     - [📊 Dataset Access](#-dataset-access)
     - [🤖 Running Experiments](#-running-experiments)
-      - [**Option 1: OpenAI GPT Models**](#option-1-openai-gpt-models)
-      - [**Option 2: Open-Source MLLMs**](#option-2-open-source-mllms)
+      - [Option 1: OpenAI GPT Models](#option-1-openai-GPT-models)
+      - [Option 2: Open-Source MLLMs](#option-2-open-source-mllms)
     - [📈 Evaluation](#-evaluation-1)
     - [📁 Output Structure](#-output-structure)
     - [⚡ Advanced Usage](#-advanced-usage)
@@ -92,7 +89,7 @@ The **ToxiMol** benchmark provides:
 - 🧪 A curated dataset of **560 toxic molecules** across **11 task types**, including functional group preservation, endpoint-specific detoxification, and mechanism-aware edits.
 - 🧭 An expert-informed **Mechanism-Aware Prompt Annotation Pipeline**, tailored for general-purpose and chemical-aware models.
 
-The **ToxiEval** evaluation framework, offering automated assessment on:
+The **ToxiEval** evaluation framework, offers an automated assessment on:
   - Safety Score
   - Quantitative Estimate of Drug-likeness
   - Synthetic Accessibility Score
@@ -165,6 +162,14 @@ cd ToxiMol
 
 # Install dependencies
 pip install -r requirements.txt
+```
+
+To run DeepSeek-VL V2, we recommend setting up a new Conda virtual environment following the instructions at [DeepSeek-VL2 GitHub](https://github.com/deepseek-ai/DeepSeek-VL2.git). Once the environment is activated, please execute the following commands:
+
+```bash
+cd experiments/opensource/DeepSeek
+# Install dependencies
+pip install -e .
 ```
 
 ### 📊 Dataset Access
@@ -260,7 +265,7 @@ python evaluation/run_evaluation.py \
 # Quick evaluation without full molecular property calculations
 python evaluation/run_evaluation.py \
     --results-dir experiments/opensource/results \
-    --model DeepSeek-VL2-Small
+    --model deepseek-vl2-small
 ```
 
 ### 📁 Output Structure
@@ -331,7 +336,7 @@ Used for toxicity datasets that form the foundation of the ToxiMol benchmark. Pr
   - [Therapeutics data commons: Machine learning datasets and tasks for drug discovery and development](https://arxiv.org/pdf/2102.09548) (arXiv 2021)
   - [Artificial intelligence foundation for therapeutic science](https://doi.org/10.1038/s41589-022-01131-2) (Nature Chemical Biology 2022)
 
-### TxGemma-Predict
+### TxGemma
 
 Used for toxicity prediction tasks. Provided by Google via the [Hugging Face Transformers](https://huggingface.co/google/txgemma-9b-predict) library.
 
@@ -380,5 +385,4 @@ If you use this benchmark, please cite:
       url={https://arxiv.org/abs/2506.10912}, 
 }
 ```
-
 
