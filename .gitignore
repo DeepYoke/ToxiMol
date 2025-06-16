@@ -54,7 +54,9 @@ ehthumbs.db
 Thumbs.db
 
 # Experiments and Results
-# experiments/*/results/
+experiments/*/results/
+experiments/opensource/results/
+experiments/eval_results/
 experiments/*/logs/
 *.log
 
