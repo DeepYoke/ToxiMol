@@ -164,6 +164,14 @@ cd ToxiMol
 pip install -r requirements.txt
 ```
 
+To run DeepSeek-VL V2, we recommend setting up a new Conda virtual environment following the instructions at [DeepSeek-VL2 GitHub](https://github.com/deepseek-ai/DeepSeek-VL2.git). Once the environment is activated, please execute the following commands:
+
+```bash
+cd experiments/opensource/DeepSeek
+# Install dependencies
+pip install -e .
+```
+
 ### 📊 Dataset Access
 
 The **ToxiMol** dataset is hosted on Hugging Face:
@@ -377,5 +385,4 @@ If you use this benchmark, please cite:
       url={https://arxiv.org/abs/2506.10912}, 
 }
 ```
-
 
