@@ -1,0 +1,3 @@
+[submodule "experiments/opensource/DeepSeek"]
+	path = experiments/opensource/DeepSeek
+	url = https://github.com/deepseek-ai/DeepSeek-VL2
