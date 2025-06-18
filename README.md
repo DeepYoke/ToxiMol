@@ -346,7 +346,7 @@ python evaluation/run_evaluation.py \
 
 
 ### 👀 Q&As
-**If the code fails to extract simles, please manually extract:**
+**If the code fails to extract SMILES, please manually extract:**
 ```bash
 python evaluation/extract_smiles.py \
     --results-dir experiments/opensource/results/model_type
