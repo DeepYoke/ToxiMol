@@ -73,6 +73,8 @@ This work investigates the capacity of general Multimodal Large Language Models 
     - [📈 Evaluation](#-evaluation-1)
       - [**Example Commands**](#example-commands)
     - [📁 Output Structure](#-output-structure)
+      - [**Experiment Results (Raw Model Outputs):**](#experiment-results-raw-model-outputs)
+      - [**Evaluation Results (ToxiEval Framework Outputs):**](#evaluation-results-toxieval-framework-outputs)
     - [⚡ Advanced Usage](#-advanced-usage)
     - [👀 Q\&As](#-qas)
   - [🫶🏻 Acknowledgement](#-acknowledgement)
@@ -287,6 +289,7 @@ python evaluation/run_evaluation.py \
 
 Results are organized as follows:
 
+#### **Experiment Results (Raw Model Outputs):**
 ```
 experiments/
 ├── gpt/results/
@@ -295,13 +298,23 @@ experiments/
 │       ├── clintox/clintox_results.json
 │       └── overall_summary.json
 └── opensource/results/
-    └── InternVL3-8B/
+    └── llava-one-vision-72b/
         ├── ames/ames_results.json
+        ├── herg/herg_results.json
         └── overall_summary.json
+```
 
+#### **Evaluation Results (ToxiEval Framework Outputs):**
+```
 experiments/eval_results/
-├── gpt-4.1_evaluation_summary.json
-└── InternVL3-8B_evaluation_summary.json
+└── Qwen2.5-VL-32B-Instruct/
+    └── all_tasks/
+        ├── all_tasks_evaluation_summary.json
+        ├── all_tasks_evaluation_summary.csv
+        ├── tox21_subtasks_evaluation_summary.json
+        ├── tox21_subtasks_evaluation_summary.csv
+        ├── toxcast_subtasks_evaluation_summary.json
+        └── toxcast_subtasks_evaluation_summary.csv
 ```
 
 ### ⚡ Advanced Usage
@@ -333,17 +346,6 @@ python evaluation/run_evaluation.py \
     --full
 ```
 
-**Comprehensive Evaluation Features:**
-```bash
-# Full ToxiEval protocol with all molecular repair assessments
-python evaluation/run_evaluation.py \
-    --results-dir experiments/opensource/results \
-    --model llava-one-vision-72b \
-    --full
-```
-- **Molecular Properties:** QED, SAS score, Lipinski violations, similarity
-- **Toxicity Assessment:** TxGemma-based toxicity prediction and improvement evaluation
-- **Success Criteria:** Rigorous evaluation following ToxiEval benchmarking standards
 
 ### 👀 Q&As
 **If the code fails to extract simles, please manually extract:**
