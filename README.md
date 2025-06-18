@@ -57,6 +57,9 @@ This work investigates the capacity of general Multimodal Large Language Models 
 ---
 
 ## 📚 Table of Contents
+- [ Breaking Bad Molecules: Are MLLMs Ready for Structure-Level Molecular Detoxification?](#-breaking-bad-molecules-are-mllms-ready-for-structure-level-molecular-detoxification)
+- [🔥🔥🔥 News](#-news)
+  - [📚 Table of Contents](#-table-of-contents)
   - [🧬 Overview](#-overview)
   - [📂 Dataset Structure](#-dataset-structure)
   - [📊 Evaluation](#-evaluation)
@@ -65,14 +68,16 @@ This work investigates the capacity of general Multimodal Large Language Models 
     - [🚀 Quick Start](#-quick-start)
     - [📊 Dataset Access](#-dataset-access)
     - [🤖 Running Experiments](#-running-experiments)
-      - [Option 1: OpenAI GPT Models](#option-1-openai-GPT-models)
-      - [Option 2: Open-Source MLLMs](#option-2-open-source-mllms)
+      - [**Option 1: OpenAI GPT Models**](#option-1-openai-gpt-models)
+      - [**Option 2: Open-Source MLLMs**](#option-2-open-source-mllms)
     - [📈 Evaluation](#-evaluation-1)
+      - [**Example Commands**](#example-commands)
     - [📁 Output Structure](#-output-structure)
     - [⚡ Advanced Usage](#-advanced-usage)
+    - [👀 Q\&As](#-qas)
   - [🫶🏻 Acknowledgement](#-acknowledgement)
     - [TDC](#tdc)
-    - [TxGemma-Predict](#txgemma-predict)
+    - [TxGemma](#txgemma)
     - [RDKit](#rdkit)
     - [Synthetic Accessibility Score (SAS)](#synthetic-accessibility-score-sas)
   - [⭐ Star History](#-star-history)
@@ -246,26 +251,51 @@ python experiments/opensource/run_opensource.py \
 
 ### 📈 Evaluation
 
-After running experiments, evaluate the results using our **ToxiEval** framework:
+After running experiments, evaluate the results using our **ToxiEval** framework with the `--full` parameter:
+
+```bash
+python evaluation/run_evaluation.py \
+    --results-dir experiments/opensource/results \
+    --model InternVL3-8B \
+    --full
+```
+
+**The complete evaluation includes:**
+- ✅ SMILES format validation
+- ✅ Basic statistics (total molecules, valid SMILES count, success rate)
+- ✅ **Molecular property calculations:**
+  - QED (Quantitative Estimate of Drug-likeness)
+  - SAS score (Synthetic Accessibility Score)
+  - Lipinski violations (Rule of Five)
+  - Molecular similarity (Tanimoto coefficient)
+- ✅ **Toxicity prediction:**
+  - TxGemma model-based toxicity endpoint prediction
+  - Toxicity improvement assessment
+  - Toxicity delta calculations
+
+**Success Criteria:** A molecule is considered successfully detoxified only if it satisfies all five ToxiEval criteria simultaneously.
+
+#### **Example Commands**
 
 ```bash
 # Evaluate specific model and task
 python evaluation/run_evaluation.py \
-    --results-dir experiments/opensource/results \
-    --model InternVL3-8B \
+    --results-dir experiments/gpt/results \
+    --model gpt-4.1 \
     --task ames \
     --full
 
-# Evaluate all results from a model
+# Evaluate all tasks for a model
 python evaluation/run_evaluation.py \
     --results-dir experiments/gpt/results \
     --model gpt-4.1 \
     --full
 
-# Quick evaluation without full molecular property calculations
+# Evaluate open-source model results
 python evaluation/run_evaluation.py \
     --results-dir experiments/opensource/results \
-    --model deepseek-vl2-small
+    --model llava-one-vision-72b \
+    --full
 ```
 
 ### 📁 Output Structure
@@ -317,6 +347,18 @@ python evaluation/run_evaluation.py \
     --output-dir custom_eval_results \
     --full
 ```
+
+**Comprehensive Evaluation Features:**
+```bash
+# Full ToxiEval protocol with all molecular repair assessments
+python evaluation/run_evaluation.py \
+    --results-dir experiments/opensource/results \
+    --model llava-one-vision-72b \
+    --full
+```
+- **Molecular Properties:** QED, SAS score, Lipinski violations, similarity
+- **Toxicity Assessment:** TxGemma-based toxicity prediction and improvement evaluation
+- **Success Criteria:** Rigorous evaluation following ToxiEval benchmarking standards
 
 ### 👀 Q&As
 **If the code fails to extract simles, please manually extract:**
