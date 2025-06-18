@@ -45,12 +45,12 @@
     "structure": "MODIFIED_SMILES: smiles1;smiles2;smiles3",
     "notes": [
       "Strictly follow this exact format with the keyword 'MODIFIED_SMILES:' followed by semicolon-separated SMILES strings",
-      "Include between 1 and 3 modified SMILES only",
+      "Include 3 modified SMILES only",
       "Do not include any explanations, rationales or other text - ONLY provide the SMILES",
       "If no feasible modification is found, output: 'MODIFIED_SMILES: none'",
       "All SMILES must be kekulizable by RDKit (i.e., no SMILES that trigger 'Can't kekulize mol' errors); avoid ambiguous aromatic systems or invalid bond syntax.",
       "No bullet points, no line breaks, just pure SMILES separated by semicolons",
-      "Example correct format: 'MODIFIED_SMILES: C1CCCCC1;C1CCCCC1N'"
+      "Example correct format: 'MODIFIED_SMILES: C1CCCCC1;C1CCCCC1N;C1CCCCC1O'"
     ]
   }
 } 
