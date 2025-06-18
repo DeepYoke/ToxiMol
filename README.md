@@ -260,21 +260,6 @@ python evaluation/run_evaluation.py \
     --full
 ```
 
-**The complete evaluation includes:**
-- ✅ SMILES format validation
-- ✅ Basic statistics (total molecules, valid SMILES count, success rate)
-- ✅ **Molecular property calculations:**
-  - QED (Quantitative Estimate of Drug-likeness)
-  - SAS score (Synthetic Accessibility Score)
-  - Lipinski violations (Rule of Five)
-  - Molecular similarity (Tanimoto coefficient)
-- ✅ **Toxicity prediction:**
-  - TxGemma model-based toxicity endpoint prediction
-  - Toxicity improvement assessment
-  - Toxicity delta calculations
-
-**Success Criteria:** A molecule is considered successfully detoxified only if it satisfies all five ToxiEval criteria simultaneously.
-
 #### **Example Commands**
 
 ```bash
