@@ -318,6 +318,16 @@ python evaluation/run_evaluation.py \
     --full
 ```
 
+###  Q&As
+**If the code fails to extract simles, please manually extract:**
+```bash
+python evaluation/extract_smiles.py \
+    --results-dir experiments/opensource/results/model_type
+``` 
+**If you encounter the error of "TypeError: process_vision_info() got an unexpected keyword argument", please try:**
+```bash
+pip install qwen-vl-utils==0.0.10
+```
 ---
 
 ## 🫶🏻 Acknowledgement
