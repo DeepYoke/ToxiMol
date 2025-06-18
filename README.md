@@ -35,7 +35,7 @@
 
 
 
-This work investigates the capacity of general Multimodal Large Language Models (MLLMs) to refine molecules at the structural level. We present **ToxiMol**, the first benchmark designed explicitly for this task, which encompasses 11 toxicity remediation tasks involving a total of 560 toxic molecules. We also provide an evaluation framework (**ToxiEval**) to assess toxicity reduction, structural validity, drug-likeness, and other relevant properties. 
+This work investigates the capacity of general Multimodal Large Language Models (MLLMs) to perform structure-level molecular refinement for toxicity repair tasks. We present **ToxiMol**, the first benchmark designed explicitly for this task, which encompasses 11 toxicity remediation tasks involving a total of 560 toxic molecules. We also provide an evaluation framework (**ToxiEval**) to assess toxicity reduction, structural validity, drug-likeness, and other relevant properties. 
 
 <div align="center">
 <br><br>
