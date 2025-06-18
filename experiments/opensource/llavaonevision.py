@@ -89,4 +89,4 @@ class LlavaOneVisionAgent:
         )
         text_outputs = self.tokenizer.batch_decode(cont, skip_special_tokens=True)
         # print(text_outputs)
-        return text_outputs
+        return text_outputs[0]
