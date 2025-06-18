@@ -318,7 +318,7 @@ python evaluation/run_evaluation.py \
     --full
 ```
 
-###  Q&As
+### 👀 Q&As
 **If the code fails to extract simles, please manually extract:**
 ```bash
 python evaluation/extract_smiles.py \
