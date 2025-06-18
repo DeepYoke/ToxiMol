@@ -152,7 +152,7 @@ A candidate molecule is considered successfully detoxified **only if it satisfie
 
 - **SAS Score**: Calculated using [`evaluation/sascorer.py`](evaluation/sascorer.py) and [`evaluation/fpscores.pkl.gz`](evaluation/fpscores.pkl.gz) from [RDKit Contrib](https://github.com/rdkit/rdkit/tree/master/Contrib/SA_Score).
 
-- **TxGemma Prompts**: Task-specific prompts stored in [`evaluation/tdc_prompts.json`](evaluation/tdc_prompts.json), sourced from [TxGemma's official release](https://huggingface.co/collections/google/txgemma-release-67dd92e931c857d15e4d1e87).
+- **TxGemma TDC Prompts**: Task-specific prompts stored in [`evaluation/tdc_prompts.json`](evaluation/tdc_prompts.json), sourced from [TxGemma's official release](https://huggingface.co/collections/google/txgemma-release-67dd92e931c857d15e4d1e87).
 
 ---
 
